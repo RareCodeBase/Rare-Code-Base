@@ -1,0 +1,177 @@
+<!doctype html>
+<html lang="en">
+
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Inheritance in Python - Rare Code Base</title>
+  <meta name="description"
+    content="Learn about inheritance in Python, a key concept of object-oriented programming. Understand single and multiple inheritance with examples and best practices.">
+  <meta name="keywords"
+    content="Inheritance in Python, Python OOP inheritance, Python single inheritance, Python multiple inheritance, Python inheritance examples, Python OOP tutorial, Python classes and objects, Python beginners guide">
+
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.5/dist/css/bootstrap.min.css" rel="stylesheet"
+    integrity="sha384-SgOJa3DmI69IUzQ2PVdRZhwQ+dy64/BUtbMJw1MZ8t5HZApcHrRKUc4W0kG879m7" crossorigin="anonymous">
+  <link rel="stylesheet" href="/css/styles.css">
+  <link rel="icon" href="/favicon.ico" type="image/x-icon">
+
+  <script src="/js/main.js" defer></script>
+  <script src="/js/sidebar.js" defer></script>
+
+
+</head>
+
+<body>
+
+  
+  <div id="navbar-placeholder"></div>
+
+
+  
+  <main class="d-lg-flex flex-nowrap d-block">
+
+    
+    <div id="sidebar-placeholder"></div>
+
+
+    
+    <div class="content">
+      <h1>Inheritance in Python</h1>
+
+      <p>
+        In Python, <strong>inheritance</strong> is a fundamental concept in Object-Oriented Programming (OOP). It allows
+        a
+        class (called the <strong>child class</strong>) to inherit the attributes and methods of another class
+        (called the <strong>parent class</strong>). This enables code reuse and helps to build a hierarchy of classes.
+      </p>
+
+      <h2>What is Inheritance?</h2>
+      <p>
+        Inheritance allows one class to inherit the properties and behaviors (methods) of another class. The new class
+        is called the <strong>derived class</strong> or <strong>child class</strong>, and the class it inherits from
+        is the <strong>base class</strong> or <strong>parent class</strong>. The child class can add new properties
+        or methods, or it can modify the behavior of the parent class's methods.
+      </p>
+
+      <h2>Creating a Simple Inheritance Example</h2>
+      <p>Here is a simple example of how inheritance works:</p>
+      <pre>
+# Parent class (Animal)
+class Animal:
+    def __init__(self, name):
+        self.name = name
+
+    def speak(self):
+        return f"{self.name} makes a sound."
+
+# Child class (Dog) inheriting from Animal
+class Dog(Animal):
+    def speak(self):
+        return f"{self.name} barks."
+
+# Example Usage
+dog = Dog("Buddy")
+print(dog.speak())  # Output: Buddy barks.
+  </pre>
+
+      <h2>Why Use Inheritance?</h2>
+      <p>
+        Inheritance helps in code reuse and allows us to create a modular structure. It is especially useful when
+        multiple classes have similar behavior or attributes. Instead of rewriting code for each class, you can
+        define common behavior in a parent class and have child classes inherit it.
+      </p>
+
+      <h2>Overriding Methods in the Child Class</h2>
+      <p>
+        A child class can <strong>override</strong> the methods of the parent class to provide its own implementation.
+        For example:
+      </p>
+      <pre>
+# Parent class (Animal)
+class Animal:
+    def __init__(self, name):
+        self.name = name
+
+    def speak(self):
+        return f"{self.name} makes a sound."
+
+# Child class (Cat) overriding the speak method
+class Cat(Animal):
+    def speak(self):
+        return f"{self.name} meows."
+
+cat = Cat("Whiskers")
+print(cat.speak())  # Output: Whiskers meows.
+  </pre>
+
+      <h2>Using <code>super()</code> to Access Parent Class Methods</h2>
+      <p>
+        Even if the child class overrides a method, you can call the parent class's version of the method using the
+        <code>super()</code> function. This allows the child class to use the parent class's functionality along
+        with its own.
+      </p>
+      <pre>
+class Animal:
+    def __init__(self, name):
+        self.name = name
+
+    def speak(self):
+        return f"{self.name} makes a sound."
+
+class Dog(Animal):
+    def speak(self):
+        return f"{self.name} barks."
+
+    def parent_speak(self):
+        return super().speak()
+
+dog = Dog("Buddy")
+print(dog.speak())          # Output: Buddy barks.
+print(dog.parent_speak())   # Output: Buddy makes a sound.
+  </pre>
+
+      <h2>Multiple Inheritance</h2>
+      <p>
+        Python supports <strong>multiple inheritance</strong>, which means a class can inherit from more than one parent
+        class. For example:
+      </p>
+      <pre>
+class Animal:
+    def __init__(self, name):
+        self.name = name
+
+class Mammal:
+    def is_mammal(self):
+        return True
+
+class Dog(Animal, Mammal):
+    def speak(self):
+        return f"{self.name} barks."
+
+dog = Dog("Buddy")
+print(dog.speak())        # Output: Buddy barks.
+print(dog.is_mammal())    # Output: True
+  </pre>
+
+      <h2>Summary of Inheritance</h2>
+      <ul>
+        <li>Inheritance allows you to reuse code by creating a new class based on an existing class.</li>
+        <li>Child classes can override parent class methods to provide custom behavior.</li>
+        <li><code>super()</code> lets you call parent class methods even if they are overridden in the child class.</li>
+        <li>Python supports multiple inheritance, allowing a class to inherit from multiple parent classes.</li>
+      </ul>
+    </div>
+
+
+
+  </main>
+
+
+  <div id="footer-placeholder"></div>
+
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.5/dist/js/bootstrap.bundle.min.js"
+    integrity="sha384-k6d4wzSIapyDyv1kpU366/PK5hCdSbCRGRCMv+eplOQJWyd1fbcAu9OCUj5zNLiq"
+    crossorigin="anonymous"></script>
+</body>
+
+</html>

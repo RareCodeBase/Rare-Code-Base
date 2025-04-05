@@ -1,0 +1,254 @@
+<!doctype html>
+<html lang="en">
+
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Dictionaries in Python - Rare Code Base</title>
+    <meta name="description"
+        content="Understand dictionaries in Python, a key-value data structure. Learn how to create, update, and manipulate dictionaries with examples and practical applications for Python programming.">
+    <meta name="keywords"
+        content="Dictionaries in Python, Python dictionary tutorial, Python key-value pairs, How to create a dictionary in Python, Python dictionary methods, Python dictionary examples, Python data structures, Python beginners guide, Python programming basics">
+
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.5/dist/css/bootstrap.min.css" rel="stylesheet"
+        integrity="sha384-SgOJa3DmI69IUzQ2PVdRZhwQ+dy64/BUtbMJw1MZ8t5HZApcHrRKUc4W0kG879m7" crossorigin="anonymous">
+    <link rel="stylesheet" href="/css/styles.css">
+    <link rel="icon" href="/favicon.ico" type="image/x-icon">
+
+    <script src="/js/main.js" defer></script>
+    <script src="/js/sidebar.js" defer></script>
+
+</head>
+
+<body>
+
+    
+    <div id="navbar-placeholder"></div>
+
+
+    
+    <main class="d-lg-flex flex-nowrap d-block">
+
+        
+        <div id="sidebar-placeholder"></div>
+
+        
+
+        <div class="content">
+            <h1>Dictionaries in Python</h1>
+            <p>A <strong>dictionary</strong> in Python is a collection of key-value pairs. It is used to store data in
+                an organized way, where each value is associated with a unique key.</p>
+
+            
+            <div>
+                <h2>Creating a Dictionary</h2>
+                <p>In Python, a dictionary is a collection of key-value pairs. Each key is connected to a value, and you
+                    can use the key to access the corresponding value.</p>
+                <p>To create a dictionary:</p>
+                <ul>
+                    <li>Use curly braces <code>{}</code>.</li>
+                    <li>Separate each key and value with a colon <code>:</code>.</li>
+                    <li>Use a comma <code>,</code> to separate different key-value pairs.</li>
+                </ul>
+                <p><b>Example:</b></p>
+                <pre>
+        <code>
+# Creating a dictionary of fruits and their colors
+fruits = {
+    "Apple": "Red",
+    "Banana": "Yellow",
+    "Cherry": "Red",
+    "Mango": "Orange"
+}
+print(fruits)
+        </code>
+    </pre>
+                <p><b>Explanation:</b></p>
+                <ul>
+                    <li>The dictionary <code>fruits</code> has fruit names as keys (<code>"Apple"</code>,
+                        <code>"Banana"</code>, etc.) and their colors as values (<code>"Red"</code>,
+                        <code>"Yellow"</code>, etc.).
+                    </li>
+                    <li>You can store any type of information as a value, including numbers, strings, lists, or even
+                        another dictionary.</li>
+                </ul>
+                <p><b>Output:</b></p>
+                <pre>
+        <code>
+{'Apple': 'Red', 'Banana': 'Yellow', 'Cherry': 'Red', 'Mango': 'Orange'}
+        </code>
+    </pre>
+            </div>
+
+            
+            <div>
+                <h2>Accessing Values in a Dictionary</h2>
+                <p>You can retrieve a value from a dictionary by using its key inside square brackets <code>[ ]</code>.
+                </p>
+                <p><b>Example:</b></p>
+                <pre>
+        <code>
+# Dictionary of fruits and their colors
+fruits = {
+    "Apple": "Red",
+    "Banana": "Yellow",
+    "Cherry": "Red"
+}
+
+# Access the color of "Banana"
+print(fruits["Banana"])  # Output: Yellow
+        </code>
+    </pre>
+                <p><b>Explanation:</b></p>
+                <ul>
+                    <li><code>fruits["Banana"]</code> looks for the key <code>"Banana"</code> in the dictionary and
+                        returns its value, which is <code>"Yellow"</code>.</li>
+                    <li>If the key doesn’t exist in the dictionary, Python will raise a <code>KeyError</code>.</li>
+                    <li>Keys must be unique in a dictionary, but values can repeat.</li>
+                </ul>
+                <p><b>Output:</b></p>
+                <pre>
+        <code>
+Yellow
+        </code>
+    </pre>
+
+                <h3>Additional Notes:</h3>
+                <ul>
+                    <li>Dictionaries are very fast for accessing values because they use a special structure called a
+                        hash table.</li>
+                    <li>You can also use the <code>get()</code> method to access values without causing an error if the
+                        key doesn’t exist. For example: <code>fruits.get("Grapes", "Not Found")</code> will return
+                        <code>"Not Found"</code>.
+                    </li>
+                </ul>
+            </div>
+
+            
+            <div>
+                <h2>Adding and Updating Entries in a Dictionary</h2>
+                <p>In Python, you can easily add a new key-value pair to a dictionary, or update the value of an
+                    existing key:</p>
+
+                <h3>1. Adding a New Key-Value Pair</h3>
+                <p>To add a new entry, just assign a value to a new key. If the key doesn't already exist in the
+                    dictionary, it will be added:</p>
+                <pre>
+        <code>
+# Creating a dictionary
+fruits = {"Apple": "Red", "Banana": "Yellow"}
+
+# Adding a new pair for "Cherry"
+fruits["Cherry"] = "Red"
+
+print(fruits)
+        </code>
+    </pre>
+                <p><b>Explanation:</b></p>
+                <ul>
+                    <li>Here, <code>fruits["Cherry"] = "Red"</code> adds a new key "Cherry" with the value "Red" to the
+                        dictionary.</li>
+                    <li>If "Cherry" was already a key in the dictionary, this would update its value.</li>
+                </ul>
+                <p><b>Output:</b></p>
+                <pre>
+        <code>
+{"Apple": "Red", "Banana": "Yellow", "Cherry": "Red"}
+        </code>
+    </pre>
+
+                <h3>2. Updating an Existing Key-Value Pair</h3>
+                <p>If you want to change the value associated with an existing key, you can simply reassign a new value
+                    to that key:</p>
+                <pre>
+        <code>
+# Updating the value of "Banana"
+fruits["Banana"] = "Green"
+
+print(fruits)
+        </code>
+    </pre>
+                <p><b>Explanation:</b></p>
+                <ul>
+                    <li>Here, <code>fruits["Banana"] = "Green"</code> updates the value of the key "Banana" to "Green".
+                    </li>
+                    <li>If the key does not exist, it will be treated as adding a new key-value pair.</li>
+                </ul>
+                <p><b>Output:</b></p>
+                <pre>
+        <code>
+{"Apple": "Red", "Banana": "Green", "Cherry": "Red"}
+        </code>
+    </pre>
+            </div>
+
+            
+            <div>
+                <h2>Removing Entries from a Dictionary</h2>
+                <p>You can remove a key-value pair from a dictionary using the <code>del</code> statement:</p>
+
+                <h3>1. Using <code>del</code> to Remove a Key-Value Pair</h3>
+                <p>The <code>del</code> statement removes the entire key-value pair from the dictionary:</p>
+                <pre>
+        <code>
+# Removing the key "Apple"
+fruits = {"Apple": "Red", "Banana": "Yellow", "Cherry": "Red"}
+del fruits["Apple"]
+
+print(fruits)
+        </code>
+    </pre>
+                <p><b>Explanation:</b></p>
+                <ul>
+                    <li>Here, <code>del fruits["Apple"]</code> removes the key "Apple" and its associated value from the
+                        dictionary.</li>
+                    <li>If the key doesn’t exist, Python will raise a <code>KeyError</code>.</li>
+                </ul>
+                <p><b>Output:</b></p>
+                <pre>
+        <code>
+{"Banana": "Yellow", "Cherry": "Red"}
+        </code>
+    </pre>
+            </div>
+
+
+            
+            <div>
+                <h2>Practice Challenge</h2>
+                <p>Try creating a dictionary that stores the names and ages of three people. Then:</p>
+                <ul>
+                    <li>Add a new person's age to the dictionary.</li>
+                    <li>Update the age of one person.</li>
+                    <li>Remove one person from the dictionary.</li>
+                </ul>
+                <p>Here's a starting point:</p>
+                <pre>
+        <code>
+people = {
+    "Alice": 25,
+    "Bob": 30,
+    "Charlie": 35
+}
+people["David"] = 40  # Adding a new person
+people["Alice"] = 26  # Updating Alice's age
+del people["Bob"]  # Removing Bob
+print(people)
+        </code>
+        </pre>
+            </div>
+        </div>
+
+
+
+    </main>
+
+
+    <div id="footer-placeholder"></div>
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.5/dist/js/bootstrap.bundle.min.js"
+        integrity="sha384-k6d4wzSIapyDyv1kpU366/PK5hCdSbCRGRCMv+eplOQJWyd1fbcAu9OCUj5zNLiq"
+        crossorigin="anonymous"></script>
+</body>
+
+</html>

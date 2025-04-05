@@ -1,0 +1,176 @@
+<!doctype html>
+<html lang="en">
+
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Variables in Python - Rare Code Base</title>
+  <meta name="description"
+    content="Understand variables in Python with this beginner-friendly guide. Learn about variable types, naming rules, declaration, and usage through clear examples and practical tips for Python programming.">
+  <meta name="keywords"
+    content="Variables in Python, Python variables tutorial, Python variable types, How to declare variables in Python, Python variable examples, Python variable naming rules, Python programming basics, Understanding variables in Python, Python variables for beginners, Python variable scope">
+
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.5/dist/css/bootstrap.min.css" rel="stylesheet"
+    integrity="sha384-SgOJa3DmI69IUzQ2PVdRZhwQ+dy64/BUtbMJw1MZ8t5HZApcHrRKUc4W0kG879m7" crossorigin="anonymous">
+  <link rel="stylesheet" href="/css/styles.css">
+  <link rel="icon" href="/favicon.ico" type="image/x-icon">
+
+  <script src="/js/main.js" defer></script>
+  <script src="/js/sidebar.js" defer></script>
+
+</head>
+
+<body>
+
+  
+  <div id="navbar-placeholder"></div>
+
+  
+  <main class="d-lg-flex flex-nowrap d-block">
+
+    
+    <div id="sidebar-placeholder"></div>
+
+    
+    <div class="content">
+      <h1>Understanding Variables in Python</h1>
+      <p>A variable is like a container that holds information. Think of it as a labeled box where you can store
+        something (like numbers or text) and use it later.</p>
+
+      <h2>What is a Variable?</h2>
+      <p>In Python, a variable is used to store data. For example, if you want to remember someone’s name or age, you
+        can save it in a variable.</p>
+
+      <h2>How to Create a Variable</h2>
+      <p>Creating a variable in Python is very simple. You just need to write a name for the variable, use the
+        <code>=</code> sign, and assign it a value. Here’s the format:</p>
+      <pre>
+variable_name = value
+    </pre>
+
+      <p>Example:</p>
+      <pre>
+name = "John"
+age = 25
+    </pre>
+
+      <p>Explanation:</p>
+      <ul class="feature-list">
+        <li><strong>name:</strong> This variable stores the value <code>"John"</code> (which is text).</li>
+        <li><strong>age:</strong> This variable stores the value <code>25</code> (which is a number).</li>
+      </ul>
+
+      <h2>Using Variables</h2>
+      <p>Once you create a variable, you can use it in your program. Example:</p>
+      <pre>
+name = "John"
+age = 25
+
+print(name)
+print(age)
+    </pre>
+      <p><strong>Output:</strong></p>
+      <pre>
+John
+25
+    </pre>
+
+      <h2>Rules for Naming Variables</h2>
+      <p>When naming variables in Python, follow these rules:</p>
+      <ul class="usage-list">
+        <li><strong>Use only letters, numbers, or underscores (_).</strong></li>
+        <pre>
+# Correct:
+my_name = "Python"
+
+# Incorrect:
+my-name = "Error"  # Hyphens are not allowed
+      </pre>
+        <li><strong>Do not start variable names with a number.</strong></li>
+        <pre>
+# Correct:
+name1 = "John"
+
+# Incorrect:
+1name = "Error"  # Cannot start with a number
+      </pre>
+        <li><strong>Do not use spaces in variable names. Use underscores instead.</strong></li>
+        <pre>
+# Correct:
+first_name = "Alice"
+
+# Incorrect:
+first name = "Error"  # Spaces are not allowed
+      </pre>
+        <li><strong>Do not use Python keywords (like <code>print</code>, <code>if</code>, or
+            <code>while</code>).</strong></li>
+        <pre>
+# Correct:
+my_variable = "Allowed"
+
+# Incorrect:
+print = "Error"  # `print` is a Python keyword
+      </pre>
+        <li><strong>Variable names are case-sensitive.</strong> That means <code>Name</code> and <code>name</code> are
+          different variables.</li>
+        <pre>
+# These are two different variables:
+Name = "John"
+name = "Doe"
+
+print(Name)  # Output: John
+print(name)  # Output: Doe
+      </pre>
+      </ul>
+
+      <h2>Types of Data You Can Store in Variables</h2>
+      <p>Variables can store different types of data:</p>
+      <ul class="feature-list">
+        <li><strong>Text (String):</strong> Use quotes for text, like <code>"Hello"</code> or <code>'Python'</code>.
+        </li>
+        <li><strong>Numbers:</strong> Whole numbers like <code>10</code> or decimal numbers like <code>3.14</code>.</li>
+        <li><strong>True/False (Boolean):</strong> Can store either <code>True</code> or <code>False</code>.</li>
+      </ul>
+      <p>Example:</p>
+      <pre>
+name = "Alice"
+age = 30
+is_student = True
+    </pre>
+
+      <h2>Why Use Variables?</h2>
+      <p>Variables make your programs easier to write and read. Instead of repeating values, you can store them in
+        variables and use them whenever needed. This makes your code clean, flexible, and easy to update.</p>
+
+      <h2>Practice: Try It Yourself!</h2>
+      <p>Write and run the following Python code:</p>
+      <pre>
+# Storing data in variables
+name = "Emma"
+hobby = "painting"
+
+# Using variables
+print(name)
+print(hobby)
+    </pre>
+      <p>Expected Output:</p>
+      <pre>
+Emma
+painting
+    </pre>
+
+      <h2>Congratulations!</h2>
+      <p>You’ve learned what variables are and how to use them. Keep practicing to get comfortable with storing and
+        using data in your programs!</p>
+    </div>
+  </main>
+
+
+  <div id="footer-placeholder"></div>
+
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.5/dist/js/bootstrap.bundle.min.js"
+    integrity="sha384-k6d4wzSIapyDyv1kpU366/PK5hCdSbCRGRCMv+eplOQJWyd1fbcAu9OCUj5zNLiq"
+    crossorigin="anonymous"></script>
+</body>
+
+</html>

@@ -1,0 +1,202 @@
+<!doctype html>
+<html lang="en">
+
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Tuples in Python - Rare Code Base</title>
+  <meta name="description"
+    content="Learn about tuples in Python, an immutable data structure. Understand how to create, access, and use tuples effectively, with examples and best practices for Python programming.">
+  <meta name="keywords"
+    content="Tuples in Python, Python tuple tutorial, Python immutable data structures, Python tuple examples, How to create tuples in Python, Python tuple operations, Python data structures, Python beginners guide, Python programming basics">
+
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.5/dist/css/bootstrap.min.css" rel="stylesheet"
+    integrity="sha384-SgOJa3DmI69IUzQ2PVdRZhwQ+dy64/BUtbMJw1MZ8t5HZApcHrRKUc4W0kG879m7" crossorigin="anonymous">
+  <link rel="stylesheet" href="/css/styles.css">
+  <link rel="icon" href="/favicon.ico" type="image/x-icon">
+
+  <script src="/js/main.js" defer></script>
+  <script src="/js/sidebar.js" defer></script>
+
+</head>
+
+<body>
+
+
+  <div id="navbar-placeholder"></div>
+
+
+  <main class="d-lg-flex flex-nowrap d-block">
+
+
+    <div id="sidebar-placeholder"></div>
+
+
+    <div class="content">
+      <h1>Tuples in Python</h1>
+      <p><strong>What is a Tuple?</strong> A tuple is a collection of ordered, immutable (unchangeable) elements. It can
+        hold items of any data type, including integers, strings, lists, or other tuples.</p>
+
+      <h2>How to Create a Tuple</h2>
+      <p>In Python, you can create a tuple by placing comma-separated values inside parentheses <code>()</code>. Tuples
+        can hold multiple items of different data types.</p>
+
+      <h3>Example: Creating a Tuple</h3>
+      <p>Here’s an example of how to create a tuple with different types of data:</p>
+      <div class="code-block">
+        <pre>
+# Example 1: Creating a Tuple
+my_tuple = (10, "Hello", 3.14)
+print(my_tuple)
+        </pre>
+      </div>
+      <p><strong>Explanation:</strong> This creates a tuple called <code>my_tuple</code> with three elements: an integer
+        (10), a string ("Hello"), and a float (3.14). The <code>print()</code> function displays the tuple.</p>
+
+      <h2>Accessing Tuple Elements</h2>
+      <p>You can access elements of a tuple using indexing. Python uses zero-based indexing, which means the first
+        element has an index of 0.</p>
+
+      <h3>Example: Accessing Tuple Elements</h3>
+      <p>Let's access and print specific elements of the tuple using their index:</p>
+      <div class="code-block">
+        <pre>
+# Example 2: Accessing Tuple Elements
+my_tuple = (10, "Hello", 3.14)
+print(my_tuple[0])  # Access the first element
+print(my_tuple[1])  # Access the second element
+print(my_tuple[2])  # Access the third element
+        </pre>
+      </div>
+      <p><strong>Explanation:</strong> We access the elements by specifying the index inside square brackets
+        <code>[]</code>. Remember that the index starts from 0.
+      </p>
+
+      <h2>Immutability of Tuples</h2>
+      <p>One important property of tuples is that they are <strong>immutable</strong>, which means once a tuple is
+        created, you cannot modify or change its elements.</p>
+
+      <h3>Example: Trying to Change a Tuple</h3>
+      <p>If you try to change an element of a tuple, Python will give an error:</p>
+      <div class="code-block">
+        <pre>
+# Example 3: Trying to Change a Tuple (This will give an error)
+my_tuple = (10, "Hello", 3.14)
+my_tuple[1] = "World"  # This will cause an error because tuples are immutable
+        </pre>
+      </div>
+      <p><strong>Explanation:</strong> Trying to assign a new value to <code>my_tuple[1]</code> will cause a
+        <code>TypeError</code> because tuples cannot be modified after they are created.
+      </p>
+
+      <h2>Tuple Operations</h2>
+      <p>You can perform several operations with tuples, such as concatenation, repetition, and checking for membership.
+      </p>
+
+      <h3>Example: Tuple Concatenation</h3>
+      <p>Tuples can be concatenated (joined together) using the <code>+</code> operator:</p>
+      <div class="code-block">
+        <pre>
+# Example 4: Tuple Concatenation
+tuple1 = (1, 2, 3)
+tuple2 = (4, 5, 6)
+result = tuple1 + tuple2  # Concatenate two tuples
+print(result)
+        </pre>
+      </div>
+      <p><strong>Explanation:</strong> The two tuples <code>tuple1</code> and <code>tuple2</code> are concatenated to
+        form a new tuple <code>result</code>.</p>
+
+      <h3>Example: Tuple Repetition</h3>
+      <p>Tuples can also be repeated using the <code>*</code> operator:</p>
+      <div class="code-block">
+        <pre>
+# Example 5: Tuple Repetition
+tuple1 = (1, 2)
+result = tuple1 * 3  # Repeat the tuple 3 times
+print(result)
+        </pre>
+      </div>
+      <p><strong>Explanation:</strong> The tuple <code>tuple1</code> is repeated three times, resulting in
+        <code>(1, 2, 1, 2, 1, 2)</code>.
+      </p>
+
+      <h3>Example: Checking Membership in a Tuple</h3>
+      <p>You can check if an element is present in a tuple using the <code>in</code> operator:</p>
+      <div class="code-block">
+        <pre>
+# Example 6: Checking Membership
+my_tuple = (10, "Hello", 3.14)
+print(10 in my_tuple)  # Returns True
+print("World" in my_tuple)  # Returns False
+        </pre>
+      </div>
+      <p><strong>Explanation:</strong> The <code>in</code> operator checks if the specified value is present in the
+        tuple. It returns <code>True</code> if the element is found, and <code>False</code> otherwise.</p>
+
+      <h2>Tuple Nesting</h2>
+      <p>Tuples can also contain other tuples, which is called "nesting". This allows for more complex structures where
+        each tuple can hold other tuples, lists, or any other data types. You can access elements of nested tuples by
+        using multiple indices.</p>
+
+      <h3>Example: Nested Tuple</h3>
+      <p>Here's an example of a tuple that contains another tuple:</p>
+      <div class="code-block">
+        <pre>
+# Example 7: Nested Tuple
+nested_tuple = (1, 2, (3, 4))
+print(nested_tuple[2])  # Access the nested tuple (3, 4)
+print(nested_tuple[2][1])  # Access the second element of the nested tuple (4)
+          </pre>
+      </div>
+      <p><strong>Explanation:</strong> In this example, we have a tuple <code>nested_tuple</code> that contains three
+        elements. The first two elements are integers, <code>1</code> and <code>2</code>, and the third element is
+        another tuple <code>(3, 4)</code>.</p>
+
+      <p>When you access <code>nested_tuple[2]</code>, it gives you the third element, which is the nested tuple
+        <code>(3, 4)</code>.
+      </p>
+
+      <p>Then, by using <code>nested_tuple[2][1]</code>, you're accessing the second element of the nested tuple. Here's
+        the breakdown:
+      <ul>
+        <li><code>nested_tuple[2]</code> accesses the nested tuple <code>(3, 4)</code></li>
+        <li><code>nested_tuple[2][1]</code> accesses the second element of the nested tuple, which is <code>4</code>
+        </li>
+      </ul>
+      </p>
+      <p><strong>Output:</strong></p>
+      <pre>
+(3, 4)
+4
+        </pre>
+      <p>This demonstrates how nested tuples work and how you can use multiple indices to access the values inside them.
+      </p>
+
+      <div>
+        <h2>Summary: Tuples in Python</h2>
+        <p>A <strong>tuple</strong> is an ordered, immutable collection of elements. It can store multiple data types
+          like integers, strings, or even other tuples.</p>
+        <h3>Key Points:</h3>
+        <ul>
+          <li>Tuples are created using <code>()</code>.</li>
+          <li>Elements are accessed via zero-based indexing (starting from 0).</li>
+          <li>Tuples are <strong>immutable</strong>, meaning their elements cannot be modified after creation.</li>
+          <li>You can perform operations like concatenation (<code>+</code>), repetition (<code>*</code>), and check
+            membership using <code>in</code>.</li>
+          <li>Tuples can also contain other tuples (nested tuples).</li>
+        </ul>
+      </div>
+    </div>
+  </main>
+
+
+  <div id="footer-placeholder"></div>
+
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.5/dist/js/bootstrap.bundle.min.js"
+    integrity="sha384-k6d4wzSIapyDyv1kpU366/PK5hCdSbCRGRCMv+eplOQJWyd1fbcAu9OCUj5zNLiq"
+    crossorigin="anonymous"></script>
+
+</body>
+
+</html>

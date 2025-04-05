@@ -1,0 +1,200 @@
+<!doctype html>
+<html lang="en">
+
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Rare Code Base</title>
+  <meta name="description"
+    content="Rare Code Base offers free ethical hacking, programming tutorials, cybersecurity insights, and much more. Access expert resources to learn coding, master ethical hacking, explore tech trends, and stay ahead in the ever-evolving world of technology." />
+  <meta name="keywords"
+    content="Rare Code Base, ethical hacking tutorials, programming tutorials, learn ethical hacking, cybersecurity tips, Python programming, JavaScript tutorials, hacking tools, secure coding, web development, ethical hacking for beginners, advanced programming" />
+
+  <meta property="og:title" content="Rare Code Base" />
+  <meta property="og:description"
+    content="Rare Code Base offers free ethical hacking, programming tutorials, cybersecurity insights, and much more. Access expert resources to learn coding, master ethical hacking, explore tech trends, and stay ahead in the ever-evolving world of technology." />
+  <meta property="og:url" content="https://www.rarecodebase.com" />
+  <meta property="og:image" content="https://www.rarecodebase.com/assets/images/image.png" />
+  <meta property="og:type" content="website" />
+
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:title" content="Rare Code Base">
+  <meta name="twitter:description"
+    content="Rare Code Base offers free ethical hacking, programming tutorials, cybersecurity insights, and much more. Access expert resources to learn coding, master ethical hacking, explore tech trends, and stay ahead in the ever-evolving world of technology.">
+  <meta name="twitter:image" content="https://www.rarecodebase.com/assets/images/image.png">
+
+
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.5/dist/css/bootstrap.min.css" rel="stylesheet"
+    integrity="sha384-SgOJa3DmI69IUzQ2PVdRZhwQ+dy64/BUtbMJw1MZ8t5HZApcHrRKUc4W0kG879m7" crossorigin="anonymous">
+
+  <link rel="stylesheet" href="/css/index.css">
+
+  <link rel="icon" href="/favicon.ico" type="image/x-icon">
+</head>
+
+<body onload="initializeDarkMode();">
+  <header>
+    <nav class="navbar navbar-expand-lg bg-body-tertiary navbar-placeholder">
+      <div class="container-fluid">
+        <a class="navbar-brand d-flex align-items-center" href="/">
+          <img src="/assets/images/icon.png" alt="Logo" width="30" height="30" style="border-radius: 3px;"
+            class="d-inline-block align-text-top me-2">
+          Rare Code Base
+        </a>
+        <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent"
+          aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+          <span class="navbar-toggler-icon"></span>
+        </button>
+        <div class="collapse navbar-collapse" id="navbarSupportedContent">
+          <ul class="navbar-nav me-auto mb-lg-0">
+            <li class="nav-item"><a class="nav-link active" href="/">Home</a></li>
+            <li class="nav-item"><a class="nav-link" href="/about.html">About Us</a></li>
+            <li class="nav-item"><a class="nav-link" href="/contact.html">Contact Us</a></li>
+            <li class="nav-item"><a class="nav-link" href="/privacy-policy.html">Privacy Policy</a></li>
+            <li class="nav-item dropdown">
+              <a class="nav-link dropdown-toggle" href="#" data-bs-toggle="dropdown">More</a>
+              <ul class="dropdown-menu">
+                <li><a class="dropdown-item" href="/learn/python/what_is_python.html">Python</a></li>
+                <li><a class="dropdown-item" href="/learn/ethical_hacking/what_is_ethical_hacking.html">Ethical
+                    Hacking</a></li>
+
+                <li>
+                  <hr class="dropdown-divider">
+                </li>
+
+                <li>
+                  <a class="dropdown-item d-flex align-items-center" href="https://t.me/lilymikasa" target="_blank">
+                    <img src="/assets/images/telegram.png" alt="Telegram"
+                      style="width: 20px; height: 20px; border-radius: 50%; object-fit: cover; margin-right: 8px;">
+                    Join Telegram Group
+                  </a>
+                </li>
+              </ul>
+            </li>
+          </ul>
+          <form class="d-flex" onsubmit="event.preventDefault(); searchTutorials();">
+            <input class="form-control me-2" type="search" id="searchInput" placeholder="Search">
+            <button class="btn btn-outline-success" type="submit">Search</button>
+          </form>
+
+          <div class="form-check form-switch ms-3">
+            <input class="form-check-input" type="checkbox" id="darkModeToggle" onclick="toggleDarkMode();">
+            <label class="form-check-label" for="darkModeToggle">Dark Mode</label>
+          </div>
+        </div>
+      </div>
+    </nav>
+  </header>
+
+  <main>
+    <section class="hero-section">
+      <div class="hero-overlay"></div>
+      <div class="hero-content">
+        <h1 class="display-4 fw-bold">Rare Code Base</h1>
+        <div class="col-lg-8 mx-auto">
+          <p class="lead">Master Python, Ethical Hacking, Cybersecurity, and more.</p>
+          <div class="d-grid gap-3 d-sm-flex justify-content-sm-center">
+            <a href="/learn/python/what_is_python.html" class="btn btn-light btn-custom">
+              Python
+            </a>
+            <a href="/learn/ethical_hacking/what_is_ethical_hacking.html" class="btn btn-outline-light btn-custom">
+              Ethical Hacking
+            </a>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <div id="tutorials" class="container py-5">
+      <div class="text-center">
+        <h2 class="section-heading">Explore Our Tutorials</h2>
+      </div>
+      <div class="row row-cols-1 row-cols-md-2 g-4">
+        <div class="col tutorial-card">
+          <div class="card h-100 border-primary">
+            <div class="card-header bg-primary text-white py-3">
+              <h5 class="mb-0">Python Mastery</h5>
+            </div>
+            <img src="/assets/images/python.png" class="card-img-top" alt="Python Programming Tutorials" loading="lazy">
+            <div class="card-body">
+              <p class="card-text text-muted">Learn Python, the most popular programming language for web development,
+                automation, and data science.</p>
+              <a href="/learn/python/what_is_python.html" class="btn btn-primary btn-custom">
+                Learn Python
+              </a>
+            </div>
+          </div>
+        </div>
+
+        <div class="col tutorial-card">
+          <div class="card h-100 border-danger">
+            <div class="card-header bg-danger text-white py-3">
+              <h5 class="mb-0">Ethical Hacking</h5>
+            </div>
+            <img src="/assets/images/ethical_hacking.png" class="card-img-top" alt="Ethical Hacking Courses"
+              loading="lazy">
+            <div class="card-body">
+              <p class="card-text text-muted">Learn penetration testing, network security, and ethical hacking
+                methodologies.</p>
+              <a href="/learn/ethical_hacking/what_is_ethical_hacking.html" class="btn btn-danger btn-custom">
+                Learn Ethical Hacking
+              </a>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </main>
+
+  <footer class="site-footer">
+    <div class="site-footer-container">
+      <div class="site-footer-flex">
+        <div class="site-footer-links">
+          <a href="/" class="site-footer-link">Home</a>
+          <a href="/contact.html" class="site-footer-link">Contact</a>
+          <a href="/privacy-policy.html" class="site-footer-link">Privacy Policy</a>
+          <a href="/about.html" class="site-footer-link">About</a>
+        </div>
+
+        <div class="site-footer-social">
+          <a href="https://t.me/lilymikasa" target="_blank" class="site-footer-btn site-footer-telegram">
+            <img src="/assets/images/telegram.png" alt="Telegram">
+            Join Telegram Group
+          </a>
+          <a href="" target="_blank" class="site-footer-btn site-footer-github">
+            <img src="/assets/images/github.png" alt="GitHub">
+            View on GitHub
+          </a>
+        </div>
+      </div>
+
+      <p class="site-footer-credit">© Rare Code Base · MIT Licensed</p>
+    </div>
+  </footer>
+
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.5/dist/js/bootstrap.bundle.min.js"
+    integrity="sha384-k6d4wzSIapyDyv1kpU366/PK5hCdSbCRGRCMv+eplOQJWyd1fbcAu9OCUj5zNLiq"
+    crossorigin="anonymous"></script>
+
+  <script>
+    function toggleDarkMode() {
+      const isDarkMode = document.getElementById('darkModeToggle').checked;
+      document.documentElement.setAttribute('data-bs-theme', isDarkMode ? 'dark' : 'light');
+      localStorage.setItem('theme', isDarkMode ? 'dark' : 'light');
+    }
+
+    function initializeDarkMode() {
+      const savedTheme = localStorage.getItem('theme') || 'light';
+      document.documentElement.setAttribute('data-bs-theme', savedTheme);
+      document.getElementById('darkModeToggle').checked = (savedTheme === 'dark');
+    }
+
+    function searchTutorials() {
+      const input = document.getElementById('searchInput').value.trim();
+      if (input) window.location.href = `/search.html?query=${encodeURIComponent(input)}`;
+    }
+  </script>
+
+</body>
+
+</html>

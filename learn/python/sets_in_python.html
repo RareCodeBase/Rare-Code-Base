@@ -1,0 +1,229 @@
+<!doctype html>
+<html lang="en">
+
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Sets in Python - Rare Code Base</title>
+  <meta name="description"
+    content="Learn about sets in Python, a powerful data structure for storing unique elements. Explore set methods, operations like union and intersection, and practical examples.">
+  <meta name="keywords"
+    content="Sets in Python, Python set tutorial, Python set methods, Python set operations, Python union and intersection, Python unique elements, Python set examples, Python beginners guide, Python data structures">
+
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.5/dist/css/bootstrap.min.css" rel="stylesheet"
+    integrity="sha384-SgOJa3DmI69IUzQ2PVdRZhwQ+dy64/BUtbMJw1MZ8t5HZApcHrRKUc4W0kG879m7" crossorigin="anonymous">
+  <link rel="stylesheet" href="/css/styles.css">
+  <link rel="icon" href="/favicon.ico" type="image/x-icon">
+
+  <script src="/js/main.js" defer></script>
+  <script src="/js/sidebar.js" defer></script>
+
+
+</head>
+
+<body>
+
+  
+  <div id="navbar-placeholder"></div>
+
+
+  
+  <main class="d-lg-flex flex-nowrap d-block">
+
+    
+    <div id="sidebar-placeholder"></div>
+
+    
+    <div class="content">
+      <h1>Sets in Python</h1>
+      <p><strong>What is a Set?</strong> A set is a collection of unordered, <b>unique</b> elements. Unlike lists and
+        tuples, sets do not allow duplicate values. Sets are mutable, meaning you can add or remove elements, but they
+        do not maintain any order of elements.</p>
+
+      <h2>How to Create a Set</h2>
+      <p>You can create a set in Python by using curly braces <code>{}</code>. The
+        set will automatically remove any duplicate elements.</p>
+
+      <h3>Example: Creating a Set</h3>
+      <p>Here’s an example of how to create a set:</p>
+      <div class="code-block">
+        <pre>
+# Example: Creating a Set
+my_set = {1, 2, 3, 4, 5}
+print(my_set)
+    </pre>
+      </div>
+      <p><strong>Explanation:</strong> This creates a set called <code>my_set</code> with five unique elements. The set
+        is unordered, so the elements may not appear in the same order as they were added.</p>
+
+      <h2>Sets do not allow Duplicate Elements</h2>
+      <p>If you try to add duplicate elements to a set, Python will automatically remove them.</p>
+
+      <h3>Example: Duplicate Elements in a Set</h3>
+      <p>Let’s see how Python handles duplicate values:</p>
+      <div class="code-block">
+        <pre>
+# Example: Duplicate Elements in a Set
+my_set = {1, 2, 2, 3, 4, 4, 5}
+print(my_set)  # Duplicate values (2 and 4) are removed
+    </pre>
+      </div>
+      <p><strong>Explanation:</strong> Although we tried to add the values <code>2</code> and <code>4</code> twice,
+        Python automatically removes the duplicates and keeps only the unique elements.</p>
+
+      <h2>Accessing Elements in a Set</h2>
+      <p>Since sets are unordered, you cannot access set elements using an index like in lists or tuples. However, you
+        can loop through the set to access each element.</p>
+
+      <h3>Example: Looping Through a Set</h3>
+      <p>Here’s how to loop through a set to access its elements:</p>
+      <div class="code-block">
+        <pre>
+# Example: Looping Through a Set
+my_set = {1, 2, 3, 4, 5}
+for element in my_set:
+    print(element)
+    </pre>
+      </div>
+      <p><strong>Explanation:</strong> We use a <code>for</code> loop to iterate over each element in the set and print
+        it. The order may vary each time you run the code because sets are unordered.</p>
+
+      <h2>Adding and Removing Elements from a Set</h2>
+      <p>Sets are mutable, which means you can add or remove elements after the set has been created.</p>
+
+      <h3>Example: Adding Elements to a Set</h3>
+      <p>We can add elements to a set using the <code>add()</code> method:</p>
+      <div class="code-block">
+        <pre>
+# Example: Adding Elements to a Set
+my_set = {1, 2, 3}
+my_set.add(4)  # Adding an element to the set
+print(my_set)  # Set now contains {1, 2, 3, 4}
+    </pre>
+      </div>
+      <p><strong>Explanation:</strong> We use the <code>add()</code> method to add the element <code>4</code> to the
+        set. If the element is already in the set, it will not be added again because sets do not allow duplicates.</p>
+
+      <h3>Example: Removing Elements from a Set</h3>
+      <p>We can remove elements from a set using the <code>remove()</code> or <code>discard()</code> method:</p>
+      <div class="code-block">
+        <pre>
+# Example: Removing Elements from a Set
+my_set = {1, 2, 3, 4}
+my_set.remove(3)  # Removes the element 3
+print(my_set)  # Set now contains {1, 2, 4}
+    </pre>
+      </div>
+      <p><strong>Explanation:</strong> The <code>remove()</code> method removes the element <code>3</code> from the set.
+        If the element is not present, it raises an error. You can also use <code>discard()</code>, which does not raise
+        an error if the element is not found.</p>
+
+      <h2>Set Operations</h2>
+      <p>Sets support mathematical operations like union, intersection, difference, and symmetric difference.</p>
+
+      <h3>Example: Set Union</h3>
+      <p>The union of two sets combines all the elements from both sets, removing duplicates:</p>
+      <div class="code-block">
+        <pre>
+# Example: Set Union
+set1 = {1, 2, 3}
+set2 = {3, 4, 5}
+union_set = set1.union(set2)
+print(union_set)  # Output: {1, 2, 3, 4, 5}
+    </pre>
+      </div>
+      <p><strong>Explanation:</strong> The <code>union()</code> method combines the elements from <code>set1</code> and
+        <code>set2</code>, keeping only unique elements.
+      </p>
+
+      <h3>Example: Set Intersection</h3>
+      <p>The intersection of two sets gives only the common elements between them:</p>
+      <div class="code-block">
+        <pre>
+# Example: Set Intersection
+set1 = {1, 2, 3}
+set2 = {3, 4, 5}
+intersection_set = set1.intersection(set2)
+print(intersection_set)  # Output: {3}
+    </pre>
+      </div>
+      <p><strong>Explanation:</strong> The <code>intersection()</code> method returns only the elements that are present
+        in both sets.</p>
+
+      <h3>Example: Set Difference</h3>
+      <p>The difference of two sets gives elements that are in the first set but not in the second:</p>
+      <div class="code-block">
+        <pre>
+# Example: Set Difference
+set1 = {1, 2, 3}
+set2 = {3, 4, 5}
+difference_set = set1.difference(set2)
+print(difference_set)  # Output: {1, 2}
+    </pre>
+      </div>
+      <p><strong>Explanation:</strong> The <code>difference()</code> method returns the elements that are in
+        <code>set1</code> but not in <code>set2</code>.
+      </p>
+
+      <h3>Example: Set Symmetric Difference</h3>
+      <p>The symmetric difference of two sets gives elements that are in either set, but not in both:</p>
+      <div class="code-block">
+        <pre>
+# Example: Set Symmetric Difference
+set1 = {1, 2, 3}
+set2 = {3, 4, 5}
+symmetric_difference_set = set1.symmetric_difference(set2)
+print(symmetric_difference_set)  # Output: {1, 2, 4, 5}
+    </pre>
+      </div>
+      <p><strong>Explanation:</strong> The <code>symmetric_difference()</code> method returns elements that are in
+        either <code>set1</code> or <code>set2</code>, but not in both.</p>
+
+
+      <h2>Summary</h2>
+      <p><strong>Definition:</strong> A set in Python is a collection of <strong>unordered</strong> and
+        <strong>unique</strong> elements. Unlike lists or tuples, sets do not allow duplicates and do not maintain any
+        specific order.</p>
+
+      <p><strong>Creating a Set:</strong> You can create a set by using curly braces <code>{}</code>. If duplicate
+        elements are added, Python will automatically remove them.</p>
+
+      <p><strong>Example:</strong></p>
+      <div class="code-block">
+        <pre>
+# Creating a Set
+my_set = {1, 2, 3, 4, 5}
+      </pre>
+      </div>
+
+      <p><strong>Duplicate Elements:</strong> Sets automatically remove duplicates, so only unique values are kept in a
+        set.</p>
+
+      <p><strong>Example:</strong></p>
+      <div class="code-block">
+        <pre>
+# Removing Duplicate Elements
+my_set = {1, 2, 2, 3, 4, 4, 5}
+print(my_set)  # Output: {1, 2, 3, 4, 5}
+      </pre>
+      </div>
+
+      <p><strong>Key Operations:</strong> Sets support operations like union, intersection, difference, and symmetric
+        difference to perform mathematical set operations.</p>
+
+
+    </div>
+
+
+
+  </main>
+
+
+  <div id="footer-placeholder"></div>
+
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.5/dist/js/bootstrap.bundle.min.js"
+    integrity="sha384-k6d4wzSIapyDyv1kpU366/PK5hCdSbCRGRCMv+eplOQJWyd1fbcAu9OCUj5zNLiq"
+    crossorigin="anonymous"></script>
+</body>
+
+</html>

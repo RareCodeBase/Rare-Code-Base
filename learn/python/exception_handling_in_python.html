@@ -1,0 +1,230 @@
+<!doctype html>
+<html lang="en">
+
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Exception Handling in Python - Rare Code Base</title>
+  <meta name="description"
+    content="Learn how to handle exceptions in Python with try, except, and finally blocks. Understand error handling techniques and best practices with examples.">
+  <meta name="keywords"
+    content="Exception handling in Python, Python try except, Python error handling, Python exception examples, Python finally block, Python custom exceptions, Python error handling tutorial, Python beginners guide">
+
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.5/dist/css/bootstrap.min.css" rel="stylesheet"
+    integrity="sha384-SgOJa3DmI69IUzQ2PVdRZhwQ+dy64/BUtbMJw1MZ8t5HZApcHrRKUc4W0kG879m7" crossorigin="anonymous">
+  <link rel="stylesheet" href="/css/styles.css">
+  <link rel="icon" href="/favicon.ico" type="image/x-icon">
+
+  <script src="/js/main.js" defer></script>
+  <script src="/js/sidebar.js" defer></script>
+
+
+</head>
+
+<body>
+
+  
+  <div id="navbar-placeholder"></div>
+
+
+  
+  <main class="d-lg-flex flex-nowrap d-block">
+
+    
+    <div id="sidebar-placeholder"></div>
+
+    
+
+    <div class="content">
+      
+      <h1>Exception Handling in Python</h1>
+
+      <p>In Python, when errors occur during the execution of a program, these are called <strong>exceptions</strong>.
+        Exception handling is a way to catch and deal with these errors gracefully so that the program doesn’t crash
+        unexpectedly. It allows the program to keep running and provide meaningful messages instead of confusing errors.
+      </p>
+
+      <h2>Why Use Exception Handling?</h2>
+      <p>Exception handling is very important because it helps the program handle unexpected situations without
+        crashing. If we didn’t handle exceptions, the program would stop whenever an error occurs, and the user would
+        see an ugly error message. Using exception handling helps us:</p>
+      <ul class="feature-list">
+        <li><strong>Prevent program crashes:</strong> Catch errors and fix them so the program doesn’t stop working.
+        </li>
+        <li><strong>Improve user experience:</strong> Show helpful error messages to the user, instead of confusing
+          crash messages.</li>
+        <li><strong>Handle specific types of errors:</strong> Fix different kinds of errors in different ways, depending
+          on the problem.</li>
+      </ul>
+
+      <h2>Basic Syntax of Exception Handling</h2>
+      <p>In Python, the basic syntax for handling exceptions is done using the <code>try</code> and <code>except</code>
+        blocks:</p>
+      <pre>
+try:
+    # Code that might raise an error
+except ExceptionType:
+    # Code to handle the error
+</pre>
+      <p>Here's how it works:</p>
+      <ul>
+        <li>The <code>try</code> block contains the code that could cause an error.</li>
+        <li>If an error occurs in the <code>try</code> block, Python jumps to the <code>except</code> block to handle
+          it.</li>
+        <li>The <code>ExceptionType</code> refers to the type of error you want to handle (like dividing by zero, wrong
+          input, etc.).</li>
+      </ul>
+
+      <h2>Common Types of Errors</h2>
+      <p>Here are some common types of errors that you might encounter while programming:</p>
+      <ul class="feature-list">
+        <li><strong>ZeroDivisionError:</strong> This happens when you try to divide by zero (which isn’t allowed).</li>
+        <li><strong>ValueError:</strong> This occurs when you pass a value of the correct type, but it’s not valid for
+          the operation (e.g., trying to convert a non-numeric string to an integer).</li>
+        <li><strong>IndexError:</strong> This error occurs when you try to access an index in a list that doesn’t exist
+          (like trying to access the 10th item in a list that has only 5 items).</li>
+        <li><strong>TypeError:</strong> This happens when you try to perform an operation on the wrong data type (e.g.,
+          adding a string to a number).</li>
+      </ul>
+
+      <h2>Example 1: Handling Division by Zero</h2>
+      <p>Let's look at an example where we try to divide by zero, which will normally cause an error. With exception
+        handling, we can catch the error and display a friendly message instead of crashing:</p>
+      <pre>
+try:
+    num = int(input("Enter a number: "))
+    result = 10 / num
+    print(f"Result: {result}")
+except ZeroDivisionError:
+    print("Error: Cannot divide by zero!")
+</pre>
+      <p>In this example:</p>
+      <ul>
+        <li>The program asks the user to enter a number.</li>
+        <li>If the user enters zero, Python will normally raise a <strong>ZeroDivisionError</strong> when it tries to
+          divide by zero.</li>
+        <li>But with the <code>except ZeroDivisionError</code> block, the program will show a friendly message saying
+          "Error: Cannot divide by zero!" instead of crashing.</li>
+      </ul>
+
+      <h2>Example 2: Handling Multiple Exceptions</h2>
+      <p>Sometimes you might want to handle different types of errors separately. You can use multiple
+        <code>except</code> blocks for this. Let’s say you want to handle both <strong>ZeroDivisionError</strong> and
+        <strong>ValueError</strong>:
+      </p>
+      <pre>
+try:
+    num = int(input("Enter a number: "))
+    result = 10 / num
+    print(f"Result: {result}")
+except ZeroDivisionError:
+    print("Error: Cannot divide by zero!")
+except ValueError:
+    print("Error: Invalid input! Please enter a valid number.")
+</pre>
+      <p>In this case, if the user enters something that is not a number, a <strong>ValueError</strong> will be raised,
+        and the program will display a different error message:</p>
+      <ul>
+        <li>If the user tries to divide by zero, it catches the <strong>ZeroDivisionError</strong> and shows "Error:
+          Cannot divide by zero!".</li>
+        <li>If the user enters a non-numeric value (like "abc"), it catches the <strong>ValueError</strong> and shows
+          "Error: Invalid input! Please enter a valid number."</li>
+      </ul>
+
+      
+      <h2>Example 3: Catching All Exceptions</h2>
+      <p>Sometimes, you might not know which specific type of error could occur. In such cases, you can catch any error
+        that occurs using a general <code>except</code> block. This approach is useful when you want to ensure that no
+        error goes unhandled, but you don't know the exact error in advance.</p>
+
+      <pre>
+try:
+    num = int(input("Enter a number: "))
+    result = 10 / num
+    print(f"Result: {result}")
+except Exception as e:
+    print(f"An error occurred: {e}")
+</pre>
+
+      <p>In this example:</p>
+      <ul>
+        <li>The program tries to ask the user for a number and perform a division.</li>
+        <li>If any error occurs (like entering a non-numeric value or dividing by zero), the <code>except</code> block
+          will catch it.</li>
+        <li>The message <code>An error occurred: {e}</code> is printed, where <code>{e}</code> shows the specific error
+          message that occurred. This could be something like "invalid literal for int()" or "division by zero".</li>
+      </ul>
+
+      <h2>Finally Block</h2>
+      <p>The <code>finally</code> block is a special block of code that will always execute, no matter what happens in
+        the <code>try</code> or <code>except</code> blocks. This is useful when you want to ensure certain actions are
+        always performed, such as cleaning up resources, closing files, or closing network connections.</p>
+
+      <pre>
+try:
+    num = int(input("Enter a number: "))
+    result = 10 / num
+    print(f"Result: {result}")
+except ZeroDivisionError:
+    print("Error: Cannot divide by zero!")
+finally:
+    print("This will always run, whether or not there was an error.")
+</pre>
+
+      <p>In this example:</p>
+      <ul>
+        <li>If the user enters a valid number and no error occurs, the program will print the result of the division.
+        </li>
+        <li>If the user enters zero, a <strong>ZeroDivisionError</strong> is caught, and the message "Error: Cannot
+          divide by zero!" will be shown.</li>
+        <li>Regardless of whether an error occurs or not, the <code>finally</code> block will always run and print "This
+          will always run, whether or not there was an error." This is useful for performing clean-up tasks that should
+          happen no matter what.</li>
+      </ul>
+
+      <h2>Why Use Finally?</h2>
+      <p>The <code>finally</code> block is often used to release resources that were acquired in the <code>try</code>
+        block. For example, if you opened a file or a network connection in the <code>try</code> block, you should
+        ensure that the file is closed or the connection is terminated in the <code>finally</code> block, even if an
+        error occurs.</p>
+
+      <h3>Example: Using Finally to Close a File</h3>
+      <pre>
+try:
+    file = open("example.txt", "r")
+    content = file.read()
+    print(content)
+except FileNotFoundError:
+    print("Error: File not found!")
+finally:
+    file.close()  # This will always run to close the file
+    print("File is closed.")
+</pre>
+      <p>In this example:</p>
+      <ul>
+        <li>If the file is found, it will be read and displayed. After that, the <code>finally</code> block ensures the
+          file is closed.</li>
+        <li>If the file is not found, a <strong>FileNotFoundError</strong> will be caught, and an error message will be
+          shown, but the <code>finally</code> block will still execute, ensuring the file is closed if it was opened.
+        </li>
+      </ul>
+      <h2>Summary</h2>
+      <p>In Python, exception handling allows you to manage errors and ensure your program continues to run smoothly
+        even when something goes wrong. By using <code>try</code>, <code>except</code>, and <code>finally</code> blocks,
+        you can handle specific errors, give helpful messages to the user, and clean up after errors. Mastering
+        exception handling is an essential skill for writing robust Python programs.</p>
+    </div>
+
+
+
+  </main>
+
+
+  <div id="footer-placeholder"></div>
+
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.5/dist/js/bootstrap.bundle.min.js"
+    integrity="sha384-k6d4wzSIapyDyv1kpU366/PK5hCdSbCRGRCMv+eplOQJWyd1fbcAu9OCUj5zNLiq"
+    crossorigin="anonymous"></script>
+</body>
+
+</html>

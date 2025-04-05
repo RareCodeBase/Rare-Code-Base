@@ -1,0 +1,248 @@
+<!doctype html>
+<html lang="en">
+
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Modules and Packages in Python - Rare Code Base</title>
+  <meta name="description"
+    content="Explore modules and packages in Python. Learn how to create, import, and use Python modules and packages to organize code effectively with examples.">
+  <meta name="keywords"
+    content="Modules in Python, Python packages tutorial, How to create modules in Python, Import modules in Python, Python package examples, Python library tutorial, Python reusable code, Python beginners guide">
+
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.5/dist/css/bootstrap.min.css" rel="stylesheet"
+    integrity="sha384-SgOJa3DmI69IUzQ2PVdRZhwQ+dy64/BUtbMJw1MZ8t5HZApcHrRKUc4W0kG879m7" crossorigin="anonymous">
+  <link rel="stylesheet" href="/css/styles.css">
+  <link rel="icon" href="/favicon.ico" type="image/x-icon">
+
+  <script src="/js/main.js" defer></script>
+  <script src="/js/sidebar.js" defer></script>
+
+
+</head>
+
+<body>
+
+  
+  <div id="navbar-placeholder"></div>
+
+
+  
+  <main class="d-lg-flex flex-nowrap d-block">
+
+    
+    <div id="sidebar-placeholder"></div>
+
+    
+
+    <div class="content">
+      <h1>Modules and Packages in Python</h1>
+
+      <p>In Python, code organization and reuse are made easy through <b>modules</b> and <b>packages</b>. These concepts
+        help you break your code into manageable pieces, making it easier to maintain, test, and scale. Let's dive into
+        both of them in simple terms.</p>
+
+      <h2>What is a Module?</h2>
+
+      <p>A <b>module</b> in Python is simply a file that contains Python code. It can define functions, classes,
+        variables, and even runnable code. Once a module is created, you can import it into other Python programs to
+        reuse its functionality. In simple words, a module is just a Python file that you can use to organize your code
+        in a better way and make it reusable.</p>
+
+      <h3>Example of a Python Module</h3>
+
+      <p>Here’s an example of a simple Python module named <code>math_operations.py</code> that contains basic
+        arithmetic operations:</p>
+
+      <pre>
+# math_operations.py
+      
+def add(a, b):
+    return a + b  
+      
+def subtract(a, b):
+    return a - b  
+      
+def multiply(a, b):
+    return a * b  
+      
+def divide(a, b):
+    if b == 0:  
+        return "Cannot divide by zero!"  
+    return a / b  
+      </pre>
+
+      <p>Once the module is created, you can import and use it in other Python scripts like this:</p>
+
+      <h3>How to Use the Module in Another Python File</h3>
+
+      <p>To use the <b>math_operations.py</b> module in a different Python script, you need to import it using the
+        <code>import</code> keyword. Here's how you can do it:
+      </p>
+
+      <pre>
+# main.py
+      
+import math_operations  
+      
+print(math_operations.add(5, 3))        
+print(math_operations.subtract(10, 4))  
+print(math_operations.multiply(4, 2))   
+print(math_operations.divide(10, 2))    
+      </pre>
+
+      <p>In this example, after importing the module, you can directly use the functions defined in
+        <code>math_operations.py</code> by calling them with the module name (e.g.,
+        <code>math_operations.add(5, 3)</code>). This allows you to perform various operations like addition,
+        subtraction, multiplication, and division.
+      </p>
+
+      <h2>Why Use Modules?</h2>
+
+      <p>Modules are incredibly useful because they allow you to:</p>
+      <ul>
+        <li><b>Organize your code:</b> You can break your code into smaller parts, making it easier to understand and
+          maintain.</li>
+        <li><b>Reuse your code:</b> Once a module is written, you can reuse it in multiple projects or scripts without
+          rewriting the same code again.</li>
+        <li><b>Improve collaboration:</b> If you're working with a team, you can break your project into modules, and
+          each person can work on a different part of the project without interfering with others.</li>
+      </ul>
+
+      <h2>How to Create Your Own Module</h2>
+
+      <p>Creating your own module is simple. You just need to:</p>
+      <ol>
+        <li>Create a Python file with a .py extension (e.g., <code>math_operations.py</code>).</li>
+        <li>Define functions, classes, or variables in that file.</li>
+        <li>In another Python script, use the <code>import</code> statement to import and use the functions or classes
+          you defined.</li>
+      </ol>
+
+      <p>In Python, modules help in organizing and reusing code in a more manageable way. By dividing your code into
+        modules, you make your program more readable, maintainable, and scalable. Modules also allow you to avoid
+        repeating code and encourage code reuse across multiple projects.</p>
+
+      <h2>What is a Package?</h2>
+      <p>A <b>package</b> is a collection of related modules. It’s essentially a folder (or directory) that contains
+        multiple Python modules along with a special file called <code>__init__.py</code>, which tells Python to treat
+        the directory as a package. A package helps in organizing the code in a structured way, especially when there
+        are many modules.</p>
+
+      <h3>Creating a Package</h3>
+      <p>To create a package, you need a folder (directory) that contains multiple Python modules and an
+        <code>__init__.py</code> file. The <code>__init__.py</code> file can be empty, but it must be present in the
+        directory to let Python know that this folder is a package.
+      </p>
+
+      <p>Let’s say we are creating a package called <code>operations</code> that includes three modules:
+        <code>addition.py</code>, <code>subtraction.py</code>, and <code>multiplication.py</code>. Here's how the folder
+        structure will look:
+      </p>
+
+      <pre>
+operations/
+    __init__.py
+    addition.py
+    subtraction.py
+    multiplication.py
+        </pre>
+
+      <p>Each module will have its own functionality, like this:</p>
+
+      <h5>1. Addition Module (addition.py)</h5>
+      <pre>
+# operations/addition.py
+        
+def add(a, b):
+    return a + b  
+        </pre>
+
+      <h5>2. Subtraction Module (subtraction.py)</h5>
+      <pre>
+# operations/subtraction.py
+        
+def subtract(a, b):
+    return a - b  
+        </pre>
+
+      <h5>3. Multiplication Module (multiplication.py)</h5>
+      <pre>
+# operations/multiplication.py
+        
+def multiply(a, b):
+    return a * b  
+        </pre>
+
+      <h3>Using the Package</h3>
+      <p>Once the package is created, you can import the individual modules from the package and use the functions.
+        Here's how you can import and use the functions from the package:</p>
+
+      <pre>
+# main.py
+        
+from operations.addition import add
+from operations.subtraction import subtract
+from operations.multiplication import multiply
+        
+print(add(5, 3))         
+print(subtract(10, 4))   
+print(multiply(4, 2))    
+        </pre>
+
+      <p>In this example, we imported each module (addition, subtraction, and multiplication) individually and used
+        their functions.</p>
+
+      <h3>Importing the Entire Package</h3>
+      <p>You can also import the entire package and use the functions with the package name:</p>
+
+      <pre>
+# main.py
+        
+import operations.addition
+import operations.subtraction
+import operations.multiplication
+        
+print(operations.addition.add(5, 3))      
+print(operations.subtraction.subtract(10, 4))  
+print(operations.multiplication.multiply(4, 2)) 
+        </pre>
+
+      <p>In this case, we imported the entire package, and then we accessed the functions using the package name
+        followed by the module name.</p>
+
+      <h2>Using Built-in Modules and Packages</h2>
+      <p>Python comes with many built-in modules that you can use without installing anything extra. These modules
+        provide useful functionalities. For example, the <code>math</code> module provides mathematical functions, and
+        the <code>os</code> module allows interaction with the operating system.</p>
+
+      <h3>Example with Built-in Module</h3>
+      <p>Here's how you can use the <code>math</code> module:</p>
+
+      <pre>
+import math
+        
+print(math.sqrt(16))    
+print(math.factorial(5)) 
+        </pre>
+
+      <h2>Summary</h2>
+      <p>In Python, <b>modules</b> and <b>packages</b> help you organize and reuse code. A <b>module</b> is a single
+        Python file that contains related functions and variables, while a <b>package</b> is a collection of related
+        modules stored together in a folder. Using packages and modules allows you to structure your code better, making
+        it more manageable and reusable, especially for larger projects.</p>
+    </div>
+
+
+
+  </main>
+
+
+  <div id="footer-placeholder"></div>
+
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.5/dist/js/bootstrap.bundle.min.js"
+    integrity="sha384-k6d4wzSIapyDyv1kpU366/PK5hCdSbCRGRCMv+eplOQJWyd1fbcAu9OCUj5zNLiq"
+    crossorigin="anonymous"></script>
+</body>
+
+</html>

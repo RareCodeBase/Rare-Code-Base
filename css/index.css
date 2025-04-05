@@ -1,0 +1,299 @@
+.navbar-placeholder {
+    position: fixed;
+    top: 0;
+    width: 100%;
+    z-index: 1030;
+}
+
+main {
+    margin-top: 80px;
+}
+
+.hero-section {
+    margin-top: 0;
+}
+
+.card-img-top {
+    height: 200px;
+    object-fit: contain;
+}
+
+.hero-section {
+    position: relative;
+    overflow: hidden;
+    background: linear-gradient(135deg, #007bff, #6610f2);
+    color: white;
+    padding: 100px 20px;
+    box-shadow: 0 10px 20px rgba(0, 0, 0, 0.2);
+    text-align: center;
+    border-radius: 1rem;
+}
+
+.hero-overlay {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(0, 0, 0, 0.3);
+    z-index: 1;
+}
+
+.hero-content {
+    position: relative;
+    z-index: 2;
+}
+
+.hero-section h1 {
+    font-size: 3.5rem;
+    font-weight: 800;
+    letter-spacing: -0.5px;
+    margin-bottom: 1.5rem;
+    animation: fadeInDown 1s ease;
+}
+
+.hero-section p {
+    font-size: 1.35rem;
+    margin-bottom: 2rem;
+    opacity: 0.9;
+}
+
+
+.section-heading {
+    text-align: center;
+    font-size: 2.5rem;
+    font-weight: 700;
+    margin: 0 auto 3rem;
+    background: linear-gradient(90deg, #0d6efd, #6610f2);
+    background-clip: text;
+    -webkit-background-clip: text;
+    color: transparent;
+    -webkit-text-fill-color: transparent;
+    position: relative;
+    display: inline-block;
+    padding-bottom: 0.5rem;
+}
+
+.section-heading::after {
+    content: '';
+    display: block;
+    width: 60%;
+    height: 4px;
+    background: #0d6efd;
+    margin: 0.5rem auto 0;
+    border-radius: 2px;
+    transition: width 0.3s ease;
+}
+
+.section-heading:hover::after {
+    width: 80%;
+}
+
+@media (max-width: 768px) {
+    main {
+        margin-top: 60px;
+    }
+
+    .section-heading {
+        font-size: 1.8rem;
+    }
+
+
+    .navbar-collapse {
+        z-index: 1040;
+        margin-top: 8px;
+    }
+
+    .dark-mode .navbar-collapse {
+        background: #212529;
+    }
+}
+
+.tutorial-card .card {
+    border: 2px solid;
+    border-radius: 15px;
+    transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+.tutorial-card .card:hover {
+    transform: translateY(-10px);
+    box-shadow: 0 12px 24px rgba(0, 0, 0, 0.15);
+}
+
+.btn-custom {
+    min-width: 180px;
+    padding: 0.8rem 2rem;
+    border-radius: 2rem;
+    font-weight: 600;
+    transition: all 0.3s ease;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    gap: 0.5rem;
+    text-align: center;
+  }
+  
+
+.btn-custom:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.2);
+}
+
+
+.site-footer {
+    background: linear-gradient(145deg, #1a1e23, #24292f);
+    color: white;
+    padding: 2.5rem 1rem;
+    border-top: 1px solid rgba(255, 255, 255, 0.1);
+}
+
+.site-footer-container {
+    max-width: 1200px;
+    margin: auto;
+}
+
+.site-footer-flex {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+    align-items: center;
+    gap: 1.5rem;
+    padding-bottom: 2rem;
+    border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+}
+
+.site-footer-links {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 1.25rem;
+    justify-content: center;
+}
+
+.site-footer-link {
+    color: rgba(255, 255, 255, 0.85);
+    padding: 0.5rem 0.75rem;
+    transition: 0.3s;
+    text-decoration: none;
+    font-size: 1rem;
+}
+
+.site-footer-link:hover {
+    color: #0dcaf0;
+}
+
+.site-footer-social {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 1rem;
+    justify-content: center;
+}
+
+.site-footer-btn {
+    display: inline-flex;
+    align-items: center;
+    padding: 0.6rem 1.2rem;
+    border-radius: 8px;
+    font-size: 0.95rem;
+    font-weight: 500;
+    transition: all 0.3s ease;
+    border: 1px solid transparent;
+    text-decoration: none;
+}
+
+.site-footer-btn img {
+    width: 20px;
+    height: 20px;
+    margin-right: 8px;
+}
+
+.site-footer-telegram {
+    background: rgba(13, 202, 240, 0.1);
+    color: #0dcaf0;
+    border-color: rgba(13, 202, 240, 0.3);
+}
+
+.site-footer-github {
+    background: rgba(255, 255, 255, 0.05);
+    color: white;
+    border-color: rgba(255, 255, 255, 0.2);
+}
+
+.site-footer-btn:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
+}
+
+.site-footer-credit {
+    text-align: center;
+    margin-top: 2rem;
+    font-size: 0.9rem;
+    color: rgba(255, 255, 255, 0.6);
+}
+
+@media (max-width: 1024px) {
+    .site-footer-flex {
+        flex-direction: column;
+        align-items: center;
+        gap: 1.5rem;
+    }
+
+    .site-footer-links,
+    .site-footer-social {
+        justify-content: center;
+    }
+}
+
+
+@keyframes fadeInDown {
+    from {
+        opacity: 0;
+        transform: translateY(-20px);
+    }
+
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+@media (max-width: 768px) {
+    .hero-section {
+        padding: 60px 15px;
+    }
+
+    .hero-section h1 {
+        font-size: 2.5rem;
+    }
+
+    .hero-section p {
+        font-size: 1.1rem;
+    }
+
+    .card-img-top {
+        height: 180px;
+    }
+}
+
+@media (max-width: 576px) {
+    .hero-section {
+        padding: 40px 10px;
+        border-radius: 0.5rem;
+    }
+
+    .section-heading {
+        font-size: 1.5rem;
+    }
+
+
+    .hero-section h1 {
+        font-size: 2rem;
+    }
+
+    .hero-section p {
+        font-size: 1rem;
+    }
+
+    .card-img-top {
+        height: 160px;
+    }
+}

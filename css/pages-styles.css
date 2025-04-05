@@ -1,0 +1,156 @@
+body {
+  display: flex;
+  flex-direction: column;
+  min-height: 100vh;
+}
+
+.container {
+  flex: 1;
+  padding-top: 3rem;
+  padding-bottom: 3rem;
+  max-width: 900px;
+  margin: 2rem auto 0;
+}
+
+
+#navbar-placeholder {
+  position: fixed;
+  top: 0;
+  width: 100%;
+}
+
+header h1 {
+  font-size: 2.5rem;
+  font-weight: 700;
+  margin-bottom: 2rem;
+  text-align: center;
+  color: #0d6efd;
+}
+
+section {
+  padding: 2rem;
+  border-radius: 1rem;
+  box-shadow: 0 5px 25px rgba(0, 0, 0, 0.05);
+}
+
+section h2 {
+  margin-top: 2rem;
+  font-size: 1.3rem;
+  color: #0d6efd;
+  border-bottom: 1px solid #dee2e6;
+  padding-bottom: 0.5rem;
+}
+
+section p {
+  line-height: 1.7;
+  margin-top: 1rem;
+}
+
+a {
+  color: #0d6efd;
+  text-decoration: none;
+}
+
+
+.site-footer {
+  background: linear-gradient(145deg, #1a1e23, #24292f);
+  color: white;
+  padding: 2.5rem 1rem;
+  border-top: 1px solid rgba(255, 255, 255, 0.1);
+}
+
+.site-footer-container {
+  max-width: 1200px;
+  margin: auto;
+}
+
+.site-footer-flex {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between;
+  align-items: center;
+  gap: 1.5rem;
+  padding-bottom: 2rem;
+  border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+}
+
+.site-footer-links {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 1.25rem;
+  justify-content: center;
+}
+
+.site-footer-link {
+  color: rgba(255, 255, 255, 0.85);
+  padding: 0.5rem 0.75rem;
+  transition: 0.3s;
+  text-decoration: none;
+  font-size: 1rem;
+}
+
+.site-footer-link:hover {
+  color: #0dcaf0;
+}
+
+.site-footer-social {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 1rem;
+  justify-content: center;
+}
+
+.site-footer-btn {
+  display: inline-flex;
+  align-items: center;
+  padding: 0.6rem 1.2rem;
+  border-radius: 8px;
+  font-size: 0.95rem;
+  font-weight: 500;
+  transition: all 0.3s ease;
+  border: 1px solid transparent;
+  text-decoration: none;
+}
+
+.site-footer-btn img {
+  width: 20px;
+  height: 20px;
+  margin-right: 8px;
+}
+
+.site-footer-telegram {
+  background: rgba(13, 202, 240, 0.1);
+  color: #0dcaf0;
+  border-color: rgba(13, 202, 240, 0.3);
+}
+
+.site-footer-github {
+  background: rgba(255, 255, 255, 0.05);
+  color: white;
+  border-color: rgba(255, 255, 255, 0.2);
+}
+
+.site-footer-btn:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
+}
+
+.site-footer-credit {
+  text-align: center;
+  margin-top: 2rem;
+  font-size: 0.9rem;
+  color: rgba(255, 255, 255, 0.6);
+}
+
+@media (max-width: 1024px) {
+  .site-footer-flex {
+    flex-direction: column;
+    align-items: center;
+    gap: 1.5rem;
+  }
+
+  .site-footer-links,
+  .site-footer-social {
+    justify-content: center;
+  }
+}

@@ -1,0 +1,384 @@
+<!doctype html>
+<html lang="en">
+
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>File Handling in Python - Rare Code Base</title>
+  <meta name="description"
+    content="Master file handling in Python with this guide. Learn how to open, read, write, and close files using Python file handling methods and practical examples.">
+  <meta name="keywords"
+    content="File handling in Python, Python file handling tutorial, Open files in Python, Read files in Python, Write files in Python, Python file methods, Python file operations, Python beginners guide">
+
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.5/dist/css/bootstrap.min.css" rel="stylesheet"
+    integrity="sha384-SgOJa3DmI69IUzQ2PVdRZhwQ+dy64/BUtbMJw1MZ8t5HZApcHrRKUc4W0kG879m7" crossorigin="anonymous">
+  <link rel="stylesheet" href="/css/styles.css">
+  <link rel="icon" href="/favicon.ico" type="image/x-icon">
+
+  <script src="/js/main.js" defer></script>
+  <script src="/js/sidebar.js" defer></script>
+
+
+</head>
+
+<body>
+
+  
+  <div id="navbar-placeholder"></div>
+
+
+  
+  <main class="d-lg-flex flex-nowrap d-block">
+
+    
+    <div id="sidebar-placeholder"></div>
+
+    
+    <div class="content">
+      <h1>File Handling in Python</h1>
+      <p>
+        <strong>What is File Handling?</strong> File handling means working with files to save or read data. In Python,
+        you can open files, write to them, read from them, and close them easily. It is useful for storing and managing
+        information, like saving a list of names or reading a saved report.
+      </p>
+
+      
+      <h2>1. Opening a File</h2>
+      <p>
+        Before we can work with a file (like reading its content or writing something into it), we must open it. Python
+        provides an easy way to do this using the <code>open()</code> function.
+      </p>
+      <p>
+        The <code>open()</code> function needs two things:
+      </p>
+      <ol>
+        <li>The name of the file you want to work with.</li>
+        <li>The mode, which tells Python how you want to open the file.</li>
+      </ol>
+
+      <h3>Common Modes in <code>open()</code>:</h3>
+      <ul>
+        <li>
+          <strong>'r'</strong> (Read): Opens the file for reading. This is the default mode. You can only look at the
+          file's content, not change it.
+        </li>
+        <li>
+          <strong>'w'</strong> (Write): Opens the file for writing. It erases all existing content if the file already
+          exists. If the file doesn’t exist, it creates a new one.
+        </li>
+        <li>
+          <strong>'a'</strong> (Append): Opens the file to add (append) new content at the end without deleting
+          anything. If the file doesn’t exist, it creates a new one.
+        </li>
+        <li>
+          <strong>'x'</strong> (Exclusive Creation): Creates a new file but gives an error if the file already exists.
+        </li>
+      </ul>
+
+      <h3>Example 1: Open a File in Read Mode</h3>
+      <p>
+        Let’s say we have a file named <code>example.txt</code> that contains some text. We want to open it and read its
+        content:
+      </p>
+      <div class="code-block">
+        <pre>
+# Example: Open and Read a File
+file = open("example.txt", "r")  # Open the file in 'r' (read) mode
+content = file.read()  # Read the entire content of the file
+print(content)  # Display the content on the screen
+file.close()  # Close the file after use
+  </pre>
+      </div>
+      <h3>Output:</h3>
+      <p>If <code>example.txt</code> contains:</p>
+      <pre>
+Hello, this is a sample file.
+Welcome to Python file handling!
+</pre>
+      <p>The program will display:</p>
+      <pre>
+Hello, this is a sample file.
+Welcome to Python file handling!
+</pre>
+
+      <h3>Step-by-Step Explanation:</h3>
+      <ol>
+        <li>
+          <code>file = open("example.txt", "r")</code>:
+          This opens the file named <code>example.txt</code> in read mode (<code>'r'</code>). If the file doesn’t exist,
+          Python will show an error.
+        </li>
+        <li>
+          <code>content = file.read()</code>:
+          The <code>read()</code> method reads all the text inside the file and stores it in the variable
+          <code>content</code>.
+        </li>
+        <li>
+          <code>print(content)</code>:
+          This displays the file’s content on the screen.
+        </li>
+        <li>
+          <code>file.close()</code>:
+          After finishing, always close the file using <code>close()</code>. This frees up resources and prevents
+          errors.
+        </li>
+      </ol>
+
+      <h3>Important Notes:</h3>
+      <ul>
+        <li>If the file does not exist and you try to open it in <code>'r'</code> mode, Python will throw a
+          <code>FileNotFoundError</code>.
+        </li>
+        <li>Always close the file after using it to avoid problems like memory leaks.</li>
+      </ul>
+
+      <h3>Example 2: What Happens if the File Doesn’t Exist?</h3>
+      <p>
+        Let’s try to open a file that does not exist:
+      </p>
+      <div class="code-block">
+        <pre>
+# Trying to open a non-existent file
+file = open("nonexistent.txt", "r")  # This file does not exist
+content = file.read()
+print(content)
+file.close()
+  </pre>
+      </div>
+      <p>
+        This will give an error:
+      </p>
+      <pre>
+FileNotFoundError: [Errno 2] No such file or directory: 'nonexistent.txt'
+</pre>
+
+      <h3>How to Handle Such Errors:</h3>
+      <p>
+        We can avoid this error by using a <code>try</code> and <code>except</code> block:
+      </p>
+      <div class="code-block">
+        <pre>
+# Handle error if file doesn't exist
+try:
+    file = open("nonexistent.txt", "r")  # Trying to open a non-existent file
+    content = file.read()
+    print(content)
+    file.close()
+except FileNotFoundError:
+    print("The file does not exist. Please check the file name.")
+  </pre>
+      </div>
+      <h3>Output:</h3>
+      <p>
+        Instead of crashing, the program will display:
+      </p>
+      <pre>
+The file does not exist. Please check the file name.
+</pre>
+
+      <h3>Example 3: Use the <code>with</code> Statement</h3>
+      <p>
+        A better way to open files is by using the <code>with</code> statement. This ensures the file is automatically
+        closed after its use:
+      </p>
+      <div class="code-block">
+        <pre>
+# Using 'with' to open a file
+with open("example.txt", "r") as file:
+    content = file.read()  # Read the file
+    print(content)  # Print the content
+# No need to call file.close(); it’s done automatically
+  </pre>
+      </div>
+      <p>
+        Using <code>with</code> is safer and more efficient because Python handles closing the file for you.
+      </p>
+
+      
+      <h2>2. Reading from a File</h2>
+      <p>Python provides multiple ways to read data:</p>
+      <ul>
+        <li><strong><code>read()</code></strong>: Reads all content at once.</li>
+        <li><strong><code>readline()</code></strong>: Reads one line at a time.</li>
+        <li><strong><code>readlines()</code></strong>: Reads all lines and returns them as a list.</li>
+      </ul>
+      <h3>Example: Read File Line by Line</h3>
+      <div class="code-block">
+        <pre>
+# Read a file line by line
+file = open("example.txt", "r")
+for line in file:  # Loop through each line
+    print(line.strip())  # Print each line without extra spaces
+file.close()
+    </pre>
+      </div>
+      <p>
+        <strong>Explanation:</strong> The <code>for</code> loop goes through each line in the file. <code>strip()</code>
+        removes unnecessary spaces.
+      </p>
+
+      
+      <h2>3. Writing to a File</h2>
+      <p>
+        To write new data to a file, we use the <code>write()</code> method. However, be careful when using
+        <code>'w'</code> mode, because it will erase everything already in the file and replace it with the new content
+        you write.
+      </p>
+
+      <h3>Example 1: Write to a File</h3>
+      <p>
+        Let’s say we want to create a file or overwrite an existing file, and then write some new content into it.
+        Here’s how you do it:
+      </p>
+      <div class="code-block">
+        <pre>
+# Example: Write new data to a file
+file = open("example.txt", "w")  # 'w' mode opens the file for writing (it overwrites the file if it exists)
+file.write("Hello, Python learners!\n")  # Write a line of text
+file.write("File handling is easy to learn.")  # Write another line of text
+file.close()  # Always close the file when done
+  </pre>
+      </div>
+      <h3>Output in the file:</h3>
+      <pre>
+Hello, Python learners!
+File handling is easy to learn.
+</pre>
+      <p>
+        <strong>Explanation:</strong>
+      </p>
+      <ul>
+        <li>We opened the file <code>example.txt</code> in <code>'w'</code> mode, which means we are writing to it. If
+          the file already exists, it will be completely replaced with the new content.</li>
+        <li><code>write()</code> writes the text provided to the file. In this case, we wrote two lines.</li>
+        <li><code>close()</code> ensures the file is properly closed after writing, which is important to save the
+          changes and free up system resources.</li>
+      </ul>
+
+      <h3>Important Points about Writing:</h3>
+      <ul>
+        <li>If the file <code>example.txt</code> doesn’t exist, Python will create it automatically.</li>
+        <li>If you open a file in <code>'w'</code> mode and the file already has content, it will be erased, and the new
+          content will be written instead. So, be careful not to lose important data.</li>
+      </ul>
+
+      
+      <h2>4. Appending to a File</h2>
+      <p>
+        If you want to add new data to the end of an existing file without removing the current content, you can use
+        <code>'a'</code> mode. This is called <strong>appending</strong>.
+      </p>
+
+      <h3>Example 2: Append to a File</h3>
+      <p>
+        Now, let’s say we want to add some more content to <code>example.txt</code> without losing the existing text.
+        Here's how you do it:
+      </p>
+      <div class="code-block">
+        <pre>
+# Example: Add more data to an existing file
+file = open("example.txt", "a")  # 'a' mode opens the file for appending (doesn't erase existing content)
+file.write("\nThis line is added to the file.")  # Append a new line of text
+file.close()  # Always close the file when done
+  </pre>
+      </div>
+      <h3>Output in the file:</h3>
+      <pre>
+Hello, Python learners!
+File handling is easy to learn.
+This line is added to the file.
+</pre>
+      <p>
+        <strong>Explanation:</strong>
+      </p>
+      <ul>
+        <li>We opened the file <code>example.txt</code> in <code>'a'</code> mode. This mode allows us to add content
+          without touching the existing content.</li>
+        <li>The <code>write()</code> method appends the new line at the end of the file.</li>
+        <li><code>close()</code> is used to safely close the file after appending the text.</li>
+      </ul>
+
+      <h3>Important Points about Appending:</h3>
+      <ul>
+        <li>If the file doesn’t exist, <code>'a'</code> mode will create the file and then add the new content.</li>
+        <li>Unlike <code>'w'</code> mode, <code>'a'</code> doesn’t delete anything from the file; it simply adds new
+          data at the end.</li>
+      </ul>
+
+      <h3>Summary:</h3>
+      <p>
+        - Use <code>'w'</code> mode to overwrite a file and write new content. Be careful, as it will erase any previous
+        data in the file.
+      </p>
+      <p>
+        - Use <code>'a'</code> mode if you want to add new content to an existing file without removing anything.
+      </p>
+
+      
+      <h2>5. Handling Errors</h2>
+      <p>
+        What if the file doesn’t exist? Or you don’t have permission to open it? Python allows you to handle such errors
+        using <code>try</code> and <code>except</code>.
+      </p>
+      <h3>Example: Handle Missing File Error</h3>
+      <div class="code-block">
+        <pre>
+# Handle file errors
+try:
+    file = open("missing_file.txt", "r")  # This file doesn't exist
+    print(file.read())
+    file.close()
+except FileNotFoundError:
+    print("The file does not exist. Please check the filename.")
+    </pre>
+      </div>
+      <p>
+        <strong>Explanation:</strong> The <code>try</code> block attempts to open a file. If the file is not found, the
+        <code>except</code> block runs, displaying an error message.
+      </p>
+
+      <h2>6. Closing a File</h2>
+      <p>
+        Always close a file after using it with the <code>close()</code> method. This frees up system resources.
+      </p>
+      <h3>Better Way to Work with Files</h3>
+      <p>
+        Use the <code>with</code> statement to automatically close files:
+      </p>
+      <div class="code-block">
+        <pre>
+# Automatically close file
+with open("example.txt", "r") as file:
+    content = file.read()
+    print(content)
+    </pre>
+      </div>
+      <p>
+        <strong>Explanation:</strong> The <code>with</code> block automatically closes the file when done. It’s safer
+        and easier to use.
+      </p>
+
+
+      <h3>Summary of Key Points:</h3>
+      <ul>
+        <li>Use <code>'w'</code> to overwrite a file.</li>
+        <li>Use <code>'a'</code> to add new content to a file.</li>
+        <li>Always close a file after use or use the <code>with</code> statement for automatic closure.</li>
+        <li>Handle file-related errors using <code>try</code> and <code>except</code> to prevent crashes.</li>
+      </ul>
+
+    </div>
+
+
+
+  </main>
+
+
+  <div id="footer-placeholder"></div>
+
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.5/dist/js/bootstrap.bundle.min.js"
+    integrity="sha384-k6d4wzSIapyDyv1kpU366/PK5hCdSbCRGRCMv+eplOQJWyd1fbcAu9OCUj5zNLiq"
+    crossorigin="anonymous"></script>
+</body>
+
+</html>

@@ -1,0 +1,120 @@
+<!doctype html>
+<html lang="en">
+
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Comments in Python - Rare Code Base</title>
+  <meta name="description"
+    content="Learn how to use comments in Python effectively. Understand single-line, multi-line, and inline comments with examples, and discover best practices for writing clean and readable Python code.">
+  <meta name="keywords"
+    content="Comments in Python, Python comments tutorial, Python single-line comments, Python multi-line comments, How to write comments in Python, Python comments examples, Python inline comments, Python code readability, Best practices for Python comments, Python programming basics">
+
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.5/dist/css/bootstrap.min.css" rel="stylesheet"
+    integrity="sha384-SgOJa3DmI69IUzQ2PVdRZhwQ+dy64/BUtbMJw1MZ8t5HZApcHrRKUc4W0kG879m7" crossorigin="anonymous">
+  <link rel="stylesheet" href="/css/styles.css">
+  <link rel="icon" href="/favicon.ico" type="image/x-icon">
+
+  <script src="/js/main.js" defer></script>
+  <script src="/js/sidebar.js" defer></script>
+
+
+</head>
+
+<body>
+
+  
+  <div id="navbar-placeholder"></div>
+
+
+  
+  <main class="d-lg-flex flex-nowrap d-block">
+
+    
+    <div id="sidebar-placeholder"></div>
+
+    
+    <div class="content">
+      <h1>Comments in Python</h1>
+      <p><strong>What are comments?</strong> Comments are notes that you write in your Python code to help humans
+        understand it. The computer ignores comments when running the code.</p>
+
+      <h2>Why are comments important?</h2>
+      <p>Benefits of using comments:</p>
+      <ul class="feature-list">
+        <li><strong>To understand the code:</strong> Comments help others (and yourself) understand the code.</li>
+        <li><strong>To improve readability:</strong> Well-commented code is easier to read.</li>
+        <li><strong>For testing and debugging:</strong> You can use comments to temporarily disable parts of the code
+          for testing.</li>
+      </ul>
+
+      <h2>Types of Comments in Python</h2>
+      <p>Python mainly supports two types of comments:</p>
+      <ul class="feature-list">
+        <li><strong>Single-line Comments:</strong> Written using <code>#</code>. Everything after <code>#</code> is
+          ignored by Python.</li>
+        <li><strong>Multi-line Comments:</strong> Written using triple quotes (<code>"""</code> or <code>'''</code>).
+          Everything inside these quotes is ignored by Python.</li>
+      </ul>
+      <p>There are other ways, such as docstrings, but these two are the most common.</p>
+
+      <h2>How to Write Comments?</h2>
+      <p>Using <code>#</code> and <code>"""</code> in Python:</p>
+
+      <h3>1. Single-line Comments</h3>
+      <p>Use <code>#</code> for single-line comments.</p>
+      <div class="code-block">
+        <pre>
+# This is a single-line comment
+print("Hello, world!")  # This explains the print statement
+      </pre>
+      </div>
+      <p><strong>Note:</strong> Everything after <code>#</code> is ignored by Python.</p>
+
+      <h3>2. Multi-line Comments</h3>
+      <p>Use triple quotes for multi-line comments.</p>
+      <div class="code-block">
+        <pre>
+"""
+This is a multi-line comment.
+It can span multiple lines.
+Python ignores everything inside these quotes.
+"""
+print("Learning Python is fun!")
+      </pre>
+      </div>
+      <p><strong>Note:</strong> Everything inside triple quotes is treated as a comment.</p>
+
+      <h2>Practice Example</h2>
+      <p>Here’s a simple example using comments:</p>
+      <div class="code-block">
+        <pre>
+# This program calculates the area of a rectangle
+
+# Define the length and width
+length = 5  # Length of the rectangle
+width = 3   # Width of the rectangle
+
+"""
+Now we calculate the area.
+Formula: length * width.
+"""
+area = length * width
+
+# Print the result
+print("The area of the rectangle is:", area)
+      </pre>
+      </div>
+      <p><strong>Try this:</strong> Copy this code into Python and run it to see how comments help explain the code.</p>
+    </div>
+  </main>
+
+
+  <div id="footer-placeholder"></div>
+
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.5/dist/js/bootstrap.bundle.min.js"
+    integrity="sha384-k6d4wzSIapyDyv1kpU366/PK5hCdSbCRGRCMv+eplOQJWyd1fbcAu9OCUj5zNLiq"
+    crossorigin="anonymous"></script>
+</body>
+
+</html>

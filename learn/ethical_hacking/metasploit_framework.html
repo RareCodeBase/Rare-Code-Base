@@ -1,0 +1,144 @@
+<!doctype html>
+<html lang="en">
+
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Metasploit Framework - Rare Code Base</title>
+    <meta name="description"
+        content="Learn how to use the Metasploit Framework for penetration testing and ethical hacking. Explore modules, exploits, and payloads to identify and mitigate vulnerabilities effectively.">
+    <meta name="keywords"
+        content="Metasploit Framework, Ethical hacking with Metasploit, Penetration testing tools, Metasploit modules, Exploits and payloads, Vulnerability testing, Cybersecurity tools, Ethical hacking framework, Metasploit tutorial">
+
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.5/dist/css/bootstrap.min.css" rel="stylesheet"
+        integrity="sha384-SgOJa3DmI69IUzQ2PVdRZhwQ+dy64/BUtbMJw1MZ8t5HZApcHrRKUc4W0kG879m7" crossorigin="anonymous">
+    <link rel="stylesheet" href="/css/styles.css">
+    <link rel="icon" href="/favicon.ico" type="image/x-icon">
+
+    <script src="/js/main.js" defer></script>
+    <script src="/js/sidebar.js" defer></script>
+
+
+</head>
+
+<body>
+
+    
+    <div id="navbar-placeholder"></div>
+
+
+    
+    <main class="d-lg-flex flex-nowrap d-block">
+
+        
+        <div id="sidebar-placeholder"></div>
+
+        <div class="content">
+            <h1>Metasploit Framework</h1>
+            <p>The <b>Metasploit Framework</b> is an open-source tool that helps ethical hackers and penetration testers
+                find and exploit vulnerabilities in systems. Developed by HD Moore in 2003, it quickly became one of the
+                most widely used penetration testing frameworks in the world. Think of it as a hacker’s all-in-one
+                toolkit, but one that's used for good!</p>
+
+            <h2>What is Metasploit?</h2>
+            <p>At its core, Metasploit is a framework used for developing and executing exploit code against a remote
+                target machine. It has a collection of exploits, payloads, and auxiliary tools that can be used for
+                penetration testing.</p>
+            <p>It allows penetration testers to automate the process of finding vulnerabilities and exploiting them,
+                making the process faster, more efficient, and—dare I say—more fun! 😎</p>
+
+            <h2>How Does Metasploit Work?</h2>
+            <p>Metasploit works by creating exploits, which are pieces of code that allow an attacker to take control of
+                a vulnerable machine. Once you know the vulnerability you want to exploit, you can use Metasploit to
+                select a specific exploit that matches that vulnerability. After selecting the exploit, you add a
+                payload—a piece of code that executes after the exploit successfully runs, usually giving you control of
+                the target system.</p>
+            <p>It’s like unlocking a door (the exploit) and then setting a trap inside (the payload) once you’re in.
+                Sounds sneaky, right? 😈</p>
+
+            <h2>Common Metasploit Components</h2>
+            <ul class="feature-list">
+                <li><b>Exploit:</b> A piece of code designed to take advantage of a vulnerability. For example, it could
+                    exploit a bug in an outdated version of Apache or a remote code execution flaw in a web server.</li>
+                <li><b>Payload:</b> Code that runs on the victim’s machine after the exploit is successful. Payloads can
+                    give you a remote shell, let you execute commands, or upload malicious files.</li>
+                <li><b>Encoder:</b> Encodes payloads to evade detection by antivirus programs and security software.
+                    Think of it as your disguise when sneaking in through the back door.</li>
+                <li><b>Auxiliary:</b> These are scripts used for various other tasks like scanning, fuzzing, or
+                    gathering information from the target system without exploiting it directly.</li>
+                <li><b>Post-Exploitation:</b> After successfully exploiting a machine, these modules allow you to
+                    maintain control, elevate your privileges, or extract sensitive information from the system.</li>
+            </ul>
+
+            <h2>Basic Metasploit Commands</h2>
+            <p>Using Metasploit is like playing a game of chess with your target machine. You need to know what moves to
+                make at the right time. Here are some basic commands to get you started:</p>
+            <ul class="usage-list">
+                <li><b>msfconsole:</b> The main command-line interface for Metasploit. This is where you’ll be spending
+                    most of your time.</li>
+                <li><b>use:</b> Select an exploit or module. For example, you can type
+                    <code>use exploit/windows/smb/ms17_010_eternalblue</code> to choose the EternalBlue exploit.
+                </li>
+                <li><b>show options:</b> Shows the available options for the current module you’ve selected, like the
+                    target address or payload options.</li>
+                <li><b>set:</b> Sets the value for a module option. For example, <code>set RHOSTS 192.168.1.100</code>
+                    sets the remote target IP address.</li>
+                <li><b>exploit:</b> Executes the selected exploit and tries to exploit the target system.</li>
+            </ul>
+
+            <h2>Example: Using Metasploit to Exploit a Vulnerable System</h2>
+            <p>Here’s an example of how a typical Metasploit attack would work:</p>
+            <ol>
+                <li><b>Identify the Target:</b> You discover a vulnerable system, for example, a machine running an old
+                    version of Windows with a known vulnerability.</li>
+                <li><b>Select an Exploit:</b> In Metasploit, you can choose an exploit that targets this vulnerability.
+                    For instance, the infamous <code>MS17-010 EternalBlue</code> exploit.</li>
+                <li><b>Configure the Exploit:</b> Set options, such as the target IP address
+                    <code>set RHOSTS 192.168.1.100</code>.
+                </li>
+                <li><b>Choose a Payload:</b> After successfully exploiting the system, you’ll want to choose a payload.
+                    A common payload is <code>windows/meterpreter/reverse_tcp</code>, which opens a reverse shell on the
+                    victim’s machine.</li>
+                <li><b>Execute the Exploit:</b> Finally, you type <code>exploit</code> to launch the attack. If
+                    successful, you’ll gain access to the victim’s system!</li>
+            </ol>
+
+            <h2>Metasploit for Web Application Hacking</h2>
+            <p>Metasploit isn’t just for network exploitation—it’s also powerful for web application testing. You can
+                use it to launch attacks like SQL injection, cross-site scripting (XSS), or even exploit insecure
+                deserialization vulnerabilities.</p>
+            <p>For example, you could use Metasploit’s <b>SQL Injection</b> module to exploit a vulnerable web form and
+                gain access to the underlying database, then extract sensitive data like usernames and passwords. Fun,
+                right? (But again, only if you're authorized! 😅)</p>
+
+            <h2>Why Ethical Hackers Love Metasploit</h2>
+            <ul>
+                <li><b>Ease of Use:</b> While some hacking tools can be complex and intimidating, Metasploit’s interface
+                    is relatively user-friendly, especially once you get the hang of its commands.</li>
+                <li><b>Comprehensive Framework:</b> It supports a wide range of exploits, payloads, and modules,
+                    covering everything from network security to web app vulnerabilities.</li>
+                <li><b>Community-Driven:</b> The Metasploit Framework is open-source, meaning new exploits and features
+                    are regularly added by both the community and the developers at Rapid7.</li>
+                <li><b>Exploit Development:</b> If you're feeling adventurous, Metasploit allows you to develop your own
+                    exploits and payloads, giving you the ability to test custom vulnerabilities.</li>
+            </ul>
+
+            <h2>Conclusion</h2>
+            <p>Metasploit is a versatile, powerful, and indispensable tool for ethical hackers. Whether you’re
+                conducting penetration tests, researching vulnerabilities, or trying to learn how hackers work (the
+                right way), Metasploit will be your go-to framework. Just remember, with great power comes great
+                responsibility—use it ethically and only on systems you have permission to test! 🕵️‍♂️💻</p>
+        </div>
+
+
+    </main>
+
+
+    <div id="footer-placeholder"></div>
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.5/dist/js/bootstrap.bundle.min.js"
+        integrity="sha384-k6d4wzSIapyDyv1kpU366/PK5hCdSbCRGRCMv+eplOQJWyd1fbcAu9OCUj5zNLiq"
+        crossorigin="anonymous"></script>
+</body>
+
+</html>

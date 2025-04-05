@@ -1,0 +1,124 @@
+<!doctype html>
+<html lang="en">
+
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Ethical Hacking Methods - Rare Code Base</title>
+    <meta name="description"
+        content="Learn the ethical hacking methodology, including reconnaissance, scanning, exploitation, and reporting. Explore the structured approach to identifying and mitigating cybersecurity threats.">
+    <meta name="keywords"
+        content="Ethical hacking methodology, Hacking steps, Cybersecurity techniques, Ethical hacking process, Reconnaissance, Exploitation in hacking, Penetration testing methodology, Cybersecurity threats, Ethical hacking guide">
+
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.5/dist/css/bootstrap.min.css" rel="stylesheet"
+        integrity="sha384-SgOJa3DmI69IUzQ2PVdRZhwQ+dy64/BUtbMJw1MZ8t5HZApcHrRKUc4W0kG879m7" crossorigin="anonymous">
+    <link rel="stylesheet" href="/css/styles.css">
+    <link rel="icon" href="/favicon.ico" type="image/x-icon">
+
+    <script src="/js/main.js" defer></script>
+    <script src="/js/sidebar.js" defer></script>
+
+
+</head>
+
+<body>
+
+    
+    <div id="navbar-placeholder"></div>
+
+
+    
+    <main class="d-lg-flex flex-nowrap d-block">
+
+        
+        <div id="sidebar-placeholder"></div>
+
+
+
+        <div class="content">
+            <h1>Ethical Hacking Methodology</h1>
+            <p>Ethical hacking is a structured process used to test and secure computer systems. The goal is to think
+                and act like a hacker but with permission and a clear conscience. Below is a step-by-step guide to how
+                ethical hackers operate.</p>
+
+            <h2>1. Reconnaissance (Information Gathering)</h2>
+            <p>This is the first phase, also known as <b>footprinting</b>. Here, the ethical hacker collects as much
+                information as possible about the target system. It’s like preparing for a heist by learning the layout
+                of the building.</p>
+            <p><b>Tools and Techniques:</b></p>
+            <ul class="feature-list">
+                <li><b>OSINT (Open Source Intelligence):</b> Using publicly available data like WHOIS, DNS records, and
+                    social media.</li>
+                <li><b>Scanning Tools:</b> Tools like <b>Maltego</b> and <b>Recon-ng</b>.</li>
+                <li><b>Example:</b> Searching for employee email addresses on LinkedIn to plan a phishing attack.</li>
+            </ul>
+
+            <h2>2. Scanning and Enumeration</h2>
+            <p>In this phase, hackers probe the network to identify open ports, services, and vulnerabilities. Think of
+                it as knocking on every door and window of a building to see which ones are unlocked.</p>
+            <p><b>Techniques:</b></p>
+            <ul class="usage-list">
+                <li><b>Network Scanning:</b> Using tools like <b>nmap</b> or <b>Angry IP Scanner</b>.</li>
+                <li><b>Enumeration:</b> Extracting usernames, shared resources, or details about the operating system
+                    using tools like <b>Netcat</b>.</li>
+                <li><b>Example:</b> Finding an outdated FTP service running on port 21 that can be exploited.</li>
+            </ul>
+
+            <h2>3. Vulnerability Assessment</h2>
+            <p>This involves identifying and analyzing vulnerabilities in the system. Ethical hackers use automated
+                tools and manual analysis to spot weak points.</p>
+            <p><b>Tools:</b> <b>Nessus</b>, <b>OpenVAS</b>, and <b>Qualys</b>.</p>
+            <p><b>Example:</b> Discovering a SQL injection vulnerability in a login form.</p>
+
+            <h2>4. Exploitation (Gaining Access)</h2>
+            <p>Now comes the exciting (and dangerous) part: exploiting the identified vulnerabilities to gain
+                unauthorized access. Don’t worry, ethical hackers have permission to break things—for testing purposes!
+            </p>
+            <p><b>Tools:</b> <b>Metasploit</b>, custom scripts, and payloads.</p>
+            <p><b>Example:</b> Using a buffer overflow exploit to gain administrative privileges on a server.</p>
+
+            <h2>5. Post-Exploitation</h2>
+            <p>After gaining access, ethical hackers analyze the extent of the breach and assess the potential impact.
+                It’s like an intruder checking out every room of the house after breaking in.</p>
+            <ul>
+                <li><b>Tasks:</b> Dumping passwords, extracting sensitive files, and exploring internal networks.</li>
+                <li><b>Example:</b> Using tools like <b>Mimikatz</b> to extract password hashes.</li>
+            </ul>
+
+            <h2>6. Privilege Escalation</h2>
+            <p>This phase involves escalating privileges to gain higher access, such as moving from a standard user to
+                an admin. It’s like finding the keys to the boss’s office.</p>
+            <p><b>Techniques:</b> Exploiting misconfigurations, unpatched software, or weak credentials.</p>
+
+            <h2>7. Maintaining Access</h2>
+            <p>Ethical hackers often plant backdoors or persistent mechanisms to re-enter the system if needed for
+                further testing. But don’t worry—this access is removed after the testing is complete.</p>
+            <p><b>Example:</b> Installing a backdoor using <b>Netcat</b> for remote access during a pentest.</p>
+
+            <h2>8. Reporting</h2>
+            <p>The final phase is documenting everything discovered during the test. The ethical hacker provides a
+                detailed report to the client with:</p>
+            <ul>
+                <li><b>Findings:</b> What vulnerabilities were found and how they were exploited.</li>
+                <li><b>Recommendations:</b> Steps to fix the vulnerabilities and improve security.</li>
+            </ul>
+            <p>This phase is where the superhero’s job ends—handing over the map to secure the kingdom!</p>
+
+            <h2>Conclusion</h2>
+            <p>The Ethical Hacking Methodology is like a treasure hunt for vulnerabilities, but instead of taking the
+                gold, ethical hackers help protect it. Whether it’s scanning networks, breaking into systems, or writing
+                reports, the ultimate goal is to make systems safer for everyone.</p>
+        </div>
+
+
+    </main>
+
+
+    <div id="footer-placeholder"></div>
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.5/dist/js/bootstrap.bundle.min.js"
+        integrity="sha384-k6d4wzSIapyDyv1kpU366/PK5hCdSbCRGRCMv+eplOQJWyd1fbcAu9OCUj5zNLiq"
+        crossorigin="anonymous"></script>
+</body>
+
+</html>

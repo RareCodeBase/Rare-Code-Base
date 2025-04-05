@@ -1,0 +1,385 @@
+<!doctype html>
+<html lang="en">
+
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Functions in Python - Rare Code Base</title>
+    <meta name="description"
+        content="Learn about functions in Python, including how to define, call, and use functions. Understand parameters, return values, and best practices for reusable Python code with examples.">
+    <meta name="keywords"
+        content="Functions in Python, Python function tutorial, How to define a function in Python, Python function examples, Python return statement, Python parameters, Python reusable code, Python beginners guide, Python programming basics">
+
+
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.5/dist/css/bootstrap.min.css" rel="stylesheet"
+        integrity="sha384-SgOJa3DmI69IUzQ2PVdRZhwQ+dy64/BUtbMJw1MZ8t5HZApcHrRKUc4W0kG879m7" crossorigin="anonymous">
+    <link rel="stylesheet" href="/css/styles.css">
+    <link rel="icon" href="/favicon.ico" type="image/x-icon">
+
+    <script src="/js/main.js" defer></script>
+    <script src="/js/sidebar.js" defer></script>
+
+</head>
+
+<body>
+
+    
+    <div id="navbar-placeholder"></div>
+
+
+    <main class="d-lg-flex flex-nowrap d-block">
+
+        
+        <div id="sidebar-placeholder"></div>
+
+        
+        <div class="content">
+            <h1>Functions in Python</h1>
+            <p>A <strong>function</strong> in Python is a block of reusable code that performs a specific task.
+                Functions help make programs more organized, manageable, and efficient. By using functions, we can avoid
+                repeating the same code and improve the clarity of our program.</p>
+
+            
+            <div>
+                <h2>What is a Function?</h2>
+                <p>In simple terms, a function is like a recipe in cooking. You provide it with certain ingredients
+                    (called "arguments"), it performs some steps (actions in the code), and it gives you a result
+                    (called a "return value").</p>
+                <p>Functions allow us to group related code together, making it easier to understand and reuse. You can
+                    call the function whenever you need it, just like following a recipe multiple times.</p>
+            </div>
+
+            
+            <div>
+                <h3>How to Define a Function?</h3>
+                <p>In Python, we create a function using the <code>def</code> keyword. After that, we give the function
+                    a name (for example, <code>greet</code>) and write a set of instructions inside the function. These
+                    instructions run whenever we "call" the function.</p>
+
+                <h3>Example: A Simple Function</h3>
+                <p>Here’s an example:</p>
+                <pre>
+    <code>
+# Defining a simple function
+def greet():
+    # This is the instruction inside the function
+    print("Hello, Welcome to Python!")
+    
+# Calling the function
+greet()  # This will print the greeting message
+    </code>
+    </pre>
+
+                <p><strong>Explanation:</strong></p>
+                <ul>
+                    <li><code>def greet():</code> - This is how we start a function. <code>greet</code> is the name of
+                        the function.</li>
+                    <li>Inside the function, <code>print("Hello, Welcome to Python!")</code> is the task it will do. It
+                        will display this message when the function is used.</li>
+                    <li>To use the function, we simply write its name, like <code>greet()</code>. This is called
+                        "calling the function."</li>
+                </ul>
+
+                <h3>Why Use Functions?</h3>
+                <p>Functions make our programs:</p>
+                <ul>
+                    <li><strong>Easy to read:</strong> Instead of writing a lot of code, we just use the function name.
+                    </li>
+                    <li><strong>Reusable:</strong> Write once, use as many times as you want!</li>
+                    <li><strong>Efficient:</strong> Fix the function once, and it works everywhere.</li>
+                </ul>
+
+                <h3>Try it Yourself!</h3>
+                <p>Write the above code in Python and see how it works. Don’t forget to call the function after defining
+                    it!</p>
+            </div>
+
+            
+            <div>
+                <h2>What is a Function with Arguments in Python?</h2>
+                <p>A function can do more than just print the same message every time. Sometimes, we want a function to
+                    work with specific information we give it. This special information is called an
+                    <strong>argument</strong>.
+                </p>
+
+                <p>For example, if you want to greet different people, you can tell the function the person's name as an
+                    argument. The function will then use this name in its task.</p>
+
+                <h3>How to Use Arguments in a Function?</h3>
+                <p>When we define a function, we can add arguments in parentheses after the function name. When calling
+                    the function, we give it the values for these arguments.</p>
+
+                <h3>Example: A Function with Arguments</h3>
+                <p>Here’s a simple example:</p>
+                <pre>
+    <code>
+# Defining a function with an argument
+def greet(name):
+    # The function uses the argument 'name' to personalize the message
+    print(f"Hello, {name}!")
+    
+# Calling the function with different arguments
+greet("Alice")  # This will print: Hello, Alice!
+greet("Bob")    # This will print: Hello, Bob!
+    </code>
+    </pre>
+
+                <h3>Explanation of the Code:</h3>
+                <ul>
+                    <li><code>def greet(name):</code> - We define a function named <code>greet</code>, and it has one
+                        argument called <code>name</code>.</li>
+                    <li>Inside the function, we use the argument <code>name</code> to create a message. For example, if
+                        <code>name</code> is <code>"Alice"</code>, the function will print <code>"Hello, Alice!"</code>.
+                    </li>
+                    <li>When calling the function, like <code>greet("Alice")</code>, we pass the value
+                        <code>"Alice"</code> to the argument <code>name</code>.
+                    </li>
+                </ul>
+
+                <h3>Why are Arguments Useful?</h3>
+                <p>Arguments make functions more flexible and powerful. Instead of writing separate functions for every
+                    name, we can use one function and give it different names as arguments. For example:</p>
+                <pre>
+    <code>
+greet("John")  # Prints: Hello, John!
+greet("Emma")  # Prints: Hello, Emma!
+    </code>
+    </pre>
+
+                <h3>What Happens Without an Argument?</h3>
+                <p>If you try to call the function without giving a value for the argument, Python will show an error
+                    because the function needs that information to work.</p>
+                <h3>Try it Yourself!</h3>
+                <p>Write the above code in Python and try calling the function with different names. Notice how the
+                    output changes based on the argument you provide!</p>
+            </div>
+
+            
+            <div>
+                <h2>What is a Function with Return Values?</h2>
+                <p>Some functions not only perform a task but also give us a result. This result can be saved and used
+                    later in the program. A function gives this result back to us using the
+                    <strong><code>return</code></strong> keyword.
+                </p>
+
+                <h3>How Does it Work?</h3>
+                <p>When a function completes its task, it uses <code>return</code> to send the result back. This result
+                    can be stored in a variable and used wherever needed in the program.</p>
+
+                <h3>Example: Adding Two Numbers</h3>
+                <p>Here’s an example of a function that takes two numbers, adds them, and returns the result:</p>
+                <pre>
+    <code>
+# Function that returns a value
+def add(a, b):
+    # Add the two numbers and return the result
+    return a + b
+
+# Calling the function and storing the result
+result = add(3, 5)
+print(result)  # This will print 8
+    </code>
+    </pre>
+
+                <h3>Explanation of the Example:</h3>
+                <ul>
+                    <li><strong>def add(a, b):</strong> - This defines a function named <code>add</code> that takes two
+                        arguments: <code>a</code> and <code>b</code>.</li>
+                    <li><strong>return a + b:</strong> - The function adds the two numbers and sends the result back
+                        using <code>return</code>.</li>
+                    <li><strong>result = add(3, 5):</strong> - Here, we call the function with arguments <code>3</code>
+                        and <code>5</code>. The result, <code>8</code>, is stored in the variable <code>result</code>.
+                    </li>
+                    <li><strong>print(result):</strong> - Finally, we print the result, which is <code>8</code>.</li>
+                </ul>
+
+                <h3>Why Use Return Values?</h3>
+                <p>Using <code>return</code> makes functions more powerful because:</p>
+                <ul>
+                    <li>We can save the result and use it again without running the function multiple times.</li>
+                    <li>The result can be used in other parts of the program, like in calculations or conditions.</li>
+                </ul>
+            </div>
+
+            
+            <div>
+                <h2>Key Points to Remember about Functions</h2>
+                <ul>
+                    <li><strong><code>def</code> keyword:</strong> Used to define a function. It tells Python that you
+                        are creating a new function.</li>
+                    <li><strong>Arguments:</strong> These are the values you give to a function to help it perform a
+                        specific task. For example, in <code>add(3, 5)</code>, <code>3</code> and <code>5</code> are
+                        arguments.</li>
+                    <li><strong>Return Values:</strong> Functions can give back results using the <code>return</code>
+                        keyword. This result can be stored in a variable and used later.</li>
+                    <li><strong>Function Call:</strong> To use a function, write its name and provide any required
+                        arguments inside parentheses. For example, <code>add(3, 5)</code> calls the function
+                        <code>add</code> with the arguments <code>3</code> and <code>5</code>.
+                    </li>
+                    <li><strong>Reusability:</strong> Functions save time by letting you reuse the same block of code
+                        without rewriting it.</li>
+                </ul>
+
+                <h3>Practice Tip:</h3>
+                <p>Try writing functions yourself! Start with simple tasks like adding numbers, then move to more
+                    complex tasks like finding the largest of three numbers or calculating the area of a rectangle.</p>
+            </div>
+
+            <div>
+                <h2>Test Your Knowledge: Functions in Python</h2>
+
+                <p>Now, let's check your understanding of functions in Python! Answer the following questions:</p>
+
+                <h3>1. How do you define a function in Python?</h3>
+
+                <ul class="feature-list">
+                    <li class="radio-item">
+                        <input type="radio" id="q1a1" name="q1" value="A">
+                        <label for="q1a1">function myFunc():</label>
+                    </li>
+                    <li class="radio-item">
+                        <input type="radio" id="q1a2" name="q1" value="B">
+                        <label for="q1a2">def myFunc():</label>
+                    </li>
+                    <li class="radio-item">
+                        <input type="radio" id="q1a3" name="q1" value="C">
+                        <label for="q1a3">define myFunc():</label>
+                    </li>
+                    <li class="radio-item">
+                        <input type="radio" id="q1a4" name="q1" value="D">
+                        <label for="q1a4">func myFunc():</label>
+                    </li>
+                </ul>
+
+                <h3>2. What will be the output of the following code?</h3>
+                <pre>
+def greet():
+    return "Hello, World!"
+                
+print(greet())
+                </pre>
+                <ul class="feature-list">
+                    <li class="radio-item">
+                        <input type="radio" id="q2a1" name="q2" value="A">
+                        <label for="q2a1">Hello, World!</label>
+                    </li>
+                    <li class="radio-item">
+                        <input type="radio" id="q2a2" name="q2" value="B">
+                        <label for="q2a2">greet</label>
+                    </li>
+                    <li class="radio-item">
+                        <input type="radio" id="q2a3" name="q2" value="C">
+                        <label for="q2a3">None</label>
+                    </li>
+                    <li class="radio-item">
+                        <input type="radio" id="q2a4" name="q2" value="D">
+                        <label for="q2a4">Error</label>
+                    </li>
+                </ul>
+
+                <h3>3. What is the purpose of the `return` statement in a function?</h3>
+
+                <ul class="feature-list">
+                    <li class="radio-item">
+                        <input type="radio" id="q3a1" name="q3" value="A">
+                        <label for="q3a1">To exit a function and return a value</label>
+                    </li>
+                    <li class="radio-item">
+                        <input type="radio" id="q3a2" name="q3" value="B">
+                        <label for="q3a2">To define a function</label>
+                    </li>
+                    <li class="radio-item">
+                        <input type="radio" id="q3a3" name="q3" value="C">
+                        <label for="q3a3">To print a value</label>
+                    </li>
+                    <li class="radio-item">
+                        <input type="radio" id="q3a4" name="q3" value="D">
+                        <label for="q3a4">To take inputs from the user</label>
+                    </li>
+                </ul>
+
+                <h3>4. What will be the output of the following code?</h3>
+                <pre>
+def add(a, b):
+    return a + b
+                
+result = add(3, 5)
+print(result)
+                </pre>
+                <ul class="feature-list">
+                    <li class="radio-item">
+                        <input type="radio" id="q4a1" name="q4" value="A">
+                        <label for="q4a1">35</label>
+                    </li>
+                    <li class="radio-item">
+                        <input type="radio" id="q4a2" name="q4" value="B">
+                        <label for="q4a2">8</label>
+                    </li>
+                    <li class="radio-item">
+                        <input type="radio" id="q4a3" name="q4" value="C">
+                        <label for="q4a3">Error</label>
+                    </li>
+                    <li class="radio-item">
+                        <input type="radio" id="q4a4" name="q4" value="D">
+                        <label for="q4a4">None</label>
+                    </li>
+                </ul>
+
+                <p>Answer the questions and check how well you've understood functions in Python!</p>
+
+                <button onclick="checkAnswers()">Submit</button>
+
+                <div id="result" style="margin-top: 20px; font-weight: bold;"></div>
+                <div id="explanation" style="margin-top: 20px; font-weight: normal;"></div>
+            </div>
+
+            <script>
+                function checkAnswers() {
+                    var correctAnswers = 0;
+                    var explanationText = "";
+
+                    // Question 1
+                    if (document.getElementById('q1a2').checked) {
+                        correctAnswers++;
+                    } else {
+                        explanationText += "<p>Q1: The correct answer is 'def myFunc():'. Functions in Python are defined using the 'def' keyword.</p>";
+                    }
+
+                    // Question 2
+                    if (document.getElementById('q2a1').checked) {
+                        correctAnswers++;
+                    } else {
+                        explanationText += "<p>Q2: The correct answer is 'Hello, World!'. The function 'greet()' returns a string which is printed.</p>";
+                    }
+
+                    // Question 3
+                    if (document.getElementById('q3a1').checked) {
+                        correctAnswers++;
+                    } else {
+                        explanationText += "<p>Q3: The correct answer is 'To exit a function and return a value'. The 'return' statement is used for this purpose.</p>";
+                    }
+
+                    // Question 4
+                    if (document.getElementById('q4a2').checked) {
+                        correctAnswers++;
+                    } else {
+                        explanationText += "<p>Q4: The correct answer is '8'. The function 'add' adds 3 and 5, returning 8.</p>";
+                    }
+
+                    document.getElementById('result').innerHTML = 'You got ' + correctAnswers + ' out of 4 questions correct!';
+                    document.getElementById('explanation').innerHTML = explanationText;
+                }
+            </script>
+
+        </div>
+    </main>
+
+
+    <div id="footer-placeholder"></div>
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.5/dist/js/bootstrap.bundle.min.js"
+        integrity="sha384-k6d4wzSIapyDyv1kpU366/PK5hCdSbCRGRCMv+eplOQJWyd1fbcAu9OCUj5zNLiq"
+        crossorigin="anonymous"></script>
+</body>
+
+</html>

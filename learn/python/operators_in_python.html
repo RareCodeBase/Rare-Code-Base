@@ -1,0 +1,256 @@
+<!doctype html>
+<html lang="en">
+
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Operators in Python - Rare Code Base</title>
+
+  <meta name="description"
+    content="Understand operators in Python with detailed examples. Learn about arithmetic, comparison, logical, assignment, bitwise, identity, and membership operators for Python programming.">
+  <meta name="keywords"
+    content="Operators in Python, Python arithmetic operators, Python comparison operators, Python logical operators, Python assignment operators, Python bitwise operators, Python identity operators, Python membership operators, Python operator examples, Python tutorial for beginners">
+
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.5/dist/css/bootstrap.min.css" rel="stylesheet"
+    integrity="sha384-SgOJa3DmI69IUzQ2PVdRZhwQ+dy64/BUtbMJw1MZ8t5HZApcHrRKUc4W0kG879m7" crossorigin="anonymous">
+  <link rel="stylesheet" href="/css/styles.css">
+  <link rel="icon" href="/favicon.ico" type="image/x-icon">
+
+  <script src="/js/main.js" defer></script>
+  <script src="/js/sidebar.js" defer></script>
+
+
+</head>
+
+<body>
+
+  
+  <div id="navbar-placeholder"></div>
+
+
+  
+  <main class="d-lg-flex flex-nowrap d-block">
+
+    
+    <div id="sidebar-placeholder"></div>
+
+    
+    <div class="content">
+      <h1>Operators in Python</h1>
+
+      <p>In Python, operators are special symbols that perform operations on variables and values. These operations
+        could be mathematical, logical, or even for comparison. Let’s take a look at the different types of operators
+        and how you can use them in your Python programs.</p>
+
+      <h2>Types of Operators</h2>
+      <p>Python has several types of operators, each used for different tasks. Here are the main types:</p>
+      <ol>
+        <li><strong>Arithmetic Operators:</strong> Perform basic math operations (e.g., addition, subtraction).</li>
+        <li><strong>Comparison Operators:</strong> Compare two values and return <code>True</code> or
+          <code>False</code>.
+        </li>
+        <li><strong>Assignment Operators:</strong> Assign values to variables and update them with operations.</li>
+        <li><strong>Logical Operators:</strong> Combine multiple conditions (e.g., AND, OR).</li>
+        <li><strong>Bitwise Operators:</strong> Work with binary values.</li>
+        <li><strong>Identity and Membership Operators:</strong> Check relationships between data structures.</li>
+      </ol>
+
+      <h2>1. Arithmetic Operators</h2>
+      <p>These operators perform basic mathematical operations:</p>
+      <ul>
+        <li><strong>+</strong>: Adds two values (e.g., <code>5 + 3</code> results in <code>8</code>).</li>
+        <li><strong>-</strong>: Subtracts one value from another (e.g., <code>10 - 5</code> results in <code>5</code>).
+        </li>
+        <li><strong>*</strong>: Multiplies two values (e.g., <code>4 * 3</code> results in <code>12</code>).</li>
+        <li><strong>/</strong>: Divides one value by another (e.g., <code>10 / 2</code> results in <code>5.0</code>).
+        </li>
+        <li><strong>%</strong>: Returns the remainder after dividing (e.g., <code>10 % 3</code> results in
+          <code>1</code>).
+        </li>
+        <li><strong>**</strong>: Raises one value to the power of another (e.g., <code>2 ** 3</code> results in
+          <code>8</code>).
+        </li>
+        <li><strong>//</strong>: Performs floor division (removes the decimal part, e.g., <code>10 // 3</code> gives
+          <code>3</code>).
+        </li>
+      </ul>
+
+      <p><strong>Example:</strong></p>
+      <pre>
+a = 10
+b = 3
+print(a + b)  # Output: 13
+print(a - b)  # Output: 7
+print(a * b)  # Output: 30
+print(a / b)  # Output: 3.33
+print(a % b)  # Output: 1
+print(a ** b) # Output: 1000
+print(a // b) # Output: 3
+  </pre>
+
+      <h2>2. Comparison Operators</h2>
+      <p>These operators compare two values and return <strong>True</strong> or <strong>False</strong> based on the
+        comparison:</p>
+      <ul>
+        <li><strong>==</strong>: Checks if two values are equal (e.g., <code>5 == 5</code> returns <code>True</code>).
+        </li>
+        <li><strong>!=</strong>: Checks if two values are not equal (e.g., <code>5 != 3</code> returns
+          <code>True</code>).
+        </li>
+        <li><strong>&gt;</strong>: Checks if one value is greater than another (e.g., <code>7 &gt; 5</code> returns
+          <code>True</code>).
+        </li>
+        <li><strong>&lt;</strong>: Checks if one value is less than another (e.g., <code>3 &lt; 8</code> returns
+          <code>True</code>).
+        </li>
+        <li><strong>&gt;=</strong>: Checks if one value is greater than or equal to another (e.g.,
+          <code>6 &gt;= 6</code> returns <code>True</code>).
+        </li>
+        <li><strong>&lt;=</strong>: Checks if one value is less than or equal to another (e.g., <code>4 &lt;= 5</code>
+          returns <code>True</code>).</li>
+      </ul>
+
+      <p><strong>Example:</strong></p>
+      <pre>
+a = 10
+b = 5
+print(a == b)  # Output: False
+print(a != b)  # Output: True
+print(a > b)   # Output: True
+print(a < b)   # Output: False
+print(a >= b)  # Output: True
+print(a <= b)  # Output: False
+  </pre>
+
+      <h2>3. Assignment Operators</h2>
+      <p>Assignment operators assign or update values in variables. They are often shorter and more efficient than
+        writing the full statement. Here's a breakdown:</p>
+
+      <ul>
+        <li><strong>=</strong>: Assigns a value to a variable. Example: <code>x = 10</code> sets <code>x</code> to
+          <code>10</code>.
+        </li>
+        <li><strong>+=</strong>: Adds a value to the current value and assigns the result back. Example:
+          <pre>
+x = 10
+x += 5  # Same as x = x + 5
+print(x)  # Output: 15
+    </pre>
+        </li>
+        <li><strong>-=</strong>: Subtracts a value from the current value and assigns the result back. Example:
+          <pre>
+x = 20
+x -= 8  # Same as x = x - 8
+print(x)  # Output: 12
+    </pre>
+        </li>
+        <li><strong>*=</strong>: Multiplies the value by another and assigns the result back. Example:
+          <pre>
+x = 5
+x *= 4  # Same as x = x * 4
+print(x)  # Output: 20
+    </pre>
+        </li>
+        <li><strong>/=</strong>: Divides by another value and assigns the result. Example:
+          <pre>
+x = 16
+x /= 4  # Same as x = x / 4
+print(x)  # Output: 4.0
+    </pre>
+        </li>
+        <li><strong>%=</strong>: Assigns the remainder after division. Example:
+          <pre>
+x = 17
+x %= 3  # Same as x = x % 3
+print(x)  # Output: 2
+    </pre>
+        </li>
+        <li><strong>//=</strong>: Performs floor division and assigns the result back. Example:
+          <pre>
+x = 15
+x //= 4  # Same as x = x // 4
+print(x)  # Output: 3
+    </pre>
+        </li>
+        <li><strong>**=</strong>: Raises the value to the power of another. Example:
+          <pre>
+x = 3
+x **= 2  # Same as x = x ** 2
+print(x)  # Output: 9
+    </pre>
+        </li>
+      </ul>
+
+      <h2>4. Logical Operators</h2>
+      <p>Logical operators help you combine multiple conditions, making complex decisions easier. They return either
+        <strong>True</strong> or <strong>False</strong> based on the conditions:
+      </p>
+
+      <ul>
+        <li><strong>and</strong>: Returns <strong>True</strong> only if both conditions are <strong>True</strong>.</li>
+        <li><strong>or</strong>: Returns <strong>True</strong> if at least one condition is <strong>True</strong>.</li>
+        <li><strong>not</strong>: Reverses the condition—if it’s <strong>True</strong>, it becomes
+          <strong>False</strong>, and vice versa.
+        </li>
+      </ul>
+
+      <h3>How Logical Operators Work:</h3>
+
+      <h5><strong>1. and Operator</strong></h5>
+      <p>The <strong>and</strong> operator checks if both conditions are <strong>True</strong>. If either condition is
+        <strong>False</strong>, the result will be <strong>False</strong>.
+      </p>
+      <pre>
+# Example:
+age = 25
+income = 50000
+
+print(age > 18 and income > 30000)  # Output: True
+print(age > 18 and income < 30000)  # Output: False
+</pre>
+
+      <h5><strong>2. or Operator</strong></h5>
+      <p>The <strong>or</strong> operator returns <strong>True</strong> if at least one condition is
+        <strong>True</strong>, and <strong>False</strong> if both conditions are <strong>False</strong>.
+      </p>
+      <pre>
+# Example:
+age = 16
+has_permission = True
+
+print(age > 18 or has_permission)  # Output: True
+print(age < 18 or has_permission)  # Output: True
+</pre>
+
+      <h5><strong>3. not Operator</strong></h5>
+      <p>The <strong>not</strong> operator inverts a condition. If the condition is <strong>True</strong>, it becomes
+        <strong>False</strong>, and vice versa.
+      </p>
+      <pre>
+# Example:
+is_sunny = False
+
+print(not is_sunny)  # Output: True
+print(not (10 > 5))   # Output: False
+</pre>
+
+      <h2>Summary</h2>
+      <p>Understanding and using operators effectively is key to solving problems in Python. They allow you to perform
+        calculations, compare values, and combine conditions. Practice these operators to become proficient in Python
+        programming!</p>
+    </div>
+
+
+
+
+  </main>
+
+
+  <div id="footer-placeholder"></div>
+
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.5/dist/js/bootstrap.bundle.min.js"
+    integrity="sha384-k6d4wzSIapyDyv1kpU366/PK5hCdSbCRGRCMv+eplOQJWyd1fbcAu9OCUj5zNLiq"
+    crossorigin="anonymous"></script>
+</body>
+
+</html>

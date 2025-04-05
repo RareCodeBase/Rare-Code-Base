@@ -1,0 +1,142 @@
+<!doctype html>
+<html lang="en">
+
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Denial of Service (DoS) and Distributed Denial of Service (DDoS) - Rare Code Base</title>
+    <meta name="description"
+        content="Learn about DoS and DDoS attacks, their impact on systems, and methods to prevent and mitigate these cyber threats. Explore tools and techniques used in both types of attacks.">
+    <meta name="keywords"
+        content="DoS attacks, DDoS attacks, Denial of Service, Distributed Denial of Service, Cyber attack prevention, DoS tools, DDoS mitigation techniques, Network attacks, Cybersecurity DoS, DoS vs DDoS">
+
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.5/dist/css/bootstrap.min.css" rel="stylesheet"
+        integrity="sha384-SgOJa3DmI69IUzQ2PVdRZhwQ+dy64/BUtbMJw1MZ8t5HZApcHrRKUc4W0kG879m7" crossorigin="anonymous">
+    <link rel="stylesheet" href="/css/styles.css">
+    <link rel="icon" href="/favicon.ico" type="image/x-icon">
+
+    <script src="/js/main.js" defer></script>
+    <script src="/js/sidebar.js" defer></script>
+
+</head>
+
+<body>
+
+    
+    <div id="navbar-placeholder"></div>
+
+
+    
+    <main class="d-lg-flex flex-nowrap d-block">
+
+        
+        <div id="sidebar-placeholder"></div>
+
+
+        
+        <div class="content">
+            <h1>Denial of Service (DoS) and Distributed Denial of Service (DDoS)</h1>
+            <p>DoS and DDoS attacks are tactics used to overwhelm a system, making it unavailable for legitimate users.
+                Let’s break down how they work, their technical aspects, and how we can defend against them.</p>
+
+            <h2>What is a DoS Attack?</h2>
+            <p>A <b>Denial of Service (DoS)</b> attack is a malicious attempt to disrupt the normal functioning of a
+                service, server, or network by flooding it with an overwhelming amount of traffic or requests. The goal?
+                To make it unavailable to its intended users.</p>
+
+            <h2>What is a DDoS Attack?</h2>
+            <p><b>Distributed Denial of Service (DDoS)</b> takes DoS attacks to the next level. Instead of one source,
+                DDoS attacks come from multiple compromised devices (often part of a botnet), amplifying the attack and
+                making it harder to trace.</p>
+
+            <h2>How Do These Attacks Work?</h2>
+            <p>The basic idea is simple: send so much data or so many requests to a server that it can’t handle them,
+                causing it to crash or become unresponsive. Here’s how:</p>
+
+            <ul class="feature-list">
+                <li><b>Flooding:</b> Sending massive amounts of fake traffic to a target, saturating its bandwidth.</li>
+                <li><b>Exploiting Vulnerabilities:</b> Taking advantage of weaknesses in protocols or software to
+                    overload the system.</li>
+                <li><b>Application-Level Attacks:</b> Targeting specific applications or services, like an online
+                    store’s checkout page.</li>
+            </ul>
+
+            <h2>Types of DoS and DDoS Attacks</h2>
+            <p>There are several types of DoS and DDoS attacks, each with unique methods:</p>
+
+            <ul class="usage-list">
+                <li><b>ICMP Flood:</b> Overloading a system with Internet Control Message Protocol (ICMP) packets, also
+                    known as ping floods.</li>
+                <li><b>SYN Flood:</b> Exploiting the handshake process of the TCP protocol, leaving connections
+                    half-open and consuming server resources.</li>
+                <li><b>UDP Flood:</b> Flooding the target with User Datagram Protocol (UDP) packets, overwhelming the
+                    network.</li>
+                <li><b>HTTP Flood:</b> Sending a large number of HTTP requests to overwhelm a web server.</li>
+                <li><b>Botnet Attacks:</b> Using a network of infected devices to launch a coordinated attack on a
+                    target.</li>
+            </ul>
+
+            <h2>Real-World Examples</h2>
+            <p>Here are some well-known examples of DoS and DDoS attacks:</p>
+            <ul class="feature-list">
+                <li><b>GitHub DDoS (2018):</b> GitHub faced one of the largest DDoS attacks ever recorded, peaking at
+                    1.3 Tbps. It was mitigated using advanced filtering techniques.</li>
+                <li><b>Dyn DDoS (2016):</b> This attack targeted Dyn, a major DNS provider, disrupting popular services
+                    like Twitter, Netflix, and Spotify.</li>
+            </ul>
+
+            <h2>Technical Details</h2>
+            <p>To understand these attacks better, let’s explore the technical aspects:</p>
+
+            <ul class="feature-list">
+                <li><b>Botnets:</b> Networks of compromised devices used to launch DDoS attacks. Devices in botnets are
+                    often infected with malware.</li>
+                <li><b>Bandwidth Saturation:</b> Overloading the target’s internet connection, causing legitimate
+                    traffic to drop.</li>
+                <li><b>Exploiting Protocols:</b> Some attacks exploit protocols like TCP, UDP, or ICMP to consume server
+                    resources or bandwidth.</li>
+                <li><b>Rate Limiting:</b> A common mitigation technique to limit the number of requests a server can
+                    process.</li>
+            </ul>
+
+            <h2>How to Defend Against DoS and DDoS Attacks</h2>
+            <p>Defense mechanisms involve proactive and reactive strategies:</p>
+
+            <ul class="usage-list">
+                <li><b>Use a Content Delivery Network (CDN):</b> CDNs distribute traffic across multiple servers,
+                    reducing the impact of an attack.</li>
+                <li><b>Enable Rate Limiting:</b> Control the number of requests a server can process from a single
+                    source.</li>
+                <li><b>Deploy Firewalls:</b> Use Web Application Firewalls (WAFs) to filter malicious traffic.</li>
+                <li><b>Monitor Traffic:</b> Continuous monitoring helps identify unusual traffic patterns and respond
+                    quickly.</li>
+                <li><b>Implement Load Balancers:</b> Distribute traffic evenly across servers to prevent overload.</li>
+            </ul>
+
+            <h2>Example Scenario</h2>
+            <p>Imagine a website selling concert tickets. During a DoS attack, the server gets overwhelmed with fake
+                requests, causing real users to experience delays or crashes. In a DDoS attack, thousands of compromised
+                devices (like infected smart TVs or IoT gadgets) flood the server with requests, making it nearly
+                impossible to operate.</p>
+
+            <h2>Conclusion</h2>
+            <p>DoS and DDoS attacks are powerful tools for disruption, but with the right defenses, their impact can be
+                minimized. Remember, securing your network is like reinforcing a dam—build it strong, monitor it often,
+                and don’t forget to keep improving!</p>
+
+            <p>Oh, and if your favorite streaming service suddenly stops working? It might not be the internet’s
+                fault—it could be under attack! Time to switch to books. Or maybe not.</p>
+        </div>
+
+
+    </main>
+
+
+    <div id="footer-placeholder"></div>
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.5/dist/js/bootstrap.bundle.min.js"
+        integrity="sha384-k6d4wzSIapyDyv1kpU366/PK5hCdSbCRGRCMv+eplOQJWyd1fbcAu9OCUj5zNLiq"
+        crossorigin="anonymous"></script>
+</body>
+
+</html>

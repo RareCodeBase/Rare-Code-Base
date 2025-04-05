@@ -1,0 +1,447 @@
+<!doctype html>
+<html lang="en">
+
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Loops in Python - Rare Code Base</title>
+    <meta name="description"
+        content="Master loops in Python, including for and while loops. Learn how to iterate over data structures, use loop control statements, and optimize your Python code with examples.">
+    <meta name="keywords"
+        content="Loops in Python, Python for loop, Python while loop, Python loop examples, Python iteration, Python loop control statements, How to use loops in Python, Python programming tutorial, Python beginners guide">
+
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.5/dist/css/bootstrap.min.css" rel="stylesheet"
+        integrity="sha384-SgOJa3DmI69IUzQ2PVdRZhwQ+dy64/BUtbMJw1MZ8t5HZApcHrRKUc4W0kG879m7" crossorigin="anonymous">
+    <link rel="stylesheet" href="/css/styles.css">
+    <link rel="icon" href="/favicon.ico" type="image/x-icon">
+
+    <script src="/js/main.js" defer></script>
+    <script src="/js/sidebar.js" defer></script>
+
+
+</head>
+
+<body>
+
+    
+    <div id="navbar-placeholder"></div>
+
+
+    
+    <main class="d-lg-flex flex-nowrap d-block">
+
+        
+        <div id="sidebar-placeholder"></div>
+
+        
+        <div class="content">
+            <h1>Loops in Python</h1>
+            <p>In Python, loops are used to repeat a block of code multiple times. There are two common types of loops:
+                <strong>for</strong> loops and <strong>while</strong> loops.
+            </p>
+
+            
+            <div>
+                <h2>For Loop in Python: A Beginner's Guide</h2>
+                <p>
+                    A <strong>for loop</strong> in Python is used to repeat a block of code multiple times.
+                    It’s like saying, “Do this action again and again until we are done.”
+                </p>
+
+                <h3>Why Use a For Loop?</h3>
+                <p>
+                    Imagine you want to print "Hello" 5 times. Instead of writing the same line 5 times,
+                    you can use a <code>for</code> loop to repeat it easily.
+                </p>
+
+                <h3>Example: Print "Hello" 5 Times</h3>
+                <pre>
+        <code>
+# This will print "Hello" 5 times
+for i in range(5):  # range(5) creates numbers 0 to 4
+    print("Hello")
+        </code>
+    </pre>
+                <p>
+                    <strong>Important Note:</strong>
+                <ul>
+                    <li><code>range(5)</code> creates a sequence of numbers starting from <code>0</code> and
+                        <strong>stopping just before</strong> <code>5</code>. So, the numbers generated are:
+                        <code>0, 1, 2, 3, 4</code>.
+                    </li>
+                    <li>This is why the loop runs <strong>exactly 5 times</strong>, one for each number.</li>
+                </ul>
+                </p>
+                <p><strong>Output:</strong></p>
+                <pre>
+Hello
+Hello
+Hello
+Hello
+Hello
+    </pre>
+
+                <h2>How Does a For Loop Work?</h2>
+                <p>
+                    A <strong>for loop</strong> in Python repeats a block of code for each item in a sequence (like
+                    numbers).
+                    Let’s break it down step by step with simple examples.
+                </p>
+
+                <h3>Example 1: Printing "Hello" 5 Times</h3>
+                <pre>
+        <code>
+# This will print "Hello" 5 times
+for i in range(5):  # range(5) creates numbers 0 to 4
+    print("Hello")
+        </code>
+    </pre>
+
+                <h3>Step-by-Step Explanation:</h3>
+                <ol>
+                    <li>
+                        <code>range(5)</code> generates a sequence of numbers: <code>0, 1, 2, 3, 4</code>.
+                        It starts from <code>0</code> and stops just before <code>5</code>. So the loop will run 5
+                        times.
+                    </li>
+                    <li>
+                        <code>for i in range(5)</code> means the variable <code>i</code> will take each number in
+                        <code>range(5)</code> one by one.
+                    </li>
+                    <li>
+                        The code inside the loop (<code>print("Hello")</code>) runs once for each value of
+                        <code>i</code>.
+                    </li>
+                </ol>
+
+                <h3>Breaking It Down:</h3>
+                <p>Here’s what happens step by step:</p>
+                <ol>
+                    <li><strong>First Iteration (<code>i = 0</code>):</strong> "Hello" is printed.</li>
+                    <li><strong>Second Iteration (<code>i = 1</code>):</strong> "Hello" is printed.</li>
+                    <li><strong>Third Iteration (<code>i = 2</code>):</strong> "Hello" is printed.</li>
+                    <li><strong>Fourth Iteration (<code>i = 3</code>):</strong> "Hello" is printed.</li>
+                    <li><strong>Fifth Iteration (<code>i = 4</code>):</strong> "Hello" is printed.</li>
+                    <li>After <code>i = 4</code>, there are no more numbers in <code>range(5)</code>, so the loop stops.
+                    </li>
+                </ol>
+
+                <h3>Output:</h3>
+                <pre>
+Hello
+Hello
+Hello
+Hello
+Hello
+    </pre>
+
+                <h3>Example 2: Counting Numbers from 1 to 5</h3>
+                <pre>
+        <code>
+# Print numbers from 1 to 5
+for number in range(1, 6):  # range(1, 6) gives 1, 2, 3, 4, 5
+    print(number)
+        </code>
+    </pre>
+
+                <h3>Step-by-Step Explanation:</h3>
+                <ol>
+                    <li>
+                        <code>range(1, 6)</code> generates a sequence of numbers: <code>1, 2, 3, 4, 5</code>.
+                        It starts from <code>1</code> and stops just before <code>6</code>.
+                    </li>
+                    <li>
+                        <code>for number in range(1, 6)</code> means the variable <code>number</code> will take
+                        each value in <code>range(1, 6)</code> one by one.
+                    </li>
+                    <li>
+                        The code inside the loop (<code>print(number)</code>) runs once for each value of
+                        <code>number</code>.
+                    </li>
+                </ol>
+
+                <h3>Breaking It Down:</h3>
+                <p>Here’s what happens step by step:</p>
+                <ol>
+                    <li><strong>First Iteration (<code>number = 1</code>):</strong> <code>1</code> is printed.</li>
+                    <li><strong>Second Iteration (<code>number = 2</code>):</strong> <code>2</code> is printed.</li>
+                    <li><strong>Third Iteration (<code>number = 3</code>):</strong> <code>3</code> is printed.</li>
+                    <li><strong>Fourth Iteration (<code>number = 4</code>):</strong> <code>4</code> is printed.</li>
+                    <li><strong>Fifth Iteration (<code>number = 5</code>):</strong> <code>5</code> is printed.</li>
+                    <li>After <code>number = 5</code>, there are no more numbers in <code>range(1, 6)</code>, so the
+                        loop stops.</li>
+                </ol>
+
+                <h3>Output:</h3>
+                <pre>
+1
+2
+3
+4
+5
+    </pre>
+
+                <h3>Key Points to Remember:</h3>
+                <ul>
+                    <li>
+                        <code>range()</code> always starts from the first number and stops <strong>just before</strong>
+                        the second number.
+                    </li>
+                    <li>
+                        A <strong>for loop</strong> runs the code inside it for each number in the sequence generated by
+                        <code>range()</code>.
+                    </li>
+                    <li>
+                        Loops save time by repeating actions automatically, without writing the same code again and
+                        again.
+                    </li>
+                </ul>
+                <p>
+                    <strong>Explanation:</strong>
+                <ul>
+                    <li><code>range(1, 6)</code> starts from <code>1</code> and stops just before <code>6</code>,
+                        so the numbers are <code>1, 2, 3, 4, 5</code>.</li>
+                </ul>
+                </p>
+                <p><strong>Output:</strong></p>
+                <pre>
+1
+2
+3
+4
+5
+    </pre>
+
+                <h3>Why Learn For Loops?</h3>
+                <p>
+                    - For loops help you repeat actions without writing the same code again and again.<br>
+                    - They are useful when you know how many times you want to repeat something.<br>
+                    - They make your programs shorter and easier to understand.
+                </p>
+                <p>Practice writing your own for loops to get comfortable!</p>
+            </div>
+
+
+            
+            <div>
+                <h2>While Loop in Python</h2>
+                <p>A <strong>while</strong> loop is used to repeat a set of instructions as long as a condition is true.
+                    It is useful when we don’t know exactly how many times we need the loop to run.</p>
+
+                <p>Think of it like this:</p>
+                <ul>
+                    <li>First, the computer checks if the condition is true.</li>
+                    <li>If it is true, the code inside the loop runs.</li>
+                    <li>After running, it checks the condition again.</li>
+                    <li>This continues until the condition becomes false.</li>
+                </ul>
+
+                <p>Here’s an example to make it clear:</p>
+                <pre>
+        <code>
+# This code will print "Hello" 5 times
+i = 0  # Start with i = 0
+while i < 5:  # Check if i is less than 5
+    print("Hello")  # Print "Hello"
+    i += 1  # Add 1 to i (so it gets closer to 5)
+        </code>
+    </pre>
+
+                <p>Explanation of the example:</p>
+                <ul>
+                    <li><code>i = 0</code>: This is the starting point.</li>
+                    <li><code>while i &lt; 5</code>: The loop will keep running as long as <code>i</code> is less than
+                        5.</li>
+                    <li><code>i += 1</code>: This increases <code>i</code> by 1 after each loop. If we forget this step,
+                        the loop will run forever!</li>
+                </ul>
+
+                <p><strong>Final Output:</strong> The word <em>"Hello"</em> will be printed 5 times because the loop
+                    stops when <code>i</code> becomes 5.</p>
+            </div>
+
+            
+            <div>
+                <h2>Practice Challenge</h2>
+                <p>Try using both loops to print numbers from 1 to 10.</p>
+
+                <h3>For Loop Example:</h3>
+                <pre>
+        <code>
+for i in range(1, 11):
+    print(i)
+        </code>
+        </pre>
+
+                <h3>While Loop Example:</h3>
+                <pre>
+        <code>
+i = 1
+while i <= 10:
+    print(i)
+    i += 1
+        </code>
+        </pre>
+            </div>
+
+            <div>
+                <h2>Test Your Knowledge: Loops in Python</h2>
+
+                <p>Now, let's check your understanding of loops in Python! Answer the following questions:</p>
+
+                <h3>1. Which loop is used to iterate over a sequence (like a list or a range) in Python?</h3>
+
+                <ul class="feature-list">
+                    <li class="radio-item">
+                        <input type="radio" id="q1a1" name="q1" value="A">
+                        <label for="q1a1">while loop</label>
+                    </li>
+                    <li class="radio-item">
+                        <input type="radio" id="q1a2" name="q1" value="B">
+                        <label for="q1a2">for loop</label>
+                    </li>
+                    <li class="radio-item">
+                        <input type="radio" id="q1a3" name="q1" value="C">
+                        <label for="q1a3">do-while loop</label>
+                    </li>
+                    <li class="radio-item">
+                        <input type="radio" id="q1a4" name="q1" value="D">
+                        <label for="q1a4">foreach loop</label>
+                    </li>
+                </ul>
+
+                <h3>2. What will be the output of the following code?</h3>
+                <pre>
+for i in range(3):
+    print(i)
+                </pre>
+                <ul class="feature-list">
+                    <li class="radio-item">
+                        <input type="radio" id="q2a1" name="q2" value="A">
+                        <label for="q2a1">1, 2, 3</label>
+                    </li>
+                    <li class="radio-item">
+                        <input type="radio" id="q2a2" name="q2" value="B">
+                        <label for="q2a2">0, 1, 2</label>
+                    </li>
+                    <li class="radio-item">
+                        <input type="radio" id="q2a3" name="q2" value="C">
+                        <label for="q2a3">3, 2, 1</label>
+                    </li>
+                    <li class="radio-item">
+                        <input type="radio" id="q2a4" name="q2" value="D">
+                        <label for="q2a4">Error</label>
+                    </li>
+                </ul>
+
+                <h3>3. What will be the output of the following code?</h3>
+                <pre>
+x = 0
+while x < 3:
+    print(x)
+    x += 1
+                </pre>
+                <ul class="feature-list">
+                    <li class="radio-item">
+                        <input type="radio" id="q3a1" name="q3" value="A">
+                        <label for="q3a1">1, 2, 3</label>
+                    </li>
+                    <li class="radio-item">
+                        <input type="radio" id="q3a2" name="q3" value="B">
+                        <label for="q3a2">0, 1, 2</label>
+                    </li>
+                    <li class="radio-item">
+                        <input type="radio" id="q3a3" name="q3" value="C">
+                        <label for="q3a3">3, 2, 1</label>
+                    </li>
+                    <li class="radio-item">
+                        <input type="radio" id="q3a4" name="q3" value="D">
+                        <label for="q3a4">Error</label>
+                    </li>
+                </ul>
+
+                <h3>4. How many times will the following loop execute?</h3>
+                <pre>
+for i in range(5):
+    print(i)
+                </pre>
+                <ul class="feature-list">
+                    <li class="radio-item">
+                        <input type="radio" id="q4a1" name="q4" value="A">
+                        <label for="q4a1">4</label>
+                    </li>
+                    <li class="radio-item">
+                        <input type="radio" id="q4a2" name="q4" value="B">
+                        <label for="q4a2">5</label>
+                    </li>
+                    <li class="radio-item">
+                        <input type="radio" id="q4a3" name="q4" value="C">
+                        <label for="q4a3">6</label>
+                    </li>
+                    <li class="radio-item">
+                        <input type="radio" id="q4a4" name="q4" value="D">
+                        <label for="q4a4">Error</label>
+                    </li>
+                </ul>
+
+                <p>Answer the questions and check how well you've understood loops in Python!</p>
+
+                <button onclick="checkAnswers()">Submit</button>
+
+                <div id="result" style="margin-top: 20px; font-weight: bold;"></div>
+                <div id="explanation" style="margin-top: 20px; font-weight: normal;"></div>
+            </div>
+
+            <script>
+                function checkAnswers() {
+                    var correctAnswers = 0;
+                    var explanationText = "";
+
+                    // Question 1
+                    if (document.getElementById('q1a2').checked) {
+                        correctAnswers++;
+                    } else {
+                        explanationText += "<p>Q1: The correct answer is 'for loop'. It is used to iterate over a sequence in Python.</p>";
+                    }
+
+                    // Question 2
+                    if (document.getElementById('q2a2').checked) {
+                        correctAnswers++;
+                    } else {
+                        explanationText += "<p>Q2: The correct answer is '0, 1, 2'. The 'range(3)' generates numbers starting from 0 up to (but not including) 3.</p>";
+                    }
+
+                    // Question 3
+                    if (document.getElementById('q3a2').checked) {
+                        correctAnswers++;
+                    } else {
+                        explanationText += "<p>Q3: The correct answer is '0, 1, 2'. The 'while' loop runs until the condition 'x < 3' becomes false.</p>";
+                    }
+
+                    // Question 4
+                    if (document.getElementById('q4a2').checked) {
+                        correctAnswers++;
+                    } else {
+                        explanationText += "<p>Q4: The correct answer is '5'. The loop executes 5 times (0 to 4).</p>";
+                    }
+
+                    document.getElementById('result').innerHTML = 'You got ' + correctAnswers + ' out of 4 questions correct!';
+                    document.getElementById('explanation').innerHTML = explanationText;
+                }
+            </script>
+
+        </div>
+
+
+
+    </main>
+
+
+    <div id="footer-placeholder"></div>
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.5/dist/js/bootstrap.bundle.min.js"
+        integrity="sha384-k6d4wzSIapyDyv1kpU366/PK5hCdSbCRGRCMv+eplOQJWyd1fbcAu9OCUj5zNLiq"
+        crossorigin="anonymous"></script>
+</body>
+
+</html>

@@ -1,0 +1,218 @@
+<!doctype html>
+<html lang="en">
+
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Lists in Python - Rare Code Base</title>
+    <meta name="description"
+        content="Explore lists in Python with this beginner-friendly guide. Learn how to create, modify, and manipulate lists, and understand common list operations and methods with examples.">
+    <meta name="keywords"
+        content="Lists in Python, Python list tutorial, Python list operations, Python list methods, How to create a list in Python, Python list examples, Modify lists in Python, Python data structures, Python beginners guide">
+
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.5/dist/css/bootstrap.min.css" rel="stylesheet"
+        integrity="sha384-SgOJa3DmI69IUzQ2PVdRZhwQ+dy64/BUtbMJw1MZ8t5HZApcHrRKUc4W0kG879m7" crossorigin="anonymous">
+    <link rel="stylesheet" href="/css/styles.css">
+    <link rel="icon" href="/favicon.ico" type="image/x-icon">
+
+    <script src="/js/main.js" defer></script>
+    <script src="/js/sidebar.js" defer></script>
+
+
+</head>
+
+<body>
+
+    
+    <div id="navbar-placeholder"></div>
+
+
+    
+    <main class="d-lg-flex flex-nowrap d-block">
+
+        
+        <div id="sidebar-placeholder"></div>
+
+        
+        <div class="content">
+            <h1>Working with Lists in Python</h1>
+
+            <p>A <strong>list</strong> is like a shopping basket where you can store multiple items (like numbers, text,
+                or even other lists). For example:</p>
+            <pre><code>fruits = ["Apple", "Banana", "Cherry"]  # A list of fruits
+numbers = [1, 2, 3, 4]          # A list of numbers</code></pre>
+
+            <div>
+                <h2>Creating a List in Python</h2>
+                <p>In Python, a <strong>list</strong> is an ordered collection of items. To create a list, you can
+                    follow these steps:</p>
+                <ul>
+                    <li><strong>Use square brackets:</strong> Lists are created by enclosing elements in square brackets
+                        <code>[ ]</code>.
+                    </li>
+                    <li><strong>Separate items with commas:</strong> The items inside the list are separated by commas
+                        <code>,</code>.
+                    </li>
+                    <li><strong>Give the list a name:</strong> You can assign the list to a variable. For example,
+                        <code>fruits</code> could be the name of your list.
+                    </li>
+                </ul>
+
+                <p><strong>Example 1:</strong> Creating a simple list of colors:</p>
+                <pre><code># Create a list of colors
+colors = ["Red", "Green", "Blue"]
+print(colors)  # Output: ["Red", "Green", "Blue"]</code></pre>
+
+                <p>In this example, we created a list named <code>colors</code> that contains three items: "Red",
+                    "Green", and "Blue".</p>
+
+                <p><strong>Example 2: Creating a list with different types of data (Mixed Data):</strong></p>
+                <pre><code># A list with different types of data
+mixed_list = ["Hello", 42, True, 3.14]
+print(mixed_list)  # Output: ["Hello", 42, True, 3.14]</code></pre>
+
+                <p>Here, we created a list named <code>mixed_list</code> that contains a string ("Hello"), an integer
+                    (42), a boolean value (True), and a floating-point number (3.14). Python allows you to store
+                    different types of data in a single list!</p>
+            </div>
+
+
+            <div>
+                <h2>Accessing List Elements in Python</h2>
+                <p>In Python, a <strong>list</strong> is an ordered collection of elements, where each element is
+                    assigned an <strong>index</strong> number. The index helps us access specific elements in the list.
+                </p>
+
+                <p>Think of a list like a sequence of houses, where each house has a unique number (index). This number
+                    starts at <strong>0</strong> for the first item, and each subsequent item gets the next number.</p>
+
+                <ul>
+                    <li><strong>First item:</strong> Index 0 (Not 1!)</li>
+                    <li><strong>Second item:</strong> Index 1</li>
+                    <li><strong>Last item:</strong> Index -1 (Accessing from the end)</li>
+                </ul>
+
+                <p>In Python, you can access list elements by specifying their index in square brackets <code>[]</code>.
+                    Remember, the list indexing starts at <strong>0</strong>:</p>
+
+                <p><strong>Example:</strong></p>
+                <pre><code>animals = ["Cat", "Dog", "Elephant", "Giraffe"]
+print(animals[0])   # Output: Cat (First item at index 0)
+print(animals[2])   # Output: Elephant (Third item at index 2)
+print(animals[-1])  # Output: Giraffe (Last item using negative indexing)</code></pre>
+
+                <p>Here’s what happens in the example:</p>
+                <ul>
+                    <li><strong>animals[0]</strong> accesses the first item in the list, "Cat".</li>
+                    <li><strong>animals[2]</strong> accesses the third item, "Elephant".</li>
+                    <li><strong>animals[-1]</strong> accesses the last item in the list, "Giraffe".</li>
+                </ul>
+
+                <div>
+                    <p>⚠️ <strong>Common Mistake:</strong></p>
+                    <p>Attempting to access an index that doesn’t exist in the list will result in an error. For
+                        example, if you try to access an index that is out of range (like <code>animals[4]</code> in a
+                        list with only 4 items), you’ll get an <strong>IndexError</strong>.</p>
+                    <pre><code># This will cause an error if the list has less than 4 items!
+print(animals[4])</code></pre>
+                    <p>List indexes are zero-based, meaning they start from 0. So, for a list of length 4, the valid
+                        indexes are 0, 1, 2, and 3. Trying to access index 4 is outside the valid range.</p>
+                </div>
+            </div>
+
+
+            <div>
+                <h2>Changing Items in a List</h2>
+                <p>Updating a list is like changing a TV channel. You can directly modify an element in the list by
+                    specifying its index.</p>
+                <pre><code># Original list
+pets = ["Goldfish", "Parrot", "Hamster"]
+            
+# Change index 1 (Parrot → Dog)
+pets[1] = "Dog"
+print(pets)  # Output: ["Goldfish", "Dog", "Hamster"]</code></pre>
+                <p>In this example, the element at index <strong>1</strong> (which is "Parrot") is updated to "Dog". The
+                    list now looks like this: ["Goldfish", "Dog", "Hamster"].</p>
+            </div>
+
+            <div>
+                <h2>Adding Items to a List</h2>
+                <p>There are two common ways to add items to a list:</p>
+
+                <h3>Method 1: <code>append()</code> - Add to the End of the List</h3>
+                <pre><code>colors = ["Red", "Blue"]
+colors.append("Green")
+print(colors)  # Output: ["Red", "Blue", "Green"]</code></pre>
+                <p>The <code>append()</code> method adds an item to the <strong>end</strong> of the list. Here, we add
+                    "Green" to the existing list of colors.</p>
+
+                <h3>Method 2: <code>insert()</code> - Add at a Specific Position</h3>
+                <pre><code># Insert "Yellow" at index 1
+colors.insert(1, "Yellow")
+print(colors)  # Output: ["Red", "Yellow", "Blue", "Green"]</code></pre>
+                <p>The <code>insert()</code> method allows you to add an item at a specific index in the list. Here, we
+                    insert "Yellow" at index 1, which shifts the other items accordingly.</p>
+            </div>
+
+            <div>
+                <h2>Removing Items from a List</h2>
+
+                <h3>Method 1: <code>remove()</code> - Remove by Value</h3>
+                <pre><code>fruits = ["Apple", "Banana", "Mango"]
+fruits.remove("Banana")  # Remove Banana
+print(fruits)  # Output: ["Apple", "Mango"]</code></pre>
+                <p>The <code>remove()</code> method removes the first occurrence of the specified item. In this example,
+                    "Banana" is removed from the list, leaving ["Apple", "Mango"].</p>
+
+                <h3>Method 2: <code>pop()</code> - Remove by Position</h3>
+                <pre><code># Remove and return the last item
+last_fruit = fruits.pop()
+print(last_fruit)  # Output: Mango
+print(fruits)      # Output: ["Apple"]</code></pre>
+                <p>The <code>pop()</code> method removes the item at the specified index and returns it. If no index is
+                    provided, it removes and returns the last item in the list. In this case, "Mango" is removed from
+                    the list.</p>
+            </div>
+
+            <div>
+                <h2>🚀 Practice Time!</h2>
+                <p>Try this exercise step by step:</p>
+                <pre><code># Start with this list
+groceries = ["Milk", "Bread", "Eggs"]
+            
+# 1. Add "Butter" to the end
+groceries.append("Butter")
+            
+# 2. Change "Bread" to "Whole Wheat Bread"
+groceries[1] = "Whole Wheat Bread"
+            
+# 3. Remove "Eggs"
+groceries.remove("Eggs")
+            
+print(groceries)  # Final Output: ["Milk", "Whole Wheat Bread", "Butter"]</code></pre>
+                <p>This exercise helps you practice adding, changing, and removing items from a list step by step.</p>
+            </div>
+
+            <div>
+                <h2>❓ Common Questions</h2>
+                <p><strong>Q: Can a list have duplicate values?</strong><br>
+                    A: Yes! A list can contain the same value multiple times. For example, <code>[1, 1, 2]</code> is a
+                    valid list.</p>
+
+                <p><strong>Q: How to check the length of a list?</strong><br>
+                    A: You can use the built-in <code>len()</code> function to check the length of a list (i.e., how
+                    many items are in it). For example: <code>print(len(fruits))</code></p>
+            </div>
+
+        </div>
+    </main>
+
+
+    <div id="footer-placeholder"></div>
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.5/dist/js/bootstrap.bundle.min.js"
+        integrity="sha384-k6d4wzSIapyDyv1kpU366/PK5hCdSbCRGRCMv+eplOQJWyd1fbcAu9OCUj5zNLiq"
+        crossorigin="anonymous"></script>
+</body>
+
+</html>

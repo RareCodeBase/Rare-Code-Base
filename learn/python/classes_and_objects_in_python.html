@@ -1,0 +1,252 @@
+<!doctype html>
+<html lang="en">
+
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Classes and Objects in Python - Rare Code Base</title>
+  <meta name="description"
+    content="Understand classes and objects in Python with this beginner-friendly guide. Learn object-oriented programming, class creation, methods, and practical examples in Python.">
+  <meta name="keywords"
+    content="Classes and objects in Python, Python OOP tutorial, Python object-oriented programming, Python classes examples, How to create classes in Python, Python methods, Python beginners guide, Python OOP basics">
+
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.5/dist/css/bootstrap.min.css" rel="stylesheet"
+    integrity="sha384-SgOJa3DmI69IUzQ2PVdRZhwQ+dy64/BUtbMJw1MZ8t5HZApcHrRKUc4W0kG879m7" crossorigin="anonymous">
+  <link rel="stylesheet" href="/css/styles.css">
+  <link rel="icon" href="/favicon.ico" type="image/x-icon">
+
+  <script src="/js/main.js" defer></script>
+  <script src="/js/sidebar.js" defer></script>
+
+
+</head>
+
+<body>
+
+  
+  <div id="navbar-placeholder"></div>
+
+
+  
+  <main class="d-lg-flex flex-nowrap d-block">
+
+    
+    <div id="sidebar-placeholder"></div>
+
+
+
+    
+    <div class="content">
+      <h1>Classes and Objects in Python</h1>
+
+      <p>In Python, <strong>classes</strong> and <strong>objects</strong> are important parts of <strong>Object-Oriented
+          Programming (OOP)</strong>.
+        These concepts help us organize and structure our code in a more efficient way. Let's understand each of these
+        concepts in simple terms:</p>
+
+      <h2>What is a Class?</h2>
+      <p>A <strong>class</strong> is like a blueprint or a template. It defines what an object will look like and what
+        it can do.
+        Think of it like a recipe to create objects with similar properties and behaviors. For example, if you want to
+        create many car objects, you can define a <strong>Car</strong> class, which will describe what properties each
+        car has, like its make (brand), model, and year.</p>
+
+      <h3>Creating a Class</h3>
+      <p>Here's an example of a simple class called <code>Car</code>:</p>
+      <pre>
+class Car:
+    def __init__(self, make, model, year):
+        self.make = make
+        self.model = model
+        self.year = year
+      
+    def car_info(self):
+        return f"{self.year} {self.make} {self.model}"
+      </pre>
+
+      <p><strong>Explanation:</strong></p>
+      <ul>
+        <li><strong>Constructor (__init__):</strong> The method <code>__init__()</code> is a special function that is
+          automatically called when a new object is created from the class. It helps initialize the attributes
+          (properties) of the object. Here, it takes three parameters—<code>make</code>, <code>model</code>, and
+          <code>year</code>—and sets them as the object's attributes.
+        </li>
+        <li><strong>Attributes:</strong> Attributes are the properties of the class. In our example, the car class has
+          three attributes: <code>make</code> (the brand of the car), <code>model</code> (the specific model), and
+          <code>year</code> (the year of manufacture).
+        </li>
+        <li><strong>Method:</strong> The <code>car_info()</code> method is a function inside the class that tells us
+          about the car. It returns the details of the car, like the year, make, and model.</li>
+      </ul>
+
+      <h2>What is an Object?</h2>
+      <p>An <strong>object</strong> is a real instance of a class. Once we define a class, we can create multiple
+        objects from it. Each object is like a specific instance of the blueprint, with its own unique values. For
+        example, one object could represent a Toyota car, and another could represent a Honda car.</p>
+
+      <h3>Creating an Object</h3>
+      <p>Here’s how you can create objects from the <code>Car</code> class:</p>
+      <pre>
+# Creating car objects from the Car class
+car1 = Car("Toyota", "Corolla", 2020)
+car2 = Car("Honda", "Civic", 2021)
+      
+# Using the car_info method to display details of the cars
+print(car1.car_info())  # Output: 2020 Toyota Corolla
+print(car2.car_info())  # Output: 2021 Honda Civic
+      </pre>
+
+      <p><strong>Explanation:</strong></p>
+      <ul>
+        <li>Here, we create two objects: <code>car1</code> and <code>car2</code>, using the <code>Car</code> class. For
+          <code>car1</code>, we provide the make "Toyota", model "Corolla", and year 2020. For <code>car2</code>, we use
+          "Honda", "Civic", and 2021.
+        </li>
+        <li>After creating the objects, we call the <code>car_info()</code> method for both objects to print the
+          details. Each object has its own values for the attributes, so <code>car1.car_info()</code> prints the details
+          of the first car, and <code>car2.car_info()</code> prints the details of the second car.</li>
+      </ul>
+
+      <h2>What is the __init__ Method?</h2>
+      <p>The <code>__init__()</code> method is a special method that is automatically called when you create an object.
+        It is used to set up the object's initial state or attributes. Think of it like the setup process when you buy a
+        new product and need to customize it for your use. In this case, the attributes are set during the creation of
+        the object.</p>
+
+      <p>In the <code>__init__()</code> method, the parameter <code>self</code> refers to the current object being
+        created. This allows each object to have its own attributes.</p>
+
+      <h3>Example:</h3>
+      <pre>
+class Dog:
+    def __init__(self, name, age):
+        self.name = name  # Initialize the dog's name
+        self.age = age    # Initialize the dog's age
+      
+    def bark(self):
+        return f"{self.name} says Woof!"  # Return a bark sound with the dog's name
+      
+# Creating a dog object with the name 'Buddy' and age 3
+dog1 = Dog("Buddy", 3)
+      
+# Using the bark method to display the dog's action
+print(dog1.bark())  # Output: Buddy says Woof!
+      </pre>
+
+      <p><strong>Explanation:</strong></p>
+      <ul>
+        <li>The <code>__init__()</code> method sets the dog's name and age when a new dog object is created.</li>
+        <li>We create an object <code>dog1</code> from the <code>Dog</code> class with the name "Buddy" and age 3.</li>
+        <li>After that, we use the <code>bark()</code> method to make the dog say "Woof!" with its name.</li>
+      </ul>
+
+      <h2>Class Inheritance</h2>
+      <p><strong>Inheritance</strong> is a way to allow one class (child class) to use the properties and methods of
+        another class (parent class). The child class can add its own features or even change (override) the behavior of
+        the parent class methods.</p>
+
+      <h3>Example:</h3>
+      <pre>
+# Parent class
+class Animal:
+    def __init__(self, name):
+        self.name = name
+      
+    def speak(self):
+        return f"{self.name} makes a sound."
+      
+# Child class inheriting from Animal class
+class Dog(Animal):
+    def speak(self):  # Overriding the speak method of the Animal class
+        return f"{self.name} barks."
+      
+# Creating a dog object
+dog = Dog("Rex")
+      
+# Calling the speak method from the Dog class
+print(dog.speak())  # Output: Rex barks.
+      </pre>
+
+      <p><strong>Explanation:</strong></p>
+      <ul>
+        <li>We have a parent class <code>Animal</code> with a method <code>speak()</code> that returns a generic sound
+          for the animal.</li>
+        <li>The <code>Dog</code> class is the child class that inherits from the <code>Animal</code> class. It can use
+          the <code>speak()</code> method from the parent class, but it also overrides this method to make the dog bark
+          instead of just making a generic sound.</li>
+        <li>When we create an object of the Dog class and call <code>speak()</code>, it uses the overridden method to
+          return "Rex barks."</li>
+      </ul>
+
+      <h2>Class Methods and Static Methods</h2>
+      <p>In Python, you can also define special types of methods within a class:</p>
+      <ul>
+        <li><strong>Class Methods:</strong> These methods work with the class itself, not individual objects, and are
+          defined using the <code>@classmethod</code> decorator. They typically access or modify class-level attributes.
+        </li>
+        <li><strong>Static Methods:</strong> These methods do not depend on the class or its objects. They are defined
+          using the <code>@staticmethod</code> decorator and can be used like regular functions that don't need access
+          to class or object data.</li>
+      </ul>
+
+      <h3>Example:</h3>
+      <pre>
+class Person:
+    count = 0  # This is a class attribute to keep track of how many people are created
+      
+    def __init__(self, name):
+        self.name = name
+        Person.count += 1  # Every time a person is created, we increase the count
+      
+    @classmethod
+    def get_count(cls):
+        return f"Total people: {cls.count}"  # Accessing the class attribute count using cls
+      
+    @staticmethod
+    def greet():
+        return "Hello, welcome!"  # This is a static method, it doesn't depend on the class or object
+      
+# Creating person objects
+person1 = Person("Alice")
+person2 = Person("Bob")
+      
+# Calling class method to get the total count of people
+print(Person.get_count())  # Output: Total people: 2
+      
+# Calling static method to greet
+print(Person.greet())      # Output: Hello, welcome!
+      </pre>
+
+      <p><strong>Explanation:</strong></p>
+      <ul>
+        <li>In the <code>Person</code> class, we have a class attribute <code>count</code> that tracks how many people
+          have been created. Each time a new person object is created, the count is increased.</li>
+        <li>The <code>get_count()</code> method is a class method that works with the class itself (not an object). It
+          uses the <code>cls</code> parameter to access the class attribute <code>count</code> and returns the total
+          number of people created.</li>
+        <li>The <code>greet()</code> method is a static method. It doesn't depend on the class or any object; it's just
+          a method that returns a greeting message.</li>
+        <li>When we create two people objects (<code>person1</code> and <code>person2</code>), the class method
+          <code>get_count()</code> tells us that there are 2 people. The static method <code>greet()</code> provides a
+          general greeting message.
+        </li>
+      </ul>
+
+      <h2>Summary</h2>
+      <p>A <strong>class</strong> is a blueprint, and an <strong>object</strong> is an instance of the class.
+        With classes, you can reuse code and make your programs more structured and easy to manage.</p>
+    </div>
+
+
+
+  </main>
+
+
+  <div id="footer-placeholder"></div>
+
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.5/dist/js/bootstrap.bundle.min.js"
+    integrity="sha384-k6d4wzSIapyDyv1kpU366/PK5hCdSbCRGRCMv+eplOQJWyd1fbcAu9OCUj5zNLiq"
+    crossorigin="anonymous"></script>
+</body>
+
+</html>

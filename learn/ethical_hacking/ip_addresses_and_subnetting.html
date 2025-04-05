@@ -1,0 +1,150 @@
+<!doctype html>
+<html lang="en">
+
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Understanding IP Addresses and Subnetting - Rare Code Base</title>
+    <meta name="description"
+        content="Learn about IP addresses, their types, and subnetting. Understand how IP addresses are assigned, network segmentation, and how subnetting improves network efficiency and security.">
+    <meta name="keywords"
+        content="IP addresses, Subnetting in networking, Understanding IP addresses, Network segmentation, Subnetting techniques, IP address types, Network addressing, Subnet masks, IP network security, Networking fundamentals">
+
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.5/dist/css/bootstrap.min.css" rel="stylesheet"
+        integrity="sha384-SgOJa3DmI69IUzQ2PVdRZhwQ+dy64/BUtbMJw1MZ8t5HZApcHrRKUc4W0kG879m7" crossorigin="anonymous">
+    <link rel="stylesheet" href="/css/styles.css">
+    <link rel="icon" href="/favicon.ico" type="image/x-icon">
+
+    <script src="/js/main.js" defer></script>
+    <script src="/js/sidebar.js" defer></script>
+
+</head>
+
+<body>
+
+    
+    <div id="navbar-placeholder"></div>
+
+
+    
+    <main class="d-lg-flex flex-nowrap d-block">
+
+        
+        <div id="sidebar-placeholder"></div>
+
+
+        
+        <div class="content">
+            <h1>Understanding IP Addresses and Subnetting</h1>
+            <p>Imagine you're sending a letter to a friend. You need a proper address so the letter reaches the right
+                house, right? In the digital world, <b>IP addresses</b> are the "addresses" of devices on a network. And
+                just like neighborhoods are divided into smaller blocks to organize houses, networks are divided into
+                smaller parts called <b>subnets</b>. Let’s dive into these concepts and see how they work!</p>
+
+            <h2>What is an IP Address?</h2>
+            <p>An <b>IP address</b> (Internet Protocol address) is like the home address of a device on the internet or
+                a local network. Every device connected to a network, whether it's a computer, smartphone, or smart
+                fridge, gets a unique IP address so other devices can communicate with it. Without an IP address,
+                devices would be like lost tourists without a map—no one would know where to send the data!</p>
+
+            <h2>IP Address Formats</h2>
+            <p>IP addresses come in two main formats: <b>IPv4</b> and <b>IPv6</b>:</p>
+
+            <ul class="feature-list">
+                <li><b>IPv4:</b> The older format, consisting of 32 bits, typically written as four sets of numbers
+                    separated by dots (e.g., <i>192.168.1.1</i>). This gives us about 4.3 billion unique addresses.
+                    Sounds like a lot, right? Well, we ran out of those addresses, so...</li>
+
+                <li><b>IPv6:</b> The newer format, using 128 bits, written as eight groups of four hexadecimal numbers
+                    (e.g., <i>2001:0db8:85a3:0000:0000:8a2e:0370:7334</i>). This gives us an almost infinite number of
+                    addresses—enough for every device on Earth and beyond! 🚀</li>
+            </ul>
+
+            <h2>How Do IP Addresses Work?</h2>
+            <p>Let’s break it down simply. When you connect to a website, your device sends a request (like, "Hey, I
+                want to see <i>www.example.com</i>!"). Your device uses the IP address of the server hosting the website
+                to send this request. The server receives the request, processes it, and sends the website back to your
+                device. This is possible because every device (whether a web server or your phone) has a unique IP
+                address to help direct the data to the right place!</p>
+
+            <h2>Types of IP Addresses</h2>
+            <p>There are different types of IP addresses, just like you can have different types of home addresses, such
+                as residential, business, or temporary addresses. Here’s what you need to know:</p>
+
+            <ul class="feature-list">
+                <li><b>Public IP Address:</b> This is the IP address that is visible on the internet. It’s like the
+                    address of your home on the world map. If you browse the web, websites see your public IP address,
+                    which is assigned by your Internet Service Provider (ISP).</li>
+
+                <li><b>Private IP Address:</b> These are used within local networks (e.g., your home or office). They’re
+                    like your house’s internal address within a neighborhood. Examples include <i>192.168.1.1</i> or
+                    <i>10.0.0.1</i>. Devices with private IP addresses can’t directly communicate with the internet
+                    without a public IP address acting as an intermediary.
+                </li>
+
+                <li><b>Dynamic IP Address:</b> These are temporary addresses assigned by your ISP. They change every
+                    time you connect to the internet, just like how a hotel room number changes with each stay. Dynamic
+                    IPs are cost-effective for ISPs and work perfectly for most users.</li>
+
+                <li><b>Static IP Address:</b> A permanent, fixed IP address assigned to a device, like a server or
+                    printer, that needs to be constantly available. Think of it as your “forever address” in the network
+                    world.</li>
+            </ul>
+
+            <h2>What is Subnetting?</h2>
+            <p><b>Subnetting</b> is the process of dividing a large network into smaller, more manageable sub-networks,
+                or <b>subnets</b>. Why? Well, imagine trying to organize a party with a massive guest list. Without
+                dividing guests into smaller groups, it would be chaos! Subnetting helps break down networks so that
+                data travels more efficiently, and the network stays organized.</p>
+
+            <p>Subnetting is like partitioning your home into rooms. Each room has its own purpose—living room, kitchen,
+                bedroom, etc. Similarly, each subnet has a specific role in the network. By dividing the network, you
+                improve security, optimize performance, and avoid too much congestion in one area.</p>
+
+            <h2>How Does Subnetting Work?</h2>
+            <p>When you create a subnet, you take the available IP address range for a network and divide it into
+                smaller blocks. Each block is a subnet. Subnetting uses something called a <b>subnet mask</b> to
+                determine the range of IP addresses within a subnet.</p>
+
+            <ul class="usage-list">
+                <li><b>Subnet Mask:</b> A subnet mask helps define which portion of an IP address is the network and
+                    which part is available for individual devices (hosts). It looks like an IP address itself (e.g.,
+                    <i>255.255.255.0</i>) and tells you which addresses belong to your network and which ones are
+                    available for hosts.
+                </li>
+
+                <li><b>Example:</b> Let’s say you have the IP address <i>192.168.1.0/24</i>. The "/24" is the subnet
+                    mask, which means the first 24 bits (or the first three numbers: 192.168.1) represent the network,
+                    and the remaining 8 bits (the last number) are used for devices in that network. So, you could have
+                    devices with IPs like <i>192.168.1.1</i>, <i>192.168.1.2</i>, and so on, all within the same subnet.
+                </li>
+            </ul>
+
+            <h2>Why is Subnetting Important?</h2>
+            <ul class="usage-list">
+                <li><b>Efficiency:</b> Subnetting reduces network traffic and congestion by splitting networks into
+                    smaller, more manageable parts.</li>
+                <li><b>Security:</b> Subnetting helps isolate parts of the network. For example, if a hacker breaches
+                    the HR department, they don’t have access to the IT department.</li>
+                <li><b>Organization:</b> Subnetting helps keep the network tidy, making it easier to manage and
+                    troubleshoot.</li>
+            </ul>
+
+            <h2>Conclusion</h2>
+            <p>Understanding IP addresses and subnetting is like learning how to drive—essential for navigating the
+                networked world! IP addresses are the unique IDs for every device, and subnetting helps organize and
+                secure networks by dividing them into smaller sections. Whether you're a tech newbie or a network admin,
+                mastering these concepts is key to becoming a network pro.</p>
+        </div>
+
+    </main>
+
+
+    <div id="footer-placeholder"></div>
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.5/dist/js/bootstrap.bundle.min.js"
+        integrity="sha384-k6d4wzSIapyDyv1kpU366/PK5hCdSbCRGRCMv+eplOQJWyd1fbcAu9OCUj5zNLiq"
+        crossorigin="anonymous"></script>
+</body>
+
+</html>

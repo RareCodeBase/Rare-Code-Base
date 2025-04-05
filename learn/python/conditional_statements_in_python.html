@@ -1,0 +1,335 @@
+<!doctype html>
+<html lang="en">
+
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Conditional Statements in Python: if-else - Rare Code Base</title>
+  <meta name="description"
+    content="Learn how to use conditional statements in Python, including if, if-else, and nested if-else with examples. Understand control flow and decision-making in Python programming.">
+  <meta name="keywords"
+    content="Conditional statements in Python, Python if else, Python nested if, Python decision-making, Python control flow, Python conditional examples, How to use if else in Python, Python beginners tutorial, Python programming basics">
+
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.5/dist/css/bootstrap.min.css" rel="stylesheet"
+    integrity="sha384-SgOJa3DmI69IUzQ2PVdRZhwQ+dy64/BUtbMJw1MZ8t5HZApcHrRKUc4W0kG879m7" crossorigin="anonymous">
+  <link rel="stylesheet" href="/css/styles.css">
+  <link rel="icon" href="/favicon.ico" type="image/x-icon">
+
+  <script src="/js/main.js" defer></script>
+  <script src="/js/sidebar.js" defer></script>
+
+</head>
+
+<body>
+
+  
+  <div id="navbar-placeholder"></div>
+
+
+  
+  <main class="d-lg-flex flex-nowrap d-block">
+
+    
+    <div id="sidebar-placeholder"></div>
+
+
+    
+    <div class="content">
+      <h1>Conditional Statements in Python</h1>
+
+      <p>In Python, we can make decisions using conditional statements. These are instructions that help the program
+        choose between different actions based on conditions. For example, if it’s sunny, you might go for a walk, but
+        if it’s rainy, you might stay inside. In Python, we use <strong>if</strong>, <strong>else</strong>, and
+        <strong>elif</strong> to make decisions.
+      </p>
+
+      <h2>What are Conditional Statements?</h2>
+      <p>Conditional statements are used to check if certain conditions are true or false. Based on that, the program
+        executes a certain block of code.</p>
+
+      <h2>Syntax of Conditional Statements</h2>
+      <p>The basic syntax for conditional statements looks like this:</p>
+      <pre>
+if condition:
+    # code to run if the condition is True
+else:
+    # code to run if the condition is False
+  </pre>
+
+      <h2>What is Indentation and Why is it Important?</h2>
+      <p>Indentation in Python refers to the spaces or tabs used at the beginning of a line of code to define its level
+        in the structure of the program. It’s important because Python uses indentation to determine which lines of code
+        are part of a certain block. In other words, it shows which lines belong to a specific statement, such as
+        <code>if</code>, <code>else</code>, or <code>elif</code>.
+      </p>
+      <p>In many other programming languages, curly braces <code>{}</code> are used to define blocks of code. However,
+        Python uses indentation to mark these blocks. If the indentation is not consistent, Python will throw an
+        <strong>IndentationError</strong>.
+      </p>
+      <p>For example:</p>
+      <pre>
+if condition:
+    print("This is inside the if block.")
+    print("This line is also inside the if block.")
+else:
+    print("This is inside the else block.")
+  </pre>
+      <p>In the code above, the two <code>print()</code> statements inside the <code>if</code> block are indented by
+        four spaces, meaning they belong to that block. Similarly, the <code>else</code> block is indented to indicate
+        that its code belongs to the <code>else</code> statement. If the indentation were wrong, Python wouldn't know
+        which block the code belonged to, and it would give an error.</p>
+
+      <h2>Syntax for Conditional Statements (Revisited)</h2>
+      <p>The basic syntax for conditional statements includes a colon (<code>:</code>) after the <code>if</code>,
+        <code>elif</code>, or <code>else</code> statement. This colon tells Python that the block of code that follows
+        it will be part of that conditional statement.
+      </p>
+
+      <h2>Example of Using <code>if</code> and <code>else</code></h2>
+      <p>Here is a simple example to check if a number is greater than 10:</p>
+      <pre>
+number = 12
+if number > 10:
+    print("The number is greater than 10.")
+else:
+    print("The number is not greater than 10.")
+  </pre>
+      <p>Output: <code>The number is greater than 10.</code></p>
+
+      <h2>Using <code>elif</code> for Multiple Conditions</h2>
+      <p>If you want to check multiple conditions, you can use <code>elif</code> (short for "else if"). It allows you to
+        test more than one condition in order. Here’s an example:</p>
+      <pre>
+number = 7
+if number > 10:
+    print("The number is greater than 10.")
+elif number == 7:
+    print("The number is exactly 7.")
+else:
+    print("The number is less than or equal to 10.")
+  </pre>
+      <p>Output: <code>The number is exactly 7.</code></p>
+
+      <h2>Using Logical Operators</h2>
+      <p>You can combine multiple conditions using logical operators like <code>and</code>, <code>or</code>, and
+        <code>not</code>:
+      </p>
+      <ul class="feature-list">
+        <li><strong>and:</strong> Both conditions must be True.</li>
+        <li><strong>or:</strong> At least one condition must be True.</li>
+        <li><strong>not:</strong> Reverses the condition (True becomes False and vice versa).</li>
+      </ul>
+
+      <p>Example:</p>
+      <pre>
+age = 20
+has_ticket = True
+if age >= 18 and has_ticket:
+    print("You can enter the event.")
+else:
+    print("You cannot enter the event.")
+  </pre>
+      <p>Output: <code>You can enter the event.</code></p>
+
+      <h2>Summary</h2>
+      <p>Conditional statements help the program make decisions. The <code>if</code> statement checks if a condition is
+        True, and if so, runs the code inside it. The <code>else</code> block runs if the condition is False. The
+        <code>elif</code> allows you to check additional conditions. You can also combine conditions using logical
+        operators.
+      </p>
+      <p>In Python, remember that indentation and the colon are essential for the correct structure of the code. The
+        colon denotes the start of the code block, and proper indentation defines the block.</p>
+      <p>In the next lesson, we’ll explore how to use loops to repeat tasks in Python!</p>
+
+      <h2>Test Your Knowledge: Conditional Statements</h2>
+
+      <p>Now, let's check your understanding of conditional statements in Python! Answer the following questions:</p>
+
+
+
+
+      <h3>1. What is the correct way to write a conditional statement in Python?</h3>
+
+
+
+      <ul class="feature-list">
+        <li class="radio-item">
+          <input type="radio" id="q1a1" name="q1" value="A">
+          <label for="q1a1">if condition then: </label>
+        </li>
+        <li class="radio-item">
+          <input type="radio" id="q1a2" name="q1" value="B">
+          <label for="q1a2">if condition:</label>
+        </li>
+        <li class="radio-item">
+          <input type="radio" id="q1a3" name="q1" value="C">
+          <label for="q1a3">if (condition) {</label>
+        </li>
+        <li class="radio-item">
+          <input type="radio" id="q1a4" name="q1" value="D">
+          <label for="q1a4">if condition do:</label>
+        </li>
+      </ul>
+
+      <h3>2. Which statement is used to check another condition if the first condition is False?</h3>
+      <ul class="feature-list">
+        <li class="radio-item">
+          <input type="radio" id="q2a1" name="q2" value="A">
+          <label for="q2a1">else</label>
+        </li>
+        <li class="radio-item">
+          <input type="radio" id="q2a2" name="q2" value="B">
+          <label for="q2a2">elif</label>
+        </li>
+        <li class="radio-item">
+          <input type="radio" id="q2a3" name="q2" value="C">
+          <label for="q2a3">if</label>
+        </li>
+        <li class="radio-item">
+          <input type="radio" id="q2a4" name="q2" value="D">
+          <label for="q2a4">while</label>
+        </li>
+      </ul>
+
+      <h3>3. What is the output of the following code?</h3>
+      <pre>
+    x = 15
+    if x > 10:
+        print("Greater")
+    else:
+        print("Smaller")
+  </pre>
+      <ul class="feature-list">
+        <li class="radio-item">
+          <input type="radio" id="q3a1" name="q3" value="A">
+          <label for="q3a1">Greater</label>
+        </li>
+        <li class="radio-item">
+          <input type="radio" id="q3a2" name="q3" value="B">
+          <label for="q3a2">Smaller</label>
+        </li>
+        <li class="radio-item">
+          <input type="radio" id="q3a3" name="q3" value="C">
+          <label for="q3a3">Error</label>
+        </li>
+        <li class="radio-item">
+          <input type="radio" id="q3a4" name="q3" value="D">
+          <label for="q3a4">Nothing</label>
+        </li>
+      </ul>
+
+      <h3>4. What does the logical operator `or` do in conditional statements?</h3>
+      <ul class="feature-list">
+        <li class="radio-item">
+          <input type="radio" id="q4a1" name="q4" value="A">
+          <label for="q4a1">It checks if both conditions are true</label>
+        </li>
+        <li class="radio-item">
+          <input type="radio" id="q4a2" name="q4" value="B">
+          <label for="q4a2">It checks if at least one condition is true</label>
+        </li>
+        <li class="radio-item">
+          <input type="radio" id="q4a3" name="q4" value="C">
+          <label for="q4a3">It reverses the condition</label>
+        </li>
+        <li class="radio-item">
+          <input type="radio" id="q4a4" name="q4" value="D">
+          <label for="q4a4">It checks if both conditions are false</label>
+        </li>
+      </ul>
+
+      <h3>5. What will be the output of the following code?</h3>
+      <pre>
+    x = 7
+    if x > 10:
+        print("Greater than 10")
+    elif x == 7:
+        print("Equal to 7")
+    else:
+        print("Less than or equal to 10")
+  </pre>
+      <ul class="feature-list">
+        <li class="radio-item">
+          <input type="radio" id="q5a1" name="q5" value="A">
+          <label for="q5a1">Greater than 10</label>
+        </li>
+        <li class="radio-item">
+          <input type="radio" id="q5a2" name="q5" value="B">
+          <label for="q5a2">Equal to 7</label>
+        </li>
+        <li class="radio-item">
+          <input type="radio" id="q5a3" name="q5" value="C">
+          <label for="q5a3">Less than or equal to 10</label>
+        </li>
+        <li class="radio-item">
+          <input type="radio" id="q5a4" name="q5" value="D">
+          <label for="q5a4">Nothing</label>
+        </li>
+      </ul>
+
+
+
+      <p>Answer the questions and check how well you've understood conditional statements in Python!</p>
+
+      <button onclick="checkAnswers()">Submit</button>
+
+      <div id="result" style="margin-top: 20px; font-weight: bold;"></div>
+      <div id="explanation" style="margin-top: 20px; font-weight: normal;"></div>
+    </div>
+
+    <script>
+      function checkAnswers() {
+        var correctAnswers = 0;
+        var explanationText = "";
+
+        if (document.getElementById('q1a2').checked) {
+          correctAnswers++;
+        } else {
+          explanationText += "<p>Q1: The correct answer is 'if condition:'. This is the correct syntax for a conditional statement in Python.</p>";
+        }
+
+        if (document.getElementById('q2a2').checked) {
+          correctAnswers++;
+        } else {
+          explanationText += "<p>Q2: The correct answer is 'elif'. It's used when you want to check another condition if the first one is false.</p>";
+        }
+
+        if (document.getElementById('q3a1').checked) {
+          correctAnswers++;
+        } else {
+          explanationText += "<p>Q3: The correct answer is 'Greater'. The condition 'x > 10' is true because 15 is greater than 10.</p>";
+        }
+
+        if (document.getElementById('q4a2').checked) {
+          correctAnswers++;
+        } else {
+          explanationText += "<p>Q4: The correct answer is 'It checks if at least one condition is true'. The 'or' operator checks if either of the conditions is true.</p>";
+        }
+
+        if (document.getElementById('q5a2').checked) {
+          correctAnswers++;
+        } else {
+          explanationText += "<p>Q5: The correct answer is 'Equal to 7'. The 'elif' condition checks if x is equal to 7, which is true in this case.</p>";
+        }
+
+        document.getElementById('result').innerHTML = 'You got ' + correctAnswers + ' out of 5 questions correct!';
+        document.getElementById('explanation').innerHTML = explanationText;
+      }
+    </script>
+
+
+
+
+
+
+  </main>
+
+
+  <div id="footer-placeholder"></div>
+
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.5/dist/js/bootstrap.bundle.min.js"
+    integrity="sha384-k6d4wzSIapyDyv1kpU366/PK5hCdSbCRGRCMv+eplOQJWyd1fbcAu9OCUj5zNLiq"
+    crossorigin="anonymous"></script>
+</body>
+
+</html>

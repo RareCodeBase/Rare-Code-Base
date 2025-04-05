@@ -1,0 +1,272 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+:root {
+  --primary-color: #007bff;
+  --secondary-color: #3399cc;
+}
+
+[data-bs-theme="dark"] {
+  --primary-color: #66aaff;
+  --secondary-color: #99ccee;
+}
+
+
+
+
+body {
+  margin: 0;
+  padding: 0;
+  height: 100vh;
+  display: flex;
+  flex-direction: column;
+}
+
+#navbar-placeholder {
+  position: fixed;
+  top: 0;
+  width: 100%;
+}
+
+.content {
+  border-radius: 8px;
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+  padding: 10px;
+  margin-left: 280px;
+  margin-top: 56px;
+  width: 100%;
+}
+
+main {
+  flex: 1;
+}
+
+
+pre {
+  background-color: #252526;
+  color: #dcdcaa;
+  padding: 15px;
+  border-radius: 5px;
+  font-size: 16px;
+  overflow: auto;
+  width: 60%;
+  box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.5);
+}
+
+
+.content p,
+.content h1,
+.content h2,
+.content ul {
+  margin: 0 0 15px;
+}
+
+.content p {
+  font-size: 16px;
+}
+
+h1 {
+  font-size: 28px;
+  color: #444;
+  text-align: center;
+  padding: 20px;
+  background: linear-gradient(to right, #007bff, #00c6ff);
+  color: white;
+  margin: 0;
+}
+
+h2 {
+  font-size: 22px;
+  color: var(--primary-color);
+  ;
+  margin-top: 20px;
+  padding-top: 15px;
+  border-top: 1px solid #eee;
+}
+
+h3 {
+  font-size: 18px;
+  color: var(--secondary-color);
+  margin-top: 15px;
+  padding-top: 10px;
+}
+
+
+ul.feature-list li strong,
+ul.usage-list li strong,
+ul.beginner-benefits li strong {
+  color: var(--primary-color);
+}
+
+
+button {
+  background-color: #007bff;
+  color: #ffffff;
+  border: none;
+  padding: 10px 15px;
+  font-size: 16px;
+  border-radius: 4px;
+  cursor: pointer;
+}
+
+.content button:hover {
+  background-color: #0056b3;
+}
+
+
+.site-footer {
+  background: linear-gradient(145deg, #1a1e23, #24292f);
+  color: white;
+  padding: 2.5rem 1rem;
+  border-top: 1px solid rgba(255, 255, 255, 0.1);
+  margin-left: 280px;
+}
+
+.site-footer-container {
+  max-width: 1200px;
+  margin: auto;
+}
+
+.site-footer-flex {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between;
+  align-items: center;
+  gap: 1.5rem;
+  padding-bottom: 2rem;
+  border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+}
+
+.site-footer-links {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 1.25rem;
+  justify-content: center;
+}
+
+.site-footer-link {
+  color: rgba(255, 255, 255, 0.85);
+  padding: 0.5rem 0.75rem;
+  transition: 0.3s;
+  text-decoration: none;
+  font-size: 1rem;
+}
+
+.site-footer-link:hover {
+  color: #0dcaf0;
+}
+
+.site-footer-social {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 1rem;
+  justify-content: center;
+}
+
+.site-footer-btn {
+  display: inline-flex;
+  align-items: center;
+  padding: 0.6rem 1.2rem;
+  border-radius: 8px;
+  font-size: 0.95rem;
+  font-weight: 500;
+  transition: all 0.3s ease;
+  border: 1px solid transparent;
+  text-decoration: none;
+}
+
+.site-footer-btn img {
+  width: 20px;
+  height: 20px;
+  margin-right: 8px;
+}
+
+.site-footer-telegram {
+  background: rgba(13, 202, 240, 0.1);
+  color: #0dcaf0;
+  border-color: rgba(13, 202, 240, 0.3);
+}
+
+.site-footer-github {
+  background: rgba(255, 255, 255, 0.05);
+  color: white;
+  border-color: rgba(255, 255, 255, 0.2);
+}
+
+.site-footer-btn:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
+}
+
+.site-footer-credit {
+  text-align: center;
+  margin-top: 2rem;
+  font-size: 0.9rem;
+  color: rgba(255, 255, 255, 0.6);
+}
+
+@media (max-width: 1024px) {
+  .site-footer{
+    margin-left: 0;
+  }
+  .site-footer-flex {
+    flex-direction: column;
+    align-items: center;
+    gap: 1.5rem;
+  }
+
+  .site-footer-links,
+  .site-footer-social {
+    justify-content: center;
+  }
+}
+
+
+
+
+@media (max-width: 991px) {
+  .content {
+    margin-left: 0;
+    margin-top: 110px;
+  }
+
+  h1 {
+    font-size: 24px;
+  }
+
+  h2 {
+    font-size: 18px;
+  }
+
+  p {
+    font-size: 14px;
+  }
+
+  ul li {
+    font-size: 14px;
+  }
+
+  #navbar-placeholder {
+    position: fixed;
+    top: 0;
+    z-index: 4;
+  }
+
+  #sidebar-placeholder {
+    position: fixed;
+    top: 60px;
+    margin-left: 10px;
+  }
+
+  .offcanvas {
+    margin-top: 56px;
+  }
+
+  pre {
+
+    width: 100%;
+  }
+}
