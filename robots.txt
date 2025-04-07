@@ -1,0 +1,5 @@
+User-agent: *
+Disallow: /navbar.html
+Disallow: /footer.html
+
+Sitemap: https://rarecodebase.com/sitemap.xml
