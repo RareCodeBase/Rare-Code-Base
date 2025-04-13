@@ -14,6 +14,7 @@ main {
 }
 
 .card-img-top {
+    margin-top: 4px;
     height: 200px;
     object-fit: contain;
 }
