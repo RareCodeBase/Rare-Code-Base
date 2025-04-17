@@ -124,3 +124,30 @@ gtagConfig.innerHTML = `
   gtag('config', 'AW-17002522934');
 `;
 document.head.appendChild(gtagConfig);
+
+(function () {
+  const bootstrapLink = document.createElement('link');
+  bootstrapLink.rel = 'stylesheet';
+  bootstrapLink.href = 'https://cdn.jsdelivr.net/npm/bootstrap@5.3.5/dist/css/bootstrap.min.css';
+  bootstrapLink.integrity = 'sha384-SgOJa3DmI69IUzQ2PVdRZhwQ+dy64/BUtbMJw1MZ8t5HZApcHrRKUc4W0kG879m7';
+  bootstrapLink.crossOrigin = 'anonymous';
+
+  const head = document.head;
+
+  const metaTags = head.getElementsByTagName('meta');
+  if (metaTags.length > 0) {
+    head.insertBefore(bootstrapLink, metaTags[metaTags.length - 1].nextSibling);
+  } else {
+    head.insertBefore(bootstrapLink, head.firstChild);
+  }
+
+  const bootstrapScript = document.createElement('script');
+  bootstrapScript.src = 'https://cdn.jsdelivr.net/npm/bootstrap@5.3.5/dist/js/bootstrap.bundle.min.js';
+  bootstrapScript.integrity = 'sha384-k6d4wzSIapyDyv1kpU366/PK5hCdSbCRGRCMv+eplOQJWyd1fbcAu9OCUj5zNLiq';
+  bootstrapScript.crossOrigin = 'anonymous';
+  bootstrapScript.defer = true;
+
+  window.addEventListener('DOMContentLoaded', function () {
+    document.body.appendChild(bootstrapScript);
+  });
+})();
