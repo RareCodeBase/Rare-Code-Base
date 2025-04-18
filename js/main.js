@@ -111,20 +111,6 @@ function searchTutorials() {
 }
 
 
-const gtagScript = document.createElement("script");
-gtagScript.setAttribute("async", "");
-gtagScript.src = "https://www.googletagmanager.com/gtag/js?id=AW-17002522934";
-document.head.appendChild(gtagScript);
-
-const gtagConfig = document.createElement("script");
-gtagConfig.innerHTML = `
-  window.dataLayer = window.dataLayer || [];
-  function gtag(){dataLayer.push(arguments);}
-  gtag('js', new Date());
-  gtag('config', 'AW-17002522934');
-`;
-document.head.appendChild(gtagConfig);
-
 const gaScript = document.createElement('script');
 gaScript.async = true;
 gaScript.src = 'https://www.googletagmanager.com/gtag/js?id=G-1K1KMDF6ND';
