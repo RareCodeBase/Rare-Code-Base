@@ -1,0 +1,112 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Setting Up Monitor Mode - Rare Code Base</title>
+
+  <meta name="description"
+    content="Learn how to enable monitor mode on your wireless adapter using airmon-ng. Step-by-step guide for ethical hackers and cybersecurity learners." />
+  <meta name="keywords"
+    content="monitor mode, airmon-ng, Wi-Fi hacking, wireless adapter, network monitoring, penetration testing, Kali Linux, packet capture" />
+
+  <link rel="stylesheet" href="/css/styles.css" />
+  <link rel="icon" href="/favicon.ico" type="image/x-icon" />
+
+  <script src="/js/main.js" defer></script>
+  <script src="/js/sidebar.js" defer></script>
+</head>
+
+<body>
+
+  <div id="navbar-placeholder"></div>
+
+  <main class="d-lg-flex flex-nowrap d-block">
+    <div id="sidebar-placeholder"></div>
+
+    <div class="content">
+      <h1>Setting Up Monitor Mode</h1>
+
+      <p>
+        <strong>Monitor mode</strong> is a special mode for wireless network adapters that allows you to capture all
+        wireless traffic in your range, even if it's not directed to you. It is essential for Wi-Fi hacking, penetration
+        testing, and network analysis.
+      </p>
+
+      <h2>What You Need</h2>
+      <ul>
+        <li>A Linux-based system like <strong>Kali Linux</strong>.</li>
+        <li>A wireless network adapter that supports <strong>monitor mode</strong> and <strong>packet
+            injection</strong>.</li>
+        <li>Pre-installed tools like <code>aircrack-ng</code> (comes with Kali).</li>
+      </ul>
+
+      <h2>Step-by-Step: Enabling Monitor Mode</h2>
+
+      <h3>1. Check Your Wireless Interface</h3>
+      <pre><code>iwconfig</code></pre>
+      <p>
+        This will show your wireless interface name, often something like <code>wlan0</code> or <code>wlan1</code>.
+      </p>
+
+      <h3>2. Kill Conflicting Processes</h3>
+      <pre><code>sudo airmon-ng check kill</code></pre>
+      <p>
+        This stops any processes (like NetworkManager) that may interfere with monitor mode.
+      </p>
+
+      <h3>3. Enable Monitor Mode</h3>
+      <pre><code>sudo airmon-ng start wlan0</code></pre>
+      <p>
+        Replace <code>wlan0</code> with your actual interface name. After this command, your interface will likely
+        change to
+        <code>wlan0mon</code>.
+      </p>
+
+      <h3>4. Confirm Monitor Mode</h3>
+      <pre><code>iwconfig</code></pre>
+      <p>
+        Check if <code>wlan0mon</code> is listed as being in <strong>Monitor</strong> mode.
+      </p>
+
+      <h3>5. Use Monitor Mode in Other Tools</h3>
+      <p>
+        Now that your adapter is in monitor mode, you can use tools like <code>airodump-ng</code>,
+        <code>Wireshark</code>,
+        or <code>bettercap</code> to capture and analyze wireless traffic.
+      </p>
+
+      <h2>How to Stop Monitor Mode</h2>
+      <p>To return to normal (managed) mode:</p>
+      <pre><code>sudo airmon-ng stop wlan0mon</code></pre>
+      <p>Then restart NetworkManager (if you use it):</p>
+      <pre><code>sudo systemctl restart NetworkManager</code></pre>
+
+      <h2>Troubleshooting Tips</h2>
+      <ul>
+        <li>If <code>airmon-ng</code> doesn't work, make sure the adapter supports monitor mode.</li>
+        <li>Use <code>lsusb</code> to identify your adapter model if needed.</li>
+        <li>If you're using a virtual machine, ensure USB Wi-Fi is passed through properly.</li>
+      </ul>
+
+      <h2>Legal and Ethical Note</h2>
+      <p>
+        Monitor mode should only be used on networks you own or have explicit permission to analyze. Capturing data from
+        unauthorized networks is illegal and unethical. Always test in a safe lab environment.
+      </p>
+
+      <h2>Conclusion</h2>
+      <p>
+        Setting up monitor mode is one of the first steps in wireless penetration testing. Once enabled, it unlocks
+        advanced capabilities for analyzing Wi-Fi traffic and discovering vulnerabilities in networks you are authorized
+        to test.
+      </p>
+    </div>
+  </main>
+
+  <div id="footer-placeholder"></div>
+
+</body>
+
+</html>

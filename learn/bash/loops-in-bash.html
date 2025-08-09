@@ -1,0 +1,186 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Loops in Bash Scripting - For, While, Until Explained</title>
+
+  <meta name="description"
+    content="Learn how to use for, while, and until loops in Bash scripting. Beginner-friendly guide with simple explanations and examples. Perfect for Linux shell script learners." />
+  <meta name="keywords"
+    content="bash loops, for loop bash, while loop bash, until loop bash, beginner bash tutorial, bash scripting basics" />
+
+  <link rel="stylesheet" href="/css/styles.css" />
+  <link rel="icon" href="/favicon.ico" type="image/x-icon" />
+  <script src="/js/main.js" defer></script>
+  <script src="/js/sidebar.js" defer></script>
+</head>
+
+<body>
+
+  <div id="navbar-placeholder"></div>
+
+  <main class="d-lg-flex flex-nowrap d-block">
+    <div id="sidebar-placeholder"></div>
+
+    <div class="content">
+      <h1>Loops in Bash Scripting (for, while, until)</h1>
+
+      <p>
+        A <strong>loop</strong> lets you run a block of code again and again. In Bash scripting, we mostly use:
+      </p>
+      <ul>
+        <li><strong>for loop</strong> – Repeats for a fixed number of times</li>
+        <li><strong>while loop</strong> – Repeats as long as the condition is true</li>
+        <li><strong>until loop</strong> – Repeats until the condition becomes true</li>
+      </ul>
+
+      <h2>1. For Loop (Fixed Repetition)</h2>
+      <pre><code>#!/bin/bash
+
+# Print numbers from 1 to 5
+for i in {1..5}
+do
+  echo "Number: $i"
+done
+</code></pre>
+
+      <h3>Explanation:</h3>
+      <ul>
+        <li><code>for i in {1..5}</code> runs the loop 5 times</li>
+        <li><code>$i</code> takes values from 1 to 5</li>
+        <li><code>done</code> is used to end the loop</li>
+      </ul>
+
+      <h2>2. For Loop with List</h2>
+      <pre><code>#!/bin/bash
+
+# Loop through names
+for name in Alice Bob Charlie
+do
+  echo "Hello, $name"
+done
+</code></pre>
+
+      <h3>Explanation:</h3>
+      <ul>
+        <li>This loop runs 3 times (one for each name)</li>
+        <li><code>$name</code> takes each value from the list</li>
+      </ul>
+
+      <h2>3. While Loop (Condition Based)</h2>
+      <pre><code>#!/bin/bash
+
+count=1
+
+# Repeat while count is less than or equal to 5
+while [ $count -le 5 ]
+do
+  echo "Count: $count"
+  ((count++)) # Increase count by 1
+done
+</code></pre>
+
+      <h3>Explanation:</h3>
+      <ul>
+        <li><code>while [ $count -le 5 ]</code> keeps running as long as the condition is true</li>
+        <li><code>((count++))</code> increases count by 1</li>
+      </ul>
+
+      <h2>4. Until Loop (Opposite of While)</h2>
+      <pre><code>#!/bin/bash
+
+n=1
+
+# Run until n becomes greater than 5
+until [ $n -gt 5 ]
+do
+  echo "n = $n"
+  ((n++))
+done
+</code></pre>
+
+      <h3>Explanation:</h3>
+      <ul>
+        <li><code>until</code> keeps running <strong>while the condition is false</strong></li>
+        <li>Here it runs until <code>n</code> is greater than 5</li>
+      </ul>
+
+      <h2>5. Looping Through Files</h2>
+      <pre><code>#!/bin/bash
+
+# List all .txt files in the current directory
+for file in *.txt
+do
+  echo "Found file: $file"
+done
+</code></pre>
+
+      <h3>Explanation:</h3>
+      <ul>
+        <li><code>*.txt</code> matches all files ending with .txt</li>
+        <li><code>$file</code> holds each filename in the loop</li>
+      </ul>
+
+      <h2>6. Infinite Loop (Be Careful!)</h2>
+      <pre><code>#!/bin/bash
+
+# Infinite loop example (press Ctrl+C to stop)
+while true
+do
+  echo "This will keep running..."
+  sleep 1
+done
+</code></pre>
+
+      <h3>Explanation:</h3>
+      <ul>
+        <li><code>while true</code> never becomes false, so it loops forever</li>
+        <li><code>sleep 1</code> pauses for 1 second between each loop</li>
+      </ul>
+
+      <h2>Tips for Beginners</h2>
+      <ul>
+        <li>Always close loops with <code>done</code></li>
+        <li>Use <code>break</code> to stop a loop early</li>
+        <li>Use <code>continue</code> to skip current step and move to next</li>
+      </ul>
+
+      <h2>Example with break & continue</h2>
+      <pre><code>#!/bin/bash
+
+for i in {1..10}
+do
+  if [ $i -eq 3 ]; then
+    echo "Skipping 3"
+    continue
+  fi
+
+  if [ $i -eq 8 ]; then
+    echo "Stopping at 8"
+    break
+  fi
+
+  echo "i = $i"
+done
+</code></pre>
+
+      <h3>Explanation:</h3>
+      <ul>
+        <li><code>continue</code> skips step 3</li>
+        <li><code>break</code> stops the loop when <code>i = 8</code></li>
+      </ul>
+
+      <h2>Conclusion</h2>
+      <p>
+        Loops are a key part of Bash scripting. They help repeat tasks, go through lists, and process files. Practice using them in real tasks to get comfortable.
+      </p>
+    </div>
+  </main>
+
+  <div id="footer-placeholder"></div>
+
+</body>
+
+</html>

@@ -1,0 +1,137 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Introduction to Wi-Fi Hacking - Rare Code Base</title>
+
+  <meta name="description"
+    content="Learn the basics of Wi-Fi hacking, including types of Wi-Fi encryption, attack methods, tools used, and ethical guidelines. Beginner-friendly and informative." />
+  <meta name="keywords"
+    content="Wi-Fi hacking, wireless security, WEP WPA WPA2 WPA3, aircrack-ng, ethical hacking, penetration testing, Wi-Fi attack methods, cyber security" />
+
+  <link rel="stylesheet" href="/css/styles.css" />
+  <link rel="icon" href="/favicon.ico" type="image/x-icon" />
+
+  <script src="/js/main.js" defer></script>
+  <script src="/js/sidebar.js" defer></script>
+</head>
+
+<body>
+
+  <div id="navbar-placeholder"></div>
+
+  <main class="d-lg-flex flex-nowrap d-block">
+    <div id="sidebar-placeholder"></div>
+
+    <div class="content">
+      <h1>Introduction to Wi-Fi Hacking</h1>
+
+      <p>
+        Wi-Fi hacking refers to the practice of identifying and exploiting vulnerabilities in wireless networks for
+        ethical or unauthorized purposes. Ethical hackers use these techniques to test network security and fix
+        potential
+        weaknesses before malicious attackers exploit them.
+      </p>
+
+      <h2>Understanding Wi-Fi Encryption Types</h2>
+      <ul>
+        <li><strong>WEP (Wired Equivalent Privacy):</strong> An old and weak encryption method, easily broken with
+          modern tools.</li>
+        <li><strong>WPA (Wi-Fi Protected Access):</strong> Improved over WEP, but still vulnerable with weak passwords.
+        </li>
+        <li><strong>WPA2:</strong> Most widely used today; secure if configured with a strong password.</li>
+        <li><strong>WPA3:</strong> The latest and most secure standard, but not yet supported everywhere.</li>
+      </ul>
+
+      <h2>Common Wi-Fi Hacking Methods</h2>
+      <ul>
+        <li><strong>Packet Sniffing:</strong> Capturing packets from a network to analyze data or crack passwords.</li>
+        <li><strong>Deauthentication Attack:</strong> Disconnecting devices from a Wi-Fi network to capture handshake
+          packets.</li>
+        <li><strong>Brute Force Attack:</strong> Trying many password combinations to gain access.</li>
+        <li><strong>Evil Twin Attack:</strong> Creating a fake Wi-Fi access point to trick users into connecting.</li>
+      </ul>
+
+      <h2>Tools Commonly Used in Wi-Fi Hacking</h2>
+      <ul>
+        <li><strong>Aircrack-ng:</strong> Suite of tools for monitoring and cracking Wi-Fi networks.</li>
+        <li><strong>Wireshark:</strong> Network packet analyzer to inspect traffic.</li>
+        <li><strong>Reaver:</strong> Tool used to crack WPS-enabled routers.</li>
+        <li><strong>Bettercap:</strong> Powerful network attack and monitoring tool.</li>
+        <li><strong>Kismet:</strong> Wireless network detector and sniffer.</li>
+      </ul>
+
+      <h2>Legal and Ethical Use</h2>
+      <p>
+        Wi-Fi hacking should only be performed:
+      </p>
+      <ul>
+        <li>In environments where you have explicit permission (e.g., a lab or authorized penetration test).</li>
+        <li>For educational, research, or professional cybersecurity purposes.</li>
+        <li>Never on networks that you do not own or have authorization to access. Unauthorized access is illegal and
+          punishable by law.</li>
+      </ul>
+
+      <h2>Prerequisites and Best Practices</h2>
+      <ul>
+        <li>Use a Linux-based system like Kali Linux that has hacking tools pre-installed.</li>
+        <li>Ensure your wireless adapter supports monitor mode and packet injection.</li>
+        <li>Understand basic networking concepts like IP addressing, MAC addresses, and protocols (TCP/UDP).</li>
+        <li>Always log your tests and report vulnerabilities responsibly if working in an organizational environment.
+        </li>
+      </ul>
+
+      <h2>Getting Started (Example Scenario)</h2>
+      <ol>
+        <li>Open a terminal and check your wireless adapter:
+          <pre><code>iwconfig</code></pre>
+        </li>
+        <li>Enable monitor mode on your wireless interface (e.g., wlan0):
+          <pre><code>airmon-ng start wlan0</code></pre>
+          This will create a new interface like <code>wlan0mon</code>.
+        </li>
+        <li>Use airodump-ng to scan for nearby Wi-Fi networks:
+          <pre><code>airodump-ng wlan0mon</code></pre>
+          Note the BSSID (MAC address) and channel (CH) of the target network.
+        </li>
+        <li>Focus on a specific network and capture the handshake:
+          <pre><code>airodump-ng --bssid [Target-BSSID] -c [Channel] -w capture wlan0mon</code></pre>
+          Replace <code>[Target-BSSID]</code> and <code>[Channel]</code> with the actual values.
+        </li>
+        <li>Open another terminal to send deauthentication packets to force a device to reconnect:
+          <pre><code>aireplay-ng --deauth 10 -a [Target-BSSID] wlan0mon</code></pre>
+          This helps capture the handshake when a device reconnects.
+        </li>
+        <li>Once the handshake is captured (you'll see "WPA handshake" at the top of airodump-ng), use aircrack-ng with
+          a wordlist:
+          <pre><code>aircrack-ng -w /path/to/wordlist.txt -b [Target-BSSID] capture-01.cap</code></pre>
+        </li>
+      </ol>
+
+      <p>
+        If the password is in the wordlist, aircrack-ng will reveal it. This example assumes you are working in a legal
+        and ethical testing environment. Never perform these steps on unauthorized networks.
+      </p>
+
+
+      <p>
+        This is a simplified example of how penetration testers evaluate wireless network security. Always act
+        responsibly and within the boundaries of the law.
+      </p>
+
+      <h2>Conclusion</h2>
+      <p>
+        Wi-Fi hacking plays a crucial role in cybersecurity when used ethically. By learning how attackers exploit
+        weaknesses, you can better protect wireless networks from real-world threats. Continue learning, but always
+        follow legal and ethical guidelines.
+      </p>
+    </div>
+  </main>
+
+  <div id="footer-placeholder"></div>
+
+</body>
+
+</html>

@@ -1,0 +1,160 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Functions in Bash Scripting - Beginner Friendly Guide</title>
+
+  <meta name="description"
+    content="Learn how to use functions in Bash scripting with simple examples. Understand function syntax, how to pass arguments, return values, and reuse code easily." />
+  <meta name="keywords"
+    content="bash functions, bash scripting, shell script functions, function arguments bash, beginner bash tutorial" />
+
+  <link rel="stylesheet" href="/css/styles.css" />
+  <link rel="icon" href="/favicon.ico" type="image/x-icon" />
+  <script src="/js/main.js" defer></script>
+  <script src="/js/sidebar.js" defer></script>
+</head>
+
+<body>
+
+  <div id="navbar-placeholder"></div>
+
+  <main class="d-lg-flex flex-nowrap d-block">
+    <div id="sidebar-placeholder"></div>
+
+    <div class="content">
+      <h1>Functions in Bash Scripting</h1>
+
+      <p>
+        A <strong>function</strong> in Bash is a block of code you can reuse. It helps avoid repeating the same code again and again. You can call a function anytime in your script after defining it.
+      </p>
+
+      <h2>Why Use Functions?</h2>
+      <ul>
+        <li>Organize your script better</li>
+        <li>Make code easier to read and maintain</li>
+        <li>Reuse the same code many times</li>
+      </ul>
+
+      <h2>1. Simple Function Example</h2>
+      <pre><code>#!/bin/bash
+
+# Define a function named greet
+greet() {
+  echo "Hello! Welcome to Bash scripting."
+}
+
+# Call (run) the function
+greet
+</code></pre>
+
+      <h3>Explanation:</h3>
+      <ul>
+        <li><code>greet()</code> is the function name</li>
+        <li>Code inside <code>{ }</code> runs when the function is called</li>
+        <li><code>greet</code> at the end calls the function</li>
+      </ul>
+
+      <h2>2. Function with Arguments</h2>
+      <pre><code>#!/bin/bash
+
+# Function that takes two arguments
+say_hello() {
+  echo "Hello, $1!"
+  echo "Your role is: $2"
+}
+
+# Call the function with two arguments
+say_hello "Alice" "Developer"
+</code></pre>
+
+      <h3>Explanation:</h3>
+      <ul>
+        <li><code>$1</code> is the first argument ("Alice")</li>
+        <li><code>$2</code> is the second argument ("Developer")</li>
+        <li>You can pass any values while calling the function</li>
+      </ul>
+
+      <h2>3. Function with Return Value</h2>
+      <pre><code>#!/bin/bash
+
+# Function that returns the sum of two numbers
+add_numbers() {
+  local sum=$(( $1 + $2 ))  # Add arguments
+  return $sum               # Return result
+}
+
+add_numbers 4 6             # Call function
+result=$?                   # Capture the returned value
+echo "Sum is: $result"
+</code></pre>
+
+      <h3>Explanation:</h3>
+      <ul>
+        <li><code>return</code> can only return numbers (0-255)</li>
+        <li><code>$?</code> holds the last return value</li>
+        <li><code>local</code> keeps <code>sum</code> variable inside the function</li>
+      </ul>
+
+      <p><strong>Note:</strong> Use <code>echo</code> to return text values instead of <code>return</code>.</p>
+
+      <h2>4. Return Text from Function</h2>
+      <pre><code>#!/bin/bash
+
+# Function to return full name
+full_name() {
+  echo "$1 $2"
+}
+
+# Store result in a variable
+name=$(full_name "John" "Doe")
+echo "Your full name is: $name"
+</code></pre>
+
+      <h3>Explanation:</h3>
+      <ul>
+        <li><code>$(...)</code> captures the output of the function</li>
+        <li>Useful for returning strings</li>
+      </ul>
+
+      <h2>5. Check If Function Exists</h2>
+      <pre><code>#!/bin/bash
+
+# Check if a function is already defined
+type greet &>/dev/null
+
+if [ $? -eq 0 ]; then
+  echo "Function 'greet' exists."
+else
+  echo "Function 'greet' not found."
+fi
+</code></pre>
+
+      <h3>Explanation:</h3>
+      <ul>
+        <li><code>type</code> checks if a function/command exists</li>
+        <li><code>$?</code> tells whether it was found</li>
+      </ul>
+
+      <h2>Best Practices</h2>
+      <ul>
+        <li>Use lowercase names for functions: <code>my_function</code></li>
+        <li>Keep functions short and simple</li>
+        <li>Put function definitions at the top of your script</li>
+        <li>Use comments to explain what each function does</li>
+      </ul>
+
+      <h2>Conclusion</h2>
+      <p>
+        Functions are very useful in Bash scripting. They help you write clean, reusable, and organized code. Practice writing your own functions and using them in real scripts.
+      </p>
+    </div>
+  </main>
+
+  <div id="footer-placeholder"></div>
+
+</body>
+
+</html>

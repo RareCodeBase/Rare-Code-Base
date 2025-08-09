@@ -1,0 +1,153 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Deauthentication Attack & WPA2 Handshake - Rare Code Base</title>
+
+  <meta name="description"
+    content="Learn how to perform a Wi-Fi Deauthentication Attack using aireplay-ng and capture WPA/WPA2 handshakes. Full command explanation for ethical hacking and penetration testing." />
+  <meta name="keywords"
+    content="aireplay-ng deauth, WPA handshake, Deauthentication attack, Wi-Fi hacking, Kali Linux, ethical hacking, aircrack-ng suite" />
+
+  <link rel="stylesheet" href="/css/styles.css" />
+  <link rel="icon" href="/favicon.ico" type="image/x-icon" />
+  <script src="/js/main.js" defer></script>
+  <script src="/js/sidebar.js" defer></script>
+</head>
+
+<body>
+
+  <div id="navbar-placeholder"></div>
+
+  <main class="d-lg-flex flex-nowrap d-block">
+    <div id="sidebar-placeholder"></div>
+
+    <div class="content">
+      <h1>Deauthentication Attack Using <code>aireplay-ng</code></h1>
+
+      <p>
+        <strong>aireplay-ng</strong> is a tool from the <strong>Aircrack-ng suite</strong> used for injecting packets
+        into a wireless network.
+        One of its popular features is sending <strong>Deauthentication packets</strong> to disconnect devices from a
+        Wi-Fi network. Ethical hackers use this to capture handshakes or test Wi-Fi robustness.
+      </p>
+
+      <h2>What is a Deauthentication Attack?</h2>
+      <p>
+        A Deauthentication Attack is a type of <em>wireless network attack</em> where the attacker sends
+        <strong>deauthentication frames</strong> to Wi-Fi clients, forcing them to disconnect from the access point.
+      </p>
+      <p>
+        In Wi-Fi protocols, deauthentication is a legitimate feature that allows a network administrator
+        to disconnect a device intentionally. However, attackers can exploit this feature to repeatedly
+        disconnect clients and capture WPA/WPA2 handshake packets during their reconnection attempts.
+      </p>
+
+      <h3>Why is it Used?</h3>
+      <ul>
+        <li><strong>Ethical Hacking:</strong> To test network security and resilience.</li>
+        <li><strong>Penetration Testing:</strong> To capture handshake packets for WPA/WPA2 password testing.</li>
+        <li><strong>Network Troubleshooting:</strong> To temporarily disconnect rogue or suspicious devices.</li>
+      </ul>
+      <p><strong>Important:</strong> Performing this attack without permission is <strong>illegal</strong> in most
+        countries.</p>
+
+      <h2>Legal Warning</h2>
+      <p>
+        Only use these tools in environments you <strong>own or have written permission</strong> to test. Unauthorized
+        use of Wi-Fi hacking tools is illegal and unethical.
+      </p>
+
+      <h2>Prerequisites</h2>
+      <ul>
+        <li><strong>Kali Linux</strong> or similar OS with Aircrack-ng installed</li>
+        <li><strong>Wi-Fi adapter</strong> that supports monitor mode and packet injection</li>
+        <li>Root (sudo) access</li>
+      </ul>
+
+      <h2>Step-by-Step: Deauth Attack with <code>aireplay-ng</code></h2>
+
+      <h3>Step 1: Enable Monitor Mode</h3>
+      <pre><code>sudo airmon-ng start wlan0</code></pre>
+      <p><strong>Explanation:</strong> This puts your Wi-Fi adapter into <em>monitor mode</em>, which is needed for
+        sending/receiving raw 802.11 packets.</p>
+      <p>After running this, your interface name may change to <code>wlan0mon</code>.</p>
+
+      <h3>Step 2: Scan for Nearby Wi-Fi Networks</h3>
+      <pre><code>sudo airodump-ng wlan0mon</code></pre>
+      <p><strong>Explanation:</strong> Shows all nearby access points (APs) and clients connected to them.</p>
+      <ul>
+        <li>Note the <strong>BSSID</strong> (MAC address of the router)</li>
+        <li>Note the <strong>Channel (CH)</strong></li>
+      </ul>
+      <p>Once you have the details, press <strong>CTRL + C</strong> to exit this scan.</p>
+
+      <h3>Step 3: Focus on Target Access Point</h3>
+      <pre><code>sudo airodump-ng --bssid [Router-BSSID] -c [Channel] wlan0mon</code></pre>
+      <p><strong>Explanation:</strong> Monitors only the selected router and shows connected clients.</p>
+      <ul>
+        <li>Replace <code>[Router-BSSID]</code> with the actual MAC address</li>
+        <li>Replace <code>[Channel]</code> with the actual channel number</li>
+      </ul>
+      <p><strong>Important:</strong> Keep this terminal <em>running</em> if you want to capture the WPA/WPA2 handshake.
+      </p>
+
+      <h3>Step 4: Run aireplay-ng in a Separate Terminal</h3>
+      <p>While <code>airodump-ng</code> is running in one terminal, open a <strong>new terminal window or tab</strong>
+        and run:</p>
+      <pre><code>sudo aireplay-ng --deauth 100 -a [Router-BSSID] -c [Client-MAC] wlan0mon</code></pre>
+
+      <p><strong>Explanation of Flags:</strong></p>
+      <ul>
+        <li><code>--deauth 100</code> – Send 100 deauthentication packets.</li>
+        <li><code>--deauth 0</code> – Send deauthentication packets continuously (infinite) until you manually stop with
+          <code>CTRL + C</code>.
+          <strong>Warning:</strong> This is more disruptive and should only be used in a controlled lab environment.
+        </li>
+        <li><code>-a</code> – The router's MAC address (BSSID).</li>
+        <li><code>-c</code> – The client’s MAC address (optional). If omitted, all clients will be disconnected.</li>
+        <li><code>wlan0mon</code> – Your interface in monitor mode.</li>
+      </ul>
+
+      <h3>Example Commands:</h3>
+      <pre><code># Send 50 packets to a single client
+sudo aireplay-ng --deauth 50 -a 00:11:22:33:44:55 -c AA:BB:CC:DD:EE:FF wlan0mon
+
+# Send infinite packets until stopped manually
+sudo aireplay-ng --deauth 0 -a 00:11:22:33:44:55 wlan0mon
+</code></pre>
+
+      <h2>Capturing WPA/WPA2 Handshake</h2>
+      <p>
+        Once you start a deauthentication attack, clients will try to reconnect to the Wi-Fi.
+        If you are running <code>airodump-ng</code> at the same time, you can capture the WPA/WPA2 handshake.
+      </p>
+
+      <h3>Step 1: Start Capturing</h3>
+      <pre><code>sudo airodump-ng --bssid 00:11:22:33:44:55 -c [Channel] -w handshake wlan0mon</code></pre>
+      <ul>
+        <li><code>--bssid</code> – Target router's MAC address</li>
+        <li><code>-c</code> – Channel number</li>
+        <li><code>-w</code> – File name to save capture (e.g., handshake.cap)</li>
+      </ul>
+
+      <h3>Step 2: Trigger Reconnection</h3>
+      <p>In another terminal, run your deauth command (including <code>--deauth 0</code> if you want continuous packets)
+        to make clients reconnect.</p>
+
+      <h3>Step 3: Check for Handshake</h3>
+      <p>Look at the top right of the <code>airodump-ng</code> window for:</p>
+      <pre><code>[ WPA handshake: 00:11:22:33:44:55 ]</code></pre>
+
+      <h2>Stopping Monitor Mode</h2>
+      <pre><code>sudo airmon-ng stop wlan0mon</code></pre>
+    </div>
+  </main>
+
+  <div id="footer-placeholder"></div>
+
+</body>
+
+</html>

@@ -1,0 +1,104 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Introduction to Bash Scripting - Rare Code Base</title>
+
+  <meta name="description"
+    content="A beginner-friendly introduction to Bash scripting in very simple words. Learn what Bash is, what scripts are, and why they are useful in Linux." />
+  <meta name="keywords"
+    content="Bash scripting, simple bash tutorial, Linux shell basics, beginner guide, automation basics" />
+
+  <link rel="stylesheet" href="/css/styles.css" />
+  <link rel="icon" href="/favicon.ico" type="image/x-icon" />
+  <script src="/js/main.js" defer></script>
+  <script src="/js/sidebar.js" defer></script>
+</head>
+
+<body>
+
+  <div id="navbar-placeholder"></div>
+
+  <main class="d-lg-flex flex-nowrap d-block">
+    <div id="sidebar-placeholder"></div>
+
+    <div class="content">
+      <h1>Introduction to Bash Scripting (Simple Guide)</h1>
+
+      <p>
+        Bash scripting is a way to make your computer do a set of commands automatically.  
+        Instead of typing commands one by one in the terminal, you can put them into a file and run that file.  
+        This saves time and reduces mistakes.
+      </p>
+
+      <h2>What is Bash?</h2>
+      <p>
+        Bash stands for <strong>Bourne Again Shell</strong>.  
+        It’s the program in Linux that lets you type commands and talk to your computer.  
+        You type commands in the terminal, and Bash makes them work.
+      </p>
+
+      <h2>What is a Bash Script?</h2>
+      <p>
+        A Bash script is simply a text file where you write commands.  
+        When you run the script, all those commands run automatically, one after another.
+      </p>
+
+      <h2>Why Use Bash Scripts?</h2>
+      <ul>
+        <li>To save time by automating tasks</li>
+        <li>To avoid typing the same commands again and again</li>
+        <li>To make work faster and easier</li>
+      </ul>
+
+      <h2>Creating a Very Simple Bash Script</h2>
+
+      <h3>Step 1: Open a Terminal</h3>
+      <p>
+        Use any Linux terminal (like Ubuntu, Kali, or Termux).
+      </p>
+
+      <h3>Step 2: Create a New File</h3>
+      <pre><code>nano hello.sh</code></pre>
+      <p>
+        This opens a new file named <code>hello.sh</code> in the Nano editor.
+      </p>
+
+      <h3>Step 3: Write Your Script</h3>
+      <pre><code>#!/bin/bash
+echo "Hello, world!"</code></pre>
+      <p>
+        <strong>Explanation:</strong><br>
+        <code>#!/bin/bash</code> → Tells the computer to use Bash to run the file.<br>
+        <code>echo "Hello, world!"</code> → Prints the words “Hello, world!” on the screen.
+      </p>
+
+      <h3>Step 4: Save and Exit</h3>
+      <p>
+        Press <code>CTRL + X</code>, then press <code>Y</code> and <code>Enter</code> to save.
+      </p>
+
+      <h3>Step 5: Give Permission to Run</h3>
+      <pre><code>chmod +x hello.sh</code></pre>
+
+      <h3>Step 6: Run the Script</h3>
+      <pre><code>./hello.sh</code></pre>
+      <p>You should see this output:</p>
+      <pre><code>Hello, world!</code></pre>
+
+      <h2>Conclusion</h2>
+      <p>
+        Bash scripting is like making a to-do list for your computer.  
+        Once you write the list (the script), the computer can follow it step-by-step without you typing each command.  
+        Start with simple scripts and later you can learn advanced things.
+      </p>
+    </div>
+  </main>
+
+  <div id="footer-placeholder"></div>
+
+</body>
+
+</html>

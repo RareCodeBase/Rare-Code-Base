@@ -1,0 +1,118 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Strings, Numbers, and User Input in Bash - Rare Code Base</title>
+
+  <meta name="description"
+    content="Learn strings, numbers, and user input in Bash scripting. Beginner-friendly guide with examples and explanations for read and read -p." />
+  <meta name="keywords"
+    content="bash variables, bash strings, bash numbers, bash read input, beginner bash script tutorial, linux shell scripting" />
+
+  <link rel="stylesheet" href="/css/styles.css" />
+  <link rel="icon" href="/favicon.ico" type="image/x-icon" />
+  <script src="/js/main.js" defer></script>
+  <script src="/js/sidebar.js" defer></script>
+</head>
+
+<body>
+
+  <div id="navbar-placeholder"></div>
+
+  <main class="d-lg-flex flex-nowrap d-block">
+    <div id="sidebar-placeholder"></div>
+
+    <div class="content">
+      <h1>Strings, Numbers, and User Input in Bash</h1>
+
+      <p>
+        In Bash scripting, a <strong>string</strong> is text, a <strong>number</strong> is used for calculations,  
+        and <strong>variables</strong> store them for later use.  
+        You can also take <strong>user input</strong> to make your script interactive.
+      </p>
+
+      <h2>1. Strings</h2>
+      <p>
+        A string is any text inside quotes.
+      </p>
+      <pre><code>name="Liam"
+echo "My name is $name"</code></pre>
+
+      <h2>2. Numbers</h2>
+      <p>
+        Numbers don’t need quotes and are used for calculations.
+      </p>
+      <pre><code>age=25
+echo "I am $age years old"</code></pre>
+
+      <h2>3. Taking User Input</h2>
+      <p>
+        You can ask the user to type something during script execution.
+      </p>
+      <pre><code>echo "Enter your name:"
+read username
+echo "Hello, $username!"</code></pre>
+
+      <h3>Explanation:</h3>
+      <ul>
+        <li><code>echo</code> displays a message</li>
+        <li><code>read</code> waits for input and stores it in a variable</li>
+        <li><code>$username</code> is replaced with the value entered by the user</li>
+      </ul>
+
+      <h2>4. Using <code>read -p</code></h2>
+      <p>
+        <code>-p</code> lets you ask the question and take input in the same line.
+      </p>
+      <pre><code>read -p "Enter your favorite number: " favnum
+echo "Your favorite number is $favnum"</code></pre>
+
+      <h3>Why use <code>read -p</code>?</h3>
+      <ul>
+        <li>Shorter code</li>
+        <li>Question and input happen in one step</li>
+      </ul>
+
+      <h2>5. Numbers and Calculations</h2>
+      <pre><code>read -p "Enter first number: " num1
+read -p "Enter second number: " num2
+
+sum=$((num1 + num2))
+echo "The sum is: $sum"</code></pre>
+
+      <h3>Explanation:</h3>
+      <ul>
+        <li><code>$((...))</code> is for arithmetic in Bash</li>
+        <li><code>sum</code> stores the result</li>
+      </ul>
+
+      <h2>6. Full Example Script</h2>
+      <pre><code>#!/bin/bash
+# This script shows strings, numbers, and user input
+
+read -p "Enter your name: " name
+echo "Hello, $name!"
+
+read -p "Enter your age: " age
+echo "You are $age years old."
+
+read -p "Enter first number: " n1
+read -p "Enter second number: " n2
+sum=$((n1 + n2))
+echo "The sum of $n1 and $n2 is $sum."</code></pre>
+
+      <h2>Conclusion</h2>
+      <p>
+        Strings store text, numbers are for math, and variables hold both.  
+        With <code>read</code> and <code>read -p</code>, you can easily take input from the user.  
+        These basics are essential for writing interactive Bash scripts.
+      </p>
+    </div>
+  </main>
+
+  <div id="footer-placeholder"></div>
+
+</body>
+</html>
