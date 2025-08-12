@@ -111,14 +111,63 @@ main {
 }
 
 .tutorial-card .card {
-    border: 2px solid;
-    border-radius: 15px;
-    transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+  font-size: 0.9rem;
+  border-radius: 0.5rem;
+  overflow: hidden;
+  box-shadow: 0 2px 6px rgba(0, 0, 0, 0.05);
+  transition: transform 0.2s ease, box-shadow 0.2s ease;
 }
 
 .tutorial-card .card:hover {
-    transform: translateY(-10px);
-    box-shadow: 0 12px 24px rgba(0, 0, 0, 0.15);
+  transform: translateY(-4px);
+  box-shadow: 0 6px 16px rgba(0, 0, 0, 0.1);
+}
+
+.tutorial-card .card-header {
+  padding: 0.75rem 1rem;
+}
+
+.tutorial-card .card-body {
+  padding: 0.9rem 1rem;
+}
+
+.tutorial-card .card-text {
+  font-size: 0.85rem;
+  line-height: 1.5;
+  margin-bottom: 0.75rem;
+}
+
+
+.tutorial-section .card {
+    border-radius: 0.75rem;
+    transition: transform 0.2s ease, box-shadow 0.2s ease;
+}
+
+.tutorial-section .card:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 8px 20px rgba(0, 0, 0, 0.1);
+}
+
+.tutorial-section .card-title {
+    font-weight: 600;
+    font-size: 1rem;
+}
+
+.tutorial-section .card-text {
+    font-size: 0.875rem;
+    line-height: 1.4;
+}
+
+.tutorial-section .card .btn {
+    margin-top: 0.75rem;
+    font-weight: 500;
+    border-radius: 0.5rem;
+}
+
+.tutorial-section .section-heading {
+    font-size: 1.8rem;
+    font-weight: 700;
+    color: #343a40;
 }
 
 .btn-custom {
@@ -132,7 +181,7 @@ main {
     justify-content: center;
     gap: 0.5rem;
     text-align: center;
-  }
+}
   
 
 .btn-custom:hover {
