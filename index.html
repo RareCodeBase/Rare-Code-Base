@@ -23,6 +23,10 @@
     content="Rare Code Base offers free ethical hacking, programming tutorials, cybersecurity insights, and much more. Access expert resources to learn coding, master ethical hacking, explore tech trends, and stay ahead in the ever-evolving world of technology.">
   <meta name="twitter:image" content="https://www.rarecodebase.com/assets/images/image.png">
 
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&display=swap"
+    rel="stylesheet">
 
   <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.5/dist/css/bootstrap.min.css" rel="stylesheet"
     integrity="sha384-SgOJa3DmI69IUzQ2PVdRZhwQ+dy64/BUtbMJw1MZ8t5HZApcHrRKUc4W0kG879m7" crossorigin="anonymous">
@@ -32,24 +36,25 @@
   <link rel="icon" href="/favicon.ico" type="image/x-icon">
 
   <!-- Google tag (gtag.js) -->
-<script async src="https://www.googletagmanager.com/gtag/js?id=G-1K1KMDF6ND"></script>
-<script>
-  window.dataLayer = window.dataLayer || [];
-  function gtag(){dataLayer.push(arguments);}
-  gtag('js', new Date());
+  <script async src="https://www.googletagmanager.com/gtag/js?id=G-1K1KMDF6ND"></script>
+  <script>
+    window.dataLayer = window.dataLayer || [];
+    function gtag() { dataLayer.push(arguments); }
+    gtag('js', new Date());
 
-  gtag('config', 'G-1K1KMDF6ND');
-</script>
+    gtag('config', 'G-1K1KMDF6ND');
+  </script>
 </head>
 
 <body onload="initializeDarkMode();">
   <header>
-    <nav class="navbar navbar-expand-lg bg-body-tertiary navbar-placeholder">
-      <div class="container-fluid">
+    <nav class="navbar navbar-expand-lg navbar-modern">
+      <div class="container-fluid px-4">
         <a class="navbar-brand d-flex align-items-center" href="/">
-          <img src="/assets/images/icon.png" alt="Logo" width="30" height="30" style="border-radius: 3px;"
-            class="d-inline-block align-text-top me-2">
-          Rare Code Base
+          <div class="logo-container">
+            <img src="/assets/images/icon.png" alt="Logo" class="logo-img">
+          </div>
+          <span class="brand-text">Rare Code Base</span>
         </a>
         <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent"
           aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
@@ -63,7 +68,7 @@
             <li class="nav-item"><a class="nav-link" href="/privacy-policy.html">Privacy Policy</a></li>
             <li class="nav-item dropdown">
               <a class="nav-link dropdown-toggle" href="#" data-bs-toggle="dropdown">More</a>
-              <ul class="dropdown-menu">
+              <ul class="dropdown-menu modern-dropdown">
                 <li><a class="dropdown-item" href="/learn/python/what_is_python.html">Python</a></li>
                 <li><a class="dropdown-item" href="/learn/ethical_hacking/what_is_ethical_hacking.html">Ethical
                     Hacking</a></li>
@@ -82,14 +87,28 @@
               </ul>
             </li>
           </ul>
-          <form class="d-flex" onsubmit="event.preventDefault(); searchTutorials();">
-            <input class="form-control me-2" type="search" id="searchInput" placeholder="Search">
-            <button class="btn btn-outline-success" type="submit">Search</button>
+          <form class="d-flex search-form" onsubmit="event.preventDefault(); searchTutorials();">
+            <input class="form-control search-input" type="search" id="searchInput" placeholder="Search tutorials...">
+            <button class="btn btn-search" type="submit">
+              <svg width="16" height="16" fill="currentColor" viewBox="0 0 16 16">
+                <path
+                  d="M11.742 10.344a6.5 6.5 0 1 0-1.397 1.398h-.001c.03.04.062.078.098.115l3.85 3.85a1 1 0 0 0 1.415-1.414l-3.85-3.85a1.007 1.007 0 0 0-.115-.1zM12 6.5a5.5 5.5 0 1 1-11 0 5.5 5.5 0 0 1 11 0z" />
+              </svg>
+            </button>
           </form>
 
-          <div class="form-check form-switch ms-3">
+          <div class="form-check form-switch theme-toggle">
             <input class="form-check-input" type="checkbox" id="darkModeToggle" onclick="toggleDarkMode();">
-            <label class="form-check-label" for="darkModeToggle">Dark Mode</label>
+            <label class="form-check-label" for="darkModeToggle">
+              <svg class="sun-icon" width="16" height="16" fill="currentColor" viewBox="0 0 16 16">
+                <path
+                  d="M8 11a3 3 0 1 1 0-6 3 3 0 0 1 0 6zm0 1a4 4 0 1 0 0-8 4 4 0 0 0 0 8zM8 0a.5.5 0 0 1 .5.5v2a.5.5 0 0 1-1 0v-2A.5.5 0 0 1 8 0zm0 13a.5.5 0 0 1 .5.5v2a.5.5 0 0 1-1 0v-2A.5.5 0 0 1 8 13zm8-5a.5.5 0 0 1-.5.5h-2a.5.5 0 0 1 0-1h2a.5.5 0 0 1 .5.5zM3 8a.5.5 0 0 1-.5.5h-2a.5.5 0 0 1 0-1h2A.5.5 0 0 1 3 8zm10.657-5.657a.5.5 0 0 1 0 .707l-1.414 1.415a.5.5 0 1 1-.707-.708l1.414-1.414a.5.5 0 0 1 .707 0zm-9.193 9.193a.5.5 0 0 1 0 .707L3.05 13.657a.5.5 0 0 1-.707-.707l1.414-1.414a.5.5 0 0 1 .707 0zm9.193 2.121a.5.5 0 0 1-.707 0l-1.414-1.414a.5.5 0 0 1 .707-.707l1.414 1.414a.5.5 0 0 1 0 .707zM4.464 4.465a.5.5 0 0 1-.707 0L2.343 3.05a.5.5 0 1 1 .707-.707l1.414 1.414a.5.5 0 0 1 0 .708z" />
+              </svg>
+              <svg class="moon-icon" width="16" height="16" fill="currentColor" viewBox="0 0 16 16">
+                <path
+                  d="M6 .278a.768.768 0 0 1 .08.858 7.208 7.208 0 0 0-.878 3.46c0 4.021 3.278 7.277 7.318 7.277.527 0 1.04-.055 1.533-.16a.787.787 0 0 1 .81.316.733.733 0 0 1-.031.893A8.349 8.349 0 0 1 8.344 16C3.734 16 0 12.286 0 7.71 0 4.266 2.114 1.312 5.124.06A.752.752 0 0 1 6 .278z" />
+              </svg>
+            </label>
           </div>
         </div>
       </div>
@@ -98,127 +117,217 @@
 
   <main>
     <section class="hero-section">
-      <div class="hero-overlay"></div>
-      <div class="hero-content">
-        <h1 class="display-4 fw-bold">Rare Code Base</h1>
-        <div class="col-lg-8 mx-auto">
-          <p class="lead">Master Python, Ethical Hacking, Cybersecurity, and more.</p>
-          <div class="d-grid gap-3 d-sm-flex justify-content-sm-center">
-            <a href="/learn/python/what_is_python.html" class="btn btn-light btn-custom">
-              Python
+      <div class="hero-background">
+        <div class="hero-gradient"></div>
+        <div class="hero-pattern"></div>
+      </div>
+      <div class="container">
+        <div class="hero-content">
+          <div class="hero-badge">
+            <span>Learn • Build • Secure</span>
+          </div>
+          <h1 class="hero-title">Rare Code Base</h1>
+          <p class="hero-subtitle">Learn Programming, Ethical Hacking, Cybersecurity, and cutting-edge technologies with
+            our comprehensive tutorials and hands-on learning experiences.</p>
+          <div class="hero-cta">
+            <a href="/learn/python/what_is_python.html" class="btn btn-hero-primary">
+              <svg width="20" height="20" fill="currentColor" viewBox="0 0 16 16">
+                <path
+                  d="M8 4.754a3.246 3.246 0 1 0 0 6.492 3.246 3.246 0 0 0 0-6.492zM5.754 8a2.246 2.246 0 1 1 4.492 0 2.246 2.246 0 0 1-4.492 0z" />
+                <path
+                  d="M9.796 1.343c-.527-1.79-3.065-1.79-3.592 0l-.094.319a.873.873 0 0 1-1.255.52l-.292-.16c-1.64-.892-3.433.902-2.54 2.541l.159.292a.873.873 0 0 1-.52 1.255l-.319.094c-1.79.527-1.79 3.065 0 3.592l.319.094a.873.873 0 0 1 .52 1.255l-.16.292c-.892 1.64.901 3.434 2.541 2.54l.292-.159a.873.873 0 0 1 1.255.52l.094.319c.527 1.79 3.065 1.79 3.592 0l.094-.319a.873.873 0 0 1 1.255-.52l.292.16c1.64.893 3.434-.902 2.54-2.541l-.159-.292a.873.873 0 0 1 .52-1.255l.319-.094c1.79-.527 1.79-3.065 0-3.592l-.319-.094a.873.873 0 0 1-.52-1.255l.16-.292c.893-1.64-.902-3.433-2.541-2.54l-.292.159a.873.873 0 0 1-1.255-.52l-.094-.319z" />
+              </svg>
+              Start with Python
             </a>
-            <a href="/learn/ethical_hacking/what_is_ethical_hacking.html" class="btn btn-outline-light btn-custom">
-              Ethical Hacking
+            <a href="/learn/ethical_hacking/what_is_ethical_hacking.html" class="btn btn-hero-secondary">
+              <svg width="20" height="20" fill="currentColor" viewBox="0 0 16 16">
+                <path
+                  d="M5.338 1.59a61.44 61.44 0 0 0-2.837.856.481.481 0 0 0-.328.39c-.554 4.157.726 7.19 2.253 9.188a10.725 10.725 0 0 0 2.287 2.233c.346.244.652.42.893.533.12.057.218.095.293.118a.55.55 0 0 0 .101.025.615.615 0 0 0 .1-.025c.076-.023.174-.061.294-.118.24-.113.547-.29.893-.533a10.726 10.726 0 0 0 2.287-2.233c1.527-1.997 2.807-5.031 2.253-9.188a.48.48 0 0 0-.328-.39c-.651-.213-1.75-.56-2.837-.855C9.552 1.29 8.531 1.067 8 1.067c-.53 0-1.552.223-2.662.524zM5.072.56C6.157.265 7.31 0 8 0s1.843.265 2.928.56c1.11.3 2.229.655 2.887.87a1.54 1.54 0 0 1 1.044 1.262c.596 4.477-.787 7.795-2.465 9.99a11.775 11.775 0 0 1-2.517 2.453 7.159 7.159 0 0 1-1.048.625c-.28.132-.581.24-.829.24s-.548-.108-.829-.24a7.158 7.158 0 0 1-1.048-.625 11.777 11.777 0 0 1-2.517-2.453C1.928 10.487.545 7.169 1.141 2.692A1.54 1.54 0 0 1 2.185 1.43 62.456 62.456 0 0 1 5.072.56z" />
+              </svg>
+              Explore Ethical Hacking
             </a>
           </div>
         </div>
       </div>
     </section>
 
-    <div id="tutorials" class="container py-5">
-      <div class="text-center">
-        <h2 class="section-heading">Explore Our Tutorials</h2>
+    <section class="tutorials-section">
+      <div class="container">
+        <div class="section-header">
+          <h2 class="section-title">Featured Tutorials</h2>
+          <p class="section-subtitle">Easy-to-follow tutorials to build knowledge step by step</p>
+        </div>
+
+        <div class="row g-4">
+          <div class="col-12 col-lg-6">
+            <div class="tutorial-card featured-card python-card">
+              <div class="card-header">
+                <div class="card-icon">
+                  <img src="/assets/images/python.png" alt="Python" class="tutorial-icon">
+                </div>
+                <div class="card-meta">
+                  <span class="tutorial-badge python-badge">Programming</span>
+                  <h3 class="card-title">Python Mastery</h3>
+                </div>
+              </div>
+              <div class="card-body">
+                <p class="card-description">Master Python from basics to advanced concepts. Learn the most popular
+                  programming language for web development, automation, data science, and AI.</p>
+                <div class="card-features">
+                  <span class="feature-tag">Beginner Friendly</span>
+                  <span class="feature-tag">Real-world Examples</span>
+                </div>
+                <a href="/learn/python/what_is_python.html" class="btn btn-card-primary">
+                  Start Learning Python
+                  <svg width="16" height="16" fill="currentColor" viewBox="0 0 16 16">
+                    <path fill-rule="evenodd"
+                      d="M1 8a.5.5 0 0 1 .5-.5h11.793l-3.147-3.146a.5.5 0 0 1 .708-.708l4 4a.5.5 0 0 1 0 .708l-4 4a.5.5 0 0 1-.708-.708L13.293 8.5H1.5A.5.5 0 0 1 1 8z" />
+                  </svg>
+                </a>
+              </div>
+            </div>
+          </div>
+
+          <div class="col-12 col-lg-6">
+            <div class="tutorial-card featured-card hacking-card">
+              <div class="card-header">
+                <div class="card-icon">
+                  <img src="/assets/images/ethical_hacking.png" alt="Ethical Hacking" class="tutorial-icon">
+                </div>
+                <div class="card-meta">
+                  <span class="tutorial-badge security-badge">Security</span>
+                  <h3 class="card-title">Ethical Hacking</h3>
+                </div>
+              </div>
+              <div class="card-body">
+                <p class="card-description">Learn penetration testing, network security, and ethical hacking
+                  methodologies to protect digital assets and systems.</p>
+                <div class="card-features">
+                  <span class="feature-tag">Learn Ethical Hacking</span>
+                  <span class="feature-tag">Practical Tools & Techniques</span>
+                </div>
+                <a href="/learn/ethical_hacking/what_is_ethical_hacking.html" class="btn btn-card-secondary">
+                  Start Hacking Ethically
+                  <svg width="16" height="16" fill="currentColor" viewBox="0 0 16 16">
+                    <path fill-rule="evenodd"
+                      d="M1 8a.5.5 0 0 1 .5-.5h11.793l-3.147-3.146a.5.5 0 0 1 .708-.708l4 4a.5.5 0 0 1 0 .708l-4 4a.5.5 0 0 1-.708-.708L13.293 8.5H1.5A.5.5 0 0 1 1 8z" />
+                  </svg>
+                </a>
+              </div>
+            </div>
+          </div>
+
+          <div class="col-12 col-md-6">
+            <div class="tutorial-card standard-card">
+              <div class="card-header">
+                <div class="card-icon">
+                  <img src="/assets/images/privilege_escalation.png" alt="Linux Privilege Escalation"
+                    class="tutorial-icon">
+                </div>
+                <div class="card-meta">
+                  <span class="tutorial-badge system-badge">System</span>
+                  <h3 class="card-title">Linux Privilege Escalation</h3>
+                </div>
+              </div>
+              <div class="card-body">
+                <p class="card-description">Master advanced techniques to identify and exploit system vulnerabilities
+                  for privilege escalation in Linux environments.</p>
+                <a href="/learn/linux-privilege-escalation/" class="btn btn-card-outline">
+                  Learn Techniques
+                  <svg width="16" height="16" fill="currentColor" viewBox="0 0 16 16">
+                    <path fill-rule="evenodd"
+                      d="M1 8a.5.5 0 0 1 .5-.5h11.793l-3.147-3.146a.5.5 0 0 1 .708-.708l4 4a.5.5 0 0 1 0 .708l-4 4a.5.5 0 0 1-.708-.708L13.293 8.5H1.5A.5.5 0 0 1 1 8z" />
+                  </svg>
+                </a>
+              </div>
+            </div>
+          </div>
+
+          <div class="col-12 col-md-6">
+            <div class="tutorial-card standard-card">
+              <div class="card-header">
+                <div class="card-icon">
+                  <img src="/assets/images/python-for-hackers.png" alt="Python for Hackers" class="tutorial-icon">
+                </div>
+                <div class="card-meta">
+                  <span class="tutorial-badge automation-badge">Automation</span>
+                  <h3 class="card-title">Python for Hackers</h3>
+                </div>
+              </div>
+              <div class="card-body">
+                <p class="card-description">Combine Python programming with ethical hacking to create powerful
+                  automation tools for penetration testing and security analysis.</p>
+                <a href="/learn/python-for-hackers/index.html" class="btn btn-card-outline">
+                  Build Tools
+                  <svg width="16" height="16" fill="currentColor" viewBox="0 0 16 16">
+                    <path fill-rule="evenodd"
+                      d="M1 8a.5.5 0 0 1 .5-.5h11.793l-3.147-3.146a.5.5 0 0 1 .708-.708l4 4a.5.5 0 0 1 0 .708l-4 4a.5.5 0 0 1-.708-.708L13.293 8.5H1.5A.5.5 0 0 1 1 8z" />
+                  </svg>
+                </a>
+              </div>
+            </div>
+          </div>
+        </div>
       </div>
-      <div class="row row-cols-1 row-cols-md-2 g-4">
-        <div class="col tutorial-card">
-          <div class="card h-100 border-primary">
-            <div class="card-header bg-primary text-white py-3">
-              <h5 class="mb-0">Python Mastery</h5>
+    </section>
+
+    <section class="more-tutorials-section">
+      <div class="container">
+        <div class="section-header">
+          <h2 class="section-title">More Tutorials</h2>
+          <p class="section-subtitle">Expand your knowledge with specialized topics</p>
+        </div>
+
+        <div class="row g-4">
+          <div class="col-12 col-sm-6 col-lg-4 col-xl-3">
+            <div class="mini-tutorial-card wifi-card">
+              <div class="mini-card-icon">
+                <svg width="24" height="24" fill="currentColor" viewBox="0 0 16 16">
+                  <path
+                    d="M15.384 6.115a.485.485 0 0 0-.047-.736A12.444 12.444 0 0 0 8 3C5.259 3 2.723 3.882.663 5.379a.485.485 0 0 0-.048.736.518.518 0 0 0 .668.05A11.448 11.448 0 0 1 8 4c2.507 0 4.827.802 6.716 2.164.205.148.49.13.668-.049z" />
+                  <path
+                    d="M13.229 8.271a.482.482 0 0 0-.063-.745A9.455 9.455 0 0 0 8 6c-1.905 0-3.68.56-5.166 1.526a.48.48 0 0 0-.063.745.525.525 0 0 0 .652.065A8.46 8.46 0 0 1 8 7a8.46 8.46 0 0 1 4.576 1.336c.206.132.48.108.653-.065zm-2.183 2.183c.226-.226.185-.605-.1-.75A6.473 6.473 0 0 0 8 9c-1.06 0-2.062.254-2.946.704-.285.145-.326.524-.1.75l.015.015c.16.16.407.19.611.09A5.478 5.478 0 0 1 8 10c.868 0 1.69.201 2.42.56.203.1.45.07.61-.091l.016-.015zM9.06 12.44c.196-.196.198-.52-.04-.66A1.99 1.99 0 0 0 8 11.5a1.99 1.99 0 0 0-1.02.28c-.238.14-.236.464-.04.66l.706.706a.5.5 0 0 0 .708 0l.707-.707z" />
+                </svg>
+              </div>
+              <div class="mini-card-content">
+                <h4 class="mini-card-title">WiFi Hacking</h4>
+                <p class="mini-card-description">Master wireless security testing and WPA/WPA2 cracking techniques.</p>
+                <a href="/learn/wifi-hacking/" class="btn btn-mini">
+                  Explore WiFi
+                  <svg width="14" height="14" fill="currentColor" viewBox="0 0 16 16">
+                    <path fill-rule="evenodd"
+                      d="M1 8a.5.5 0 0 1 .5-.5h11.793l-3.147-3.146a.5.5 0 0 1 .708-.708l4 4a.5.5 0 0 1 0 .708l-4 4a.5.5 0 0 1-.708-.708L13.293 8.5H1.5A.5.5 0 0 1 1 8z" />
+                  </svg>
+                </a>
+              </div>
             </div>
-            <img src="/assets/images/python.png" class="card-img-top" alt="Python Programming Tutorials" loading="lazy">
-            <div class="card-body">
-              <p class="card-text text-muted">Learn Python, the most popular programming language for web development,
-                automation, and data science.</p>
-              <a href="/learn/python/what_is_python.html" class="btn btn-primary btn-custom">
-                Learn Python
-              </a>
+          </div>
+
+          <div class="col-12 col-sm-6 col-lg-4 col-xl-3">
+            <div class="mini-tutorial-card bash-card">
+              <div class="mini-card-icon">
+                <svg width="24" height="24" fill="currentColor" viewBox="0 0 16 16">
+                  <path
+                    d="M6 12.5a.5.5 0 0 1 .5-.5h3a.5.5 0 0 1 0 1h-3a.5.5 0 0 1-.5-.5ZM3 8a.5.5 0 0 1 .5-.5h9a.5.5 0 0 1 0 1h-9A.5.5 0 0 1 3 8Zm2 3a.5.5 0 0 1 .5-.5h6a.5.5 0 0 1 0 1h-6A.5.5 0 0 1 5 11ZM1.5 0A1.5 1.5 0 0 0 0 1.5v13A1.5 1.5 0 0 0 1.5 16h13a1.5 1.5 0 0 0 1.5-1.5v-13A1.5 1.5 0 0 0 14.5 0h-13ZM1 1.5a.5.5 0 0 1 .5-.5h13a.5.5 0 0 1 .5.5v13a.5.5 0 0 1-.5.5h-13a.5.5 0 0 1-.5-.5v-13Z" />
+                </svg>
+              </div>
+              <div class="mini-card-content">
+                <h4 class="mini-card-title">Bash Scripting</h4>
+                <p class="mini-card-description">Automate tasks and streamline workflows with powerful bash scripting.
+                </p>
+                <a href="/learn/bash/" class="btn btn-mini">
+                  Start Bash
+                  <svg width="14" height="14" fill="currentColor" viewBox="0 0 16 16">
+                    <path fill-rule="evenodd"
+                      d="M1 8a.5.5 0 0 1 .5-.5h11.793l-3.147-3.146a.5.5 0 0 1 .708-.708l4 4a.5.5 0 0 1 0 .708l-4 4a.5.5 0 0 1-.708-.708L13.293 8.5H1.5A.5.5 0 0 1 1 8z" />
+                  </svg>
+                </a>
+              </div>
             </div>
           </div>
         </div>
-
-        <div class="col tutorial-card">
-          <div class="card h-100 border-secondary">
-            <div class="card-header bg-secondary text-white py-3">
-              <h5 class="mb-0">Linux Privilege Escalation</h5>
-            </div>
-            <img src="/assets/images/privilege_escalation.png" class="card-img-top"
-              alt="Privilege Escalation Tutorial" loading="lazy">
-            <div class="card-body">
-              <p class="card-text text-muted">Understand and exploit common misconfigurations to gain elevated
-                privileges in Linux systems.</p>
-              <a href="/learn/linux-privilege-escalation/" class="btn btn-secondary btn-custom">
-                Linux Privilege Escalation
-              </a>
-            </div>
-          </div>  
-        </div>
-
-        <div class="col tutorial-card">
-          <div class="card h-100 border-info">
-            <div class="card-header bg-info text-white py-3">
-              <h5 class="mb-0">Python for Hackers</h5>
-            </div>
-            <img src="/assets/images/python-for-hackers.png" class="card-img-top" alt="Python for Hackers"
-              loading="lazy">
-            <div class="card-body">
-              <p class="card-text text-muted">Master Python scripting to automate ethical hacking tasks like scanning,
-                brute forcing, and exploiting vulnerabilities.</p>
-              <a href="/learn/python-for-hackers/index.html" class="btn btn-info btn-custom" style="color: white;">
-                Learn Python Hacking
-              </a>
-            </div>
-          </div>
-        </div>
-
-        <div class="col tutorial-card">
-          <div class="card h-100 border-danger">
-            <div class="card-header bg-danger text-white py-3">
-              <h5 class="mb-0">Ethical Hacking</h5>
-            </div>
-            <img src="/assets/images/ethical_hacking.png" class="card-img-top" alt="Ethical Hacking Courses"
-              loading="lazy">
-            <div class="card-body">
-              <p class="card-text text-muted">Learn penetration testing, network security, and ethical hacking
-                methodologies.</p>
-              <a href="/learn/ethical_hacking/what_is_ethical_hacking.html" class="btn btn-danger btn-custom">
-                Learn Ethical Hacking
-              </a>
-            </div>
-          </div>
-        </div>
-        
       </div>
-    </div>
-
-    <div class="container py-5 tutorial-section">
-      <div class="text-center mb-4">
-        <h2 class="section-heading">More Tutorials</h2>
-      </div>
-      <div class="row g-3">
-
-        <div class="col-12 col-sm-6 col-md-4 col-lg-3">
-          <div class="card border-primary h-100">
-            <div class="card-body">
-              <h6 class="card-title">WiFi Hacking</h6>
-              <p class="card-text text-muted small">Crack WPA/WPA2, sniff packets & more.</p>
-              <a href="/learn/wifi-hacking/" class="btn btn-sm btn-primary">Explore WiFi</a>
-            </div>
-          </div>
-        </div>
-
-        <div class="col-12 col-sm-6 col-md-4 col-lg-3">
-          <div class="card border-success h-100">
-            <div class="card-body">
-              <h6 class="card-title">Bash Scripting</h6>
-              <p class="card-text text-muted small">Automate tasks in Linux.</p>
-              <a href="/learn/bash/" class="btn btn-sm btn-success">Start Bash</a>
-            </div>
-          </div>
-        </div>
-
-      </div>
-    </div>
-    
+    </section>
   </main>
 
   <footer class="site-footer">
@@ -236,7 +345,8 @@
             <img src="/assets/images/telegram.png" alt="Telegram">
             Join Telegram Group
           </a>
-          <a href="https://github.com/RareCodeBase/Rare-Code-Base" target="_blank" class="site-footer-btn site-footer-github">
+          <a href="https://github.com/RareCodeBase/Rare-Code-Base" target="_blank"
+            class="site-footer-btn site-footer-github">
             <img src="/assets/images/github.png" alt="GitHub">
             View on GitHub
           </a>

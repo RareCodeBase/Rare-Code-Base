@@ -1,23 +1,24 @@
-<nav class="navbar navbar-expand-lg bg-body-tertiary">
-  <div class="container-fluid">
+<nav class="navbar navbar-expand-lg navbar-modern">
+  <div class="container-fluid px-4">
     <a class="navbar-brand d-flex align-items-center" href="/">
-      <img src="/assets/images/icon.png" alt="Logo" width="30" height="30" style="border-radius: 3px;"
-        class="d-inline-block align-text-top me-2">
-      Rare Code Base
+      <div class="logo-container">
+        <img src="/assets/images/icon.png" alt="Logo" class="logo-img">
+      </div>
+      <span class="brand-text">Rare Code Base</span>
     </a>
     <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent"
       aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
       <span class="navbar-toggler-icon"></span>
     </button>
     <div class="collapse navbar-collapse" id="navbarSupportedContent">
-      <ul class="navbar-nav me-auto mb-2 mb-lg-0">
+      <ul class="navbar-nav me-auto mb-lg-0">
         <li class="nav-item"><a class="nav-link" href="/">Home</a></li>
         <li class="nav-item"><a class="nav-link" href="/about.html">About Us</a></li>
         <li class="nav-item"><a class="nav-link" href="/contact.html">Contact Us</a></li>
         <li class="nav-item"><a class="nav-link" href="/privacy-policy.html">Privacy Policy</a></li>
         <li class="nav-item dropdown">
           <a class="nav-link dropdown-toggle" href="#" data-bs-toggle="dropdown">More</a>
-          <ul class="dropdown-menu">
+          <ul class="dropdown-menu modern-dropdown">
             <li><a class="dropdown-item" href="/learn/python/what_is_python.html">Python</a></li>
             <li><a class="dropdown-item" href="/learn/ethical_hacking/what_is_ethical_hacking.html">Ethical Hacking</a>
             </li>
@@ -31,18 +32,32 @@
                 Join Telegram Group
               </a>
             </li>
-
           </ul>
         </li>
-
       </ul>
-      <form class="d-flex">
-        <input class="form-control me-2" type="search" id="searchInput" placeholder="Search" aria-label="Search">
-        <button class="btn btn-outline-success" type="submit">Search</button>
+      <form class="d-flex search-form">
+        <input class="form-control search-input" type="search" id="searchInput" placeholder="Search tutorials..."
+          aria-label="Search">
+        <button class="btn btn-search" type="submit">
+          <svg width="16" height="16" fill="currentColor" viewBox="0 0 16 16">
+            <path
+              d="M11.742 10.344a6.5 6.5 0 1 0-1.397 1.398h-.001c.03.04.062.078.098.115l3.85 3.85a1 1 0 0 0 1.415-1.414l-3.85-3.85a1.007 1.007 0 0 0-.115-.1zM12 6.5a5.5 5.5 0 1 1-11 0 5.5 5.5 0 0 1 11 0z" />
+          </svg>
+        </button>
       </form>
-      <div class="form-check form-switch ms-3">
+
+      <div class="form-check form-switch theme-toggle">
         <input class="form-check-input" type="checkbox" id="darkModeToggle">
-        <label class="form-check-label" for="darkModeToggle">Dark Mode</label>
+        <label class="form-check-label" for="darkModeToggle">
+          <svg class="sun-icon" width="16" height="16" fill="currentColor" viewBox="0 0 16 16">
+            <path
+              d="M8 11a3 3 0 1 1 0-6 3 3 0 0 1 0 6zm0 1a4 4 0 1 0 0-8 4 4 0 0 0 0 8zM8 0a.5.5 0 0 1 .5.5v2a.5.5 0 0 1-1 0v-2A.5.5 0 0 1 8 0zm0 13a.5.5 0 0 1 .5.5v2a.5.5 0 0 1-1 0v-2A.5.5 0 0 1 8 13zm8-5a.5.5 0 0 1-.5.5h-2a.5.5 0 0 1 0-1h2a.5.5 0 0 1 .5.5zM3 8a.5.5 0 0 1-.5.5h-2a.5.5 0 0 1 0-1h2A.5.5 0 0 1 3 8zm10.657-5.657a.5.5 0 0 1 0 .707l-1.414 1.415a.5.5 0 1 1-.707-.708l1.414-1.414a.5.5 0 0 1 .707 0zm-9.193 9.193a.5.5 0 0 1 0 .707L3.05 13.657a.5.5 0 0 1-.707-.707l1.414-1.414a.5.5 0 0 1 .707 0zm9.193 2.121a.5.5 0 0 1-.707 0l-1.414-1.414a.5.5 0 0 1 .707-.707l1.414 1.414a.5.5 0 0 1 0 .707zM4.464 4.465a.5.5 0 0 1-.707 0L2.343 3.05a.5.5 0 1 1 .707-.707l1.414 1.414a.5.5 0 0 1 0 .708z" />
+          </svg>
+          <svg class="moon-icon" width="16" height="16" fill="currentColor" viewBox="0 0 16 16">
+            <path
+              d="M6 .278a.768.768 0 0 1 .08.858 7.208 7.208 0 0 0-.878 3.46c0 4.021 3.278 7.277 7.318 7.277.527 0 1.04-.055 1.533-.16a.787.787 0 0 1 .81.316.733.733 0 0 1-.031.893A8.349 8.349 0 0 1 8.344 16C3.734 16 0 12.286 0 7.71 0 4.266 2.114 1.312 5.124.06A.752.752 0 0 1 6 .278z" />
+          </svg>
+        </label>
       </div>
     </div>
   </div>
